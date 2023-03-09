@@ -1,16 +1,26 @@
 # PrimeiroProjeto
 
-Integrantes grupo SharpTroopers
+<h2>Integrantes grupo SharpTroopers</h2>
+<p>1 -  Gabriel de Araujo Santos</p>
+<p>2 -  Felipe Augusto</p>
+<p>3 -  Bruno Antonio Silva</p>
+<p>4 -  Daniel Da Silva De Carvalho</p>
+<p>5 -  Warley Afonso</p>
+<p>6 -  Jonas Narvas Balbino</p>
+<p>7 -  Diego Mendes</p>
+<p>8 -  Allan Gilber</p>
+<p>9 -  Allison Emanuel Meireles</p>
+<p>10 - Matheus Vieira Pereira</p>
+<p>11 - Zaida Catalina Cueto Abelino</p>
+<p>12 - Alexandre Matos</p>
 
-1 -  Gabriel de Araujo Santos
-2 -  Felipe Augusto
-3 -  Bruno Antonio Silva
-4 -  Daniel Da Silva De Carvalho
-5 -  Warley Afonso
-6 -  Jonas Narvas Balbino
-7 -  Diego Mendes
-8 -  Allan Gilber
-9 -  Allison Emanuel Meireles
-10 - Matheus Vieira Pereira
-11 - Zaida Catalina Cueto Abelino
-12 - Alexandre Matos
+
+
+
+
+
+
+
+
+
+
