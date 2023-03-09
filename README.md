@@ -9,7 +9,7 @@
 <p>6 -  Jonas Narvas Balbino</p>
 <p>7 -  Diego Mendes</p>
 <p>8 -  Allan Gilber</p>
-<p>9 -  Allison Emanuel Meireles</p>
+<p>9 -  Allison Meireles</p>
 <p>10 - Matheus Vieira Pereira</p>
 <p>11 - Zaida Catalina Cueto Abelino</p>
 <p>12 - Alexandre Matos</p>
