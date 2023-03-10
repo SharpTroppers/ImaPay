@@ -1,4 +1,4 @@
-# PrimeiroProjeto
+# Ecommerce
 
 <h2>Integrantes grupo SharpTroopers</h2>
 <p>1 -  Gabriel de Araujo Santos</p>
