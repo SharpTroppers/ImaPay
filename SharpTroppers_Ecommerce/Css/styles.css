@@ -5,10 +5,11 @@
 }
 
 .nav-container {
+  padding: 10px;
   margin: auto;
   background-color: darkgreen;
-  height: 15vh;
-  margin-bottom: 5vh;
+  height: 5vh;
+  margin-bottom: 2%;
 }
 
 .cards-container {
@@ -22,6 +23,7 @@
 }
 
 .card-container {
+  padding: 10px;
   border-radius: 20px;
   width: 100%;
   background-color: darkgreen;
