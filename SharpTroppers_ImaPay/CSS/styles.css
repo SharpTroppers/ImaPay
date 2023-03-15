@@ -2,23 +2,25 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: black;
+  color: white;
 }
 
 .nav-container {
-  padding: 10px;
+  padding: 1em;
   margin: auto;
   background-color: darkgreen;
-  height: 5vh;
-  margin-bottom: 2%;
+  height: 10vh;
+  margin-bottom: 1em;
 }
 
-.cards-container {
+.home-container {
   margin: auto;
   display: grid;
-  height: 60vh;
+  height: 80vh;
   width: 95%;
   gap: 20px;
-  grid-template-columns: 30fr 50fr 30fr;
+  grid-template-columns: 20fr 40fr 40fr;
   justify-items: center;
 }
 
@@ -30,31 +32,32 @@
   position: relative;
 }
 
+.primary-box {
+  font-size: 36px;
+  grid-column: 1 / span 2;
+}
+
+.secondary-box {
+  font-size: 24px;
+}
 .second-card {
-  grid-column: 2/3;
-  grid-row: 1/3;
+  grid-column: 2;
+  grid-row: 2 / span 2;
 }
 
-.div-flex {
-  margin: 2%;
+.fourth-card {
+  height: 20%;
+}
+
+.fifth-card {
+  height: 80%;
+}
+
+.flex-container {
+  gap: 20px;
+  width: 100%;
   display: flex;
-  gap: 10px;
-}
-.div-flex-right {
-  margin-left: 12%;
-  margin-right: 5%;
-}
-.div-flex-left {
-  margin-left: 5%;
-}
-
-.grafic {
-  background-color: red;
-  position: absolute;
-  width: 96%;
-  height: 70%;
-  bottom: 0px;
-  border: 2px solid red;
-  border-radius: 10px;
-  margin: 10px;
+  flex-direction: column;
+  grid-column: 3;
+  grid-row: 2 / span 2;
 }
