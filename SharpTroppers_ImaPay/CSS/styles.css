@@ -61,3 +61,17 @@
   grid-column: 3;
   grid-row: 2 / span 2;
 }
+
+@media (max-width: 768px) {
+  .home-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    display: block;
+  }
+  .home-container > div {
+    margin-bottom: 5%;
+  }
+  .home-container > * {
+    width: 100%;
+  }
+}
