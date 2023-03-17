@@ -1,9 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: #f2f2f2;
+  font-family: "Lora", serif;
+}
+body {
   background-color: black;
-  color: white;
+  background-image: url(/SharpTroppers_ImaPay/IMG/global-communication-background-business-network-design.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .nav-container {
@@ -13,10 +21,14 @@
   height: 10vh;
   margin-bottom: 1em;
 }
-
+main {
+  max-width: 1366px;
+}
 .home-container {
   margin: auto;
-  display: grid;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
   height: 80vh;
   width: 95%;
   gap: 20px;
@@ -28,41 +40,33 @@
   padding: 10px;
   border-radius: 20px;
   width: 100%;
-  background-color: darkgreen;
   position: relative;
 }
 
 .primary-box {
-  font-size: 36px;
-  grid-column: 1 / span 2;
+  font-size: 37px;
+  height: 50vh;
 }
 
 .secondary-box {
-  font-size: 24px;
-}
-.second-card {
-  grid-column: 2;
-  grid-row: 2 / span 2;
-}
-
-.fourth-card {
-  height: 20%;
-}
-
-.fifth-card {
-  height: 80%;
-}
-
-.flex-container {
-  gap: 20px;
-  width: 100%;
+  font-size: 1.4rem;
   display: flex;
   flex-direction: column;
-  grid-column: 3;
-  grid-row: 2 / span 2;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 60vw;
+  height: 50vh;
+}
+.button-account {
+  background-color: #0d6073;
+  width: 14vw;
+  height: 7vh;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .home-container {
     display: block;
   }
