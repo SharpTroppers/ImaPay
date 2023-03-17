@@ -64,8 +64,6 @@
 
 @media (max-width: 768px) {
   .home-container {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
     display: block;
   }
   .home-container > div {
