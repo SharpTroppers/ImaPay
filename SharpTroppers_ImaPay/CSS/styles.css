@@ -21,9 +21,7 @@ body {
   height: 10vh;
   margin-bottom: 1em;
 }
-main {
-  max-width: 1366px;
-}
+
 .home-container {
   margin: auto;
   display: flex;
@@ -31,8 +29,6 @@ main {
   justify-content: space-evenly;
   height: 100%;
   width: 95%;
-  gap: 20px;
-  grid-template-columns: 20fr 40fr 40fr;
   justify-items: center;
 }
 
