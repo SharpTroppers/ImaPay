@@ -2,6 +2,11 @@
     font-family: "Lora", serif;
     box-sizing: border-box;
 }
+.recovery p{
+    top: 10%;
+    margin: 30px;
+    font-size: 22px;
+}
 .recovery{
     /* transform: translateY(-50% -50%); */
     position: relative;
@@ -51,11 +56,11 @@
     position: absolute;
     left: 35%;
     top: 350px;
+
 }
 .recovery-buttom:hover{
-    transform: translateY(50%);
+    cursor: pointer;
     background-color: #05cff2; 
     border-color: #05c7f2;
     transform: scale(1.05);
-
 }
