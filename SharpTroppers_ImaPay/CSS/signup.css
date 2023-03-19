@@ -7,7 +7,7 @@
     justify-content: flex-start;
 }
 
-#main-container-style {
+.main-container-style {
     height: 100%;
     width: 40%;
     background-color: #f2f2f2;
@@ -28,13 +28,23 @@
     background-size: cover;
 }
 
+#successfully-side-image {
+    display: block;
+    position: static;
+    height: 100%;
+    width: 100%;
+    background-image: url('../IMG/welcome-crowd.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 #header-title {
     font-size: 1.5rem;
     color: #0D0D0D;
     text-align: center;
 }
 
-#forms-header-container {
+.forms-header-container {
     height: 15%;
     min-height: 4rem;
     width: 100%;
@@ -51,18 +61,44 @@
     margin: 10% 0 0 0;
 }
 
-.submit-button-style {
+#main-container-success-sign-up-style {
+    justify-content: space-around;
+    align-items: center;
+}
+
+#sign-up-go-to-login-page-style {
     width: 40%;
-    height: 70%;
-    background: none;
+    height: 10%;
     color: #f2f2f2;
     border-radius: 0.25rem;
-    border: none;
     padding: 0.625 1.25;
     font-size: 1rem;
+    background-color: #0D0D0D;
+}
+
+#success-welcome-message-style {
+    height: 20%;
+}
+
+#success-icon {
+    width: 50%;
+}
+
+.no-button-style {
+    background: none;
+    border: none;
     font: inherit;
     cursor: pointer;
     outline: inherit;
+}
+
+.submit-button-style {
+    width: 40%;
+    height: 70%;
+    color: #f2f2f2;
+    border-radius: 0.25rem;
+    padding: 0.625 1.25;
+    font-size: 1rem;
     background-color: #0D0D0D;
 }
 
