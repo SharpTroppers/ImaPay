@@ -20,7 +20,7 @@ The first part will be responsible for getting the following information:
 - Base Address Name
 - Street Number
 - Neighborhood Name
-- City Name
+- City/Province Name
 - Postal Code
 - Country Name
 
