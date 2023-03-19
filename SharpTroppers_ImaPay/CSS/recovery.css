@@ -13,7 +13,7 @@
     justify-content: center;
     /* align-items: center; */
     padding: 5px;
-    left: 45%;
+    left: 43%;
     top: 20%;
     border-radius: 20px;
     height: 500px;
@@ -29,10 +29,11 @@
     top:  5%;
 }
 .recovery input{
+    text-align: center;
     position: relative;
     margin: 10px;
     padding: 10px;
-    top: 150px;
+    top: 100px;
     border: 5px solid #05cff2;
     border-radius: 10px;
     width: 250px;
@@ -54,7 +55,7 @@
     width: 100px;
     height: 50px;
     position: absolute;
-    left: 35%;
+    left: 33%;
     top: 350px;
 
 }
@@ -62,5 +63,6 @@
     cursor: pointer;
     background-color: #05cff2; 
     border-color: #05c7f2;
-    transform: scale(1.05);
+    transform: scale(1.10);
+
 }
