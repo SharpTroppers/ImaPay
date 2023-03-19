@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ImaPay</title>
-  <link rel="stylesheet" href="../CSS/styles.css" />
-  <link rel="icon" href="../IMG/favicon_io (3)/android-chrome-512x512.png">
-  <link rel="icon" href="/SharpTroppers_ImaPay/IMG/favicon_io (3)/android-chrome-512x512.png" />
-</head>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ImaPay</title>
+    <link rel="stylesheet" href="../CSS/styles.css" />
+    <link rel="icon" href="/IMG/favicon_io (3)/android-chrome-512x512.png" />
+    <link
+      rel="icon"
+      href="/SharpTroppers_ImaPay/IMG/favicon_io (3)/android-chrome-512x512.png"
+    />
+  </head>
+ 
 <body>
+
+    <div id="myModal" class="modal" >
+      <div class="modal-content">
+       <embed type="text/txt" src="../MODELS/termos.txt">
+          <button class="close" disabled> Concordo</button>
+          <input  class="terms-and-conditions" type="checkbox"  id="terms-and-conditions"><label for="terms-and-conditions">Eu li e concordo</label>
+      </div>
+    </div>
   <nav class="nav-container">
     <div>Sharp Troopers</div>
     <div class="user-box">
@@ -39,6 +49,8 @@
       </div>
     </section>
   </main>
+  <script src="../JS/modal_index.js">
+    </script>
 </body>
 
 <script>
