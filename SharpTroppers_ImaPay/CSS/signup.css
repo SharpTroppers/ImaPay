@@ -5,7 +5,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    /* border: 0.1cm solid blue; */
 }
 
 #main-container-style {
@@ -17,7 +16,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    /* border: 0.1cm solid green; */
 }
 
 #side-image {
@@ -27,7 +25,6 @@
     width: 100%;
     background-image: url('../IMG/mulher-segurando-smartphone.jpg');
     background-repeat: no-repeat;
-    /* border: 0.1cm solid red; */
     background-size: cover;
 }
 
@@ -55,7 +52,7 @@
 }
 
 .submit-button-style {
-    width: 50%;
+    width: 40%;
     height: 70%;
     background: none;
     color: #f2f2f2;
@@ -68,22 +65,6 @@
     outline: inherit;
     background-color: #0D0D0D;
 }
-
-/* .submit-button-style::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 100%;
-    width: 100%;
-    height: 100%;
-    background-color: #ffcc00;
-    transition: left 3s ease;
-    z-index: 1;
-}
-
-.submit-button-style:hover::before {
-    left: 0;
-} */
 
 .forms-sections-containers {
     width: 100%;

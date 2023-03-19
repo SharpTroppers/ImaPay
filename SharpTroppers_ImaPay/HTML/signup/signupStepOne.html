@@ -5,48 +5,64 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Register</title>
-  <link rel="stylesheet" href="../CSS/register.css" />
-  <link rel="stylesheet" href="../CSS/styles.css" />
+  <title>Dados pessoais</title>
+  <link rel="icon" href="/SharpTroppers_ImaPay/IMG/favicon_io (3)/android-chrome-512x512.png" />
+  <link rel="stylesheet" href="../../CSS/signup.css" />
+  <link rel="stylesheet" href="../../CSS/styles.css" />
 </head>
 
 <body id="body-container">
-  <!-- <nav class="nav-container">
-    <div>Sharp Troopers</div>
-  </nav> -->
   <aside id="side-image"></aside>
   <main id="main-container-style">
+
     <header id="forms-header-container">
       <h1 id="header-title">Registro Pessoa Física</h1>
     </header>
-    <form id="forms-container-style">
+
+    <form id="forms-container-style" onsubmit="proceedToAddressStep()">
+
       <section class="forms-sections-containers">
         <label class="labels-styling" for="nome">Nome</label>
         <input class="inputs-style" id="nome" placeholder="Nome completo">
       </section>
+
       <section class="forms-sections-containers">
         <label class="labels-styling" for="email">Email</label>
         <input class="inputs-style" id="email" placeholder="example@bankmail.com">
       </section>
+
       <section class="forms-sections-containers">
         <label class="labels-styling" for="cpf">CPF</label>
         <input class="inputs-style" id="cpf" placeholder="000.000.000-00">
       </section>
+
       <section class="forms-sections-containers">
         <label class="labels-styling" for="celular">Celular</label>
         <input class="inputs-style" id="celular" placeholder="(99) 9 9999-9999">
       </section>
+
       <section class="forms-sections-containers">
         <label class="labels-styling" for="data-de-nascimento">
           Data de nascimento
         </label>
         <input class=" inputs-style" id="data-de-nascimento" placeholder=" DD/MM/YYYY">
       </section>
+
       <section class="forms-sections-containers" id="submit-button-container">
-        <input class="submit-button-style" type="submit" value="Submit">
+        <input class="submit-button-style" type="submit" value="Next">
       </section>
     </form>
+
   </main>
+
 </body>
+
+<script>
+  function proceedToAddressStep() {
+    event.preventDefault();
+    // create JSON file
+    window.location.href = "./signupStepTwo.html";
+  }
+</script>
 
 </html>
