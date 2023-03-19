@@ -1,0 +1,112 @@
+#body-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#main-container-style {
+    height: 100%;
+    width: 40%;
+    background-color: #f2f2f2;
+    padding: 2% 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#side-image {
+    display: block;
+    position: static;
+    height: 100%;
+    width: 100%;
+    background-image: url('../IMG/mulher-segurando-smartphone.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#header-title {
+    font-size: 1.5rem;
+    color: #0D0D0D;
+    text-align: center;
+}
+
+#forms-header-container {
+    height: 15%;
+    min-height: 4rem;
+    width: 100%;
+    align-items: center;
+}
+
+#forms-container-style {
+    height: 85%;
+    width: 100%;
+}
+
+#submit-button-container {
+    align-items: center;
+    margin: 10% 0 0 0;
+}
+
+.submit-button-style {
+    width: 40%;
+    height: 70%;
+    background: none;
+    color: #f2f2f2;
+    border-radius: 0.25rem;
+    border: none;
+    padding: 0.625 1.25;
+    font-size: 1rem;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    background-color: #0D0D0D;
+}
+
+.forms-sections-containers {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 3% 0 0 0;
+}
+
+
+.labels-styling {
+    display: block;
+    width: 100%;
+    height: 50%;
+    color: #0D0D0D;
+    font-weight: 600;
+}
+
+.inputs-style {
+    height: 50%;
+    width: 100%;
+    padding: 0 0 0 1%;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+    transition: box-shadow 0.3s ease;
+    color: #0D0D0D;
+}
+
+.inputs-style:focus {
+    outline: #05DBF2 solid 0.1rem;
+}
+
+.inputs-style:hover {
+    box-shadow: 0 0 0.25rem #05DBF2;
+}
+
+.inputs-style::placeholder {
+    font-weight: 500;
+    color: #0D0D0D;
+    text-align: left;
+    padding: 0 0 0 5%;
+}
