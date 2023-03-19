@@ -1,0 +1,27 @@
+*{
+    font-family: "Lora", serif;
+}
+.recovery{
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    top: 50%;
+    border-radius: 20px;
+    height: 400px;
+    width: 300px;
+    text-align: center;
+    background-color: #0d6073;
+    opacity: 0.8;
+}
+.recovery input{
+    padding: 10px;
+    border: 5px solid #05cff2;
+    border-radius: 20px;
+    font-size: 18px;
+    color: black;
+}
+.recovery label{
+    font-size: large;
+}
