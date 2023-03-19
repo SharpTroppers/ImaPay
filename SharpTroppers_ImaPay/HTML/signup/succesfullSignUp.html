@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conta Criada</title>
+    <link rel="stylesheet" href="../../CSS/signUp.css" />
+    <link rel="stylesheet" href="../../CSS/styles.css" />
+</head>
+
+<body id="body-container">
+    <aside id="successfully-side-image"></aside>
+    <main class="main-container-style" id="main-container-success-sign-up-style">
+
+        <header class="forms-header-container" id="success-welcome-message-style">
+            <h1 id="header-title">Seja Bem-Vindo à Familia</h1>
+        </header>
+
+        <img id="success-icon" src="../../IMG/success-symbol.svg" alt="simbolo de sucesso">
+
+        <button id="sign-up-go-to-login-page-style" class="no-button-style"
+            onclick="proceedToLoginPage()">Login</button>
+    </main>
+</body>
+
+<script>
+    function proceedToLoginPage() {
+        // create JSON file
+        window.location.href = " ../index.html";
+    } </script>
+
+</html>
