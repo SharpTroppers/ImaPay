@@ -1,30 +1,30 @@
-# Layout Planning for MVP
+# Planejamento do Layout para o MVP
 
-## Signup General Rules
-- The form will be divide into three parts.
-- The first part will be about personal information
-- Second part will be about address information
-- Third will be about account information
-- All parts will have a button that creates/edits the json file and proceedes to the next step of the form.
+## Regras Gerais do Cadastro
+- O formulário será dividido em três partes
+- A primeira parte cuidara das informações pessoais
+- A segunda parte cuidará das informações sobre o endereço
+- A terceira parte será sobre os dados da conta para login
+- Todas as partes terão um botão que permite a transição para o proximo passo e que também será responsável por criar/editar o arquivo JSON com os dados do usuário.
 
-## First Part
-The first part will be responsible for getting the following information:
-- Name
+## Primeira Parte
+A primeira parte será responsável por obter as seguintes informações:
+- Nome
 - Email
 - CPF
-- Birthday
-- Cellphone Number
+- Data de nascimento
+- Número de telefone
 
-## Second Part
-The first part will be responsible for getting the following information:
-- Base Address Name
-- Street Number
-- Neighborhood Name
-- City/Province Name
-- Postal Code
-- Country Name
+## Segunda Parte
+A segunda parte será responsável por obter as seguintes informações:
+- Endereço
+- Número
+- Bairro
+- Cidade
+- CEP
+- País
 
-## Third Part
-The third and last part will be responsible for getting the following information:
-- Account Name
-- Account password (two inputs, for password and confirmation)
+## Terceira Parte
+A terceira parte será responsável por obter as seguintes informações:
+- Nome da conta
+- Senha (obtida por meio de dois inputs, um para digitar a senha e outro para confirmar)
