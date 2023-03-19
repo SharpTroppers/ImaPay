@@ -15,7 +15,7 @@
     <div>Sharp Troopers</div>
     <div class="user-box">
       <a class="login-btn" href="login.html">Login</a>
-      <a class="register-btn" href="./signup/signupStepOne.html">Cadastre-se</a>
+      <a class="register-btn" href="./signUp/signupStepOne.html">Cadastre-se</a>
     </div>
   </nav>
   <main>
@@ -30,10 +30,16 @@
           inovadora, você poderá gerenciar suas finanças pessoais e realizar
           transações de forma rápida, segura e fácil.
         </p>
-        <button class="button-account">Abra sua conta.</button>
+        <button class="button-account" onclick="gotToSignUpPage()">Abra sua conta.</button>
       </div>
     </section>
   </main>
 </body>
+
+<script>
+  function gotToSignUpPage() {
+    window.location.href = "./signUp/signupStepOne.html";
+  }
+</script>
 
 </html>
