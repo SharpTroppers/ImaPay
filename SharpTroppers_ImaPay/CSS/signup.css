@@ -10,7 +10,7 @@
 .main-container-style {
     height: 100%;
     width: 40%;
-    background-color: #f2f2f2;
+    background-color: #0D0D0D;
     padding: 2% 3%;
     display: flex;
     flex-direction: column;
@@ -40,7 +40,7 @@
 
 #header-title {
     font-size: 1.5rem;
-    color: #0D0D0D;
+    color: #E8EAED;
     text-align: center;
 }
 
@@ -69,11 +69,11 @@
 #sign-up-go-to-login-page-style {
     width: 40%;
     height: 10%;
-    color: #f2f2f2;
+    color: #E8EAED;
     border-radius: 0.25rem;
     padding: 0.625 1.25;
     font-size: 1rem;
-    background-color: #0D0D0D;
+    background-color: #05C7F2;
 }
 
 #success-welcome-message-style {
@@ -93,18 +93,30 @@
 }
 
 .submit-button-style {
-    width: 40%;
+    width: 60%;
     height: 70%;
-    color: #f2f2f2;
+    color: #E8EAED;
     border-radius: 0.25rem;
     padding: 0.625 1.25;
     font-size: 1rem;
-    background-color: #0D0D0D;
+    background-color: #05C7F2;
+    border: solid 1px #E8EAED;
+    transition-timing-function: ease;
+    background: #fff linear-gradient(90deg, black 50%, #0d6073 50%);
+    transition-duration: 0.5s;
+}
+
+.submit-button-style:hover {
+    border-color: #05c7f2;
+    color: #f2f2f2;
+    background-position: 100% center;
+    border: none;
+    transform: scale(1.05);
 }
 
 .forms-sections-containers {
     width: 100%;
-    height: 10%;
+    height: 12%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -117,7 +129,7 @@
     display: block;
     width: 100%;
     height: 50%;
-    color: #0D0D0D;
+    color: #E8EAED;
     font-weight: 600;
 }
 
@@ -125,11 +137,12 @@
     height: 50%;
     width: 100%;
     padding: 0 0 0 1%;
-    border: none;
-    border-bottom: 1px solid black;
+    border: 1px solid #E8EAED;
+    border-radius: 4px;
     background-color: transparent;
     transition: box-shadow 0.3s ease;
-    color: #0D0D0D;
+    color: #E8EAED;
+    padding: 0 0 0 5%;
 }
 
 .inputs-style:focus {
@@ -142,7 +155,5 @@
 
 .inputs-style::placeholder {
     font-weight: 500;
-    color: #0D0D0D;
-    text-align: left;
-    padding: 0 0 0 5%;
+    color: #E8EAED;
 }
