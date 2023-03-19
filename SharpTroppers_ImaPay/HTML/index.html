@@ -12,7 +12,9 @@
       href="/SharpTroppers_ImaPay/IMG/favicon_io (3)/android-chrome-512x512.png"
     />
   </head>
-  <body>
+ 
+<body>
+
     <div id="myModal" class="modal" >
       <div class="modal-content">
        <embed type="text/txt" src="/MODELS/termos.txt">
@@ -20,33 +22,38 @@
           <input  class="terms-and-conditions" type="checkbox"  id="terms-and-conditions"><label for="terms-and-conditions">Eu li e concordo</label>
       </div>
     </div>
-
-    <nav class="nav-container">
-      <div>Sharp Troopers</div>
-      <div class="user-box">
-        <a class="login-btn" href="login.html">Login</a>
-        <a class="register-btn" href="register.html">Cadastre-se</a>
+  <nav class="nav-container">
+    <div>Sharp Troopers</div>
+    <div class="user-box">
+      <a class="login-btn" href="login.html">Login</a>
+      <a class="register-btn" href="./signUp/signupStepOne.html">Cadastre-se</a>
+    </div>
+  </nav>
+  <main>
+    <section class="home-container">
+      <div class="card-container primary-box">
+        <h1>Inovando para simplificar a sua vida financeira.</h1>
       </div>
-    </nav>
-    <main>
-      <section class="home-container">
-        <div class="card-container primary-box">
-          <h1>Inovando para simplificar a sua vida financeira.</h1>
+      <div class="card-container secondary-box">
+        <p class="paragraph">
+          Bem-vindo(a) à imaPay, a fintech que está revolucionando a forma
+          como as pessoas lidam com suas finanças. Com a nossa plataforma
+          inovadora, você poderá gerenciar suas finanças pessoais e realizar
+          transações de forma rápida, segura e fácil.
+        </p>
+        <div class="button">
+          <a class="button-account" href="./signUp/signupStepOne.html">
+            Abra sua conta.
+          </a>
         </div>
-        <div class="card-container secondary-box">
-          <p class="paragraph">
-            Bem-vindo(a) à imaPay, a fintech que está revolucionando a forma
-            como as pessoas lidam com suas finanças. Com a nossa plataforma
-            inovadora, você poderá gerenciar suas finanças pessoais e realizar
-            transações de forma rápida, segura e fácil.
-          </p>
-          <div class="button">
-            <a class="button-account" href="/HTML/register.html">
-              Abra sua conta.
-            </a>
-          </div>
-        </div>
-      </section>
-    </main>
-  </body>
+      </div>
+    </section>
+  </main>
+</body>
+
+<script>
+  function gotToSignUpPage() {
+    window.location.href = "./signUp/signupStepOne.html";
+  }
+</script>
 </html>

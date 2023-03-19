@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Endereço</title>
+    <link rel="stylesheet" href="../../CSS/signUp.css" />
+    <link rel="stylesheet" href="../../CSS/styles.css" />
+</head>
+
+<body id="body-container">
+    <aside id="side-image"></aside>
+    <main class="main-container-style">
+        <header class="forms-header-container">
+            <h1 id="header-title">Registro Pessoa Física</h1>
+        </header>
+        <form id="forms-container-style" onsubmit="proceedToAddressStep()">
+            <section class="forms-sections-containers">
+                <label class="labels-styling" for="address">Address</label>
+                <input class="inputs-style" id="address" placeholder="Street/Avenue Name">
+            </section>
+            <section class="forms-sections-containers">
+                <label class="labels-styling" for="number">Number</label>
+                <input class="inputs-style" id="number" placeholder="Address Number">
+            </section>
+            <section class="forms-sections-containers">
+                <label class="labels-styling" for="neighborhood">Neighborhood</label>
+                <input class="inputs-style" id="neighborhood" placeholder="Neighborhood Name">
+            </section>
+            <section class="forms-sections-containers">
+                <label class="labels-styling" for="city-or-province-name">City/Province</label>
+                <input class="inputs-style" id="city-or-province-name" placeholder="City/Province Name">
+            </section>
+            <section class="forms-sections-containers">
+                <label class="labels-styling" for="country">
+                    Country
+                </label>
+                <input class=" inputs-style" id="country" placeholder=" Country Name">
+            </section>
+            <section class="forms-sections-containers" id="submit-button-container">
+                <input class="submit-button-style no-button-style" type="submit" value="Next">
+            </section>
+        </form>
+    </main>
+</body>
+
+<script>
+    function proceedToAddressStep() {
+        event.preventDefault();
+        // create JSON file
+        window.location.href = "./signupStepThree.html";
+    }
+</script>
+
+</html>
