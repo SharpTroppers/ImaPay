@@ -8,7 +8,7 @@
 } 
 body {
   background-color: black;
-  background-image: url(/SharpTroppers_ImaPay/IMG/global-communication-background-business-network-design.jpg);
+  background-image: url(../IMG/global-communication-background-business-network-design.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -88,39 +88,38 @@ body {
 }
 
 .modal {
-  display: flex;
-  justify-content: center;
   position: fixed;
   z-index: 1;
   bottom: 0;
-  width: 70%;
-  margin: 0 auto;
+  width: 100%;
   overflow: auto;
 }
 
 .title-modal{
-  color:#0d6073;
+  color:#f2f2f2;
   padding-bottom: 5px;
   font-weight: bolder;
 }
 
 .modal-content {
-  background-color: #f2f2f2;
+  background-color:#2e2e2e ;
   margin: 0 auto;
   padding: 20px 20px 50px 20px;
-  border: 1px solid #888;
-  width: 80%;
-  border-radius: 10px;
+  border: 1px solid #2e2e2e;
+  width: 100%;
+
 }
 
 #reject{
-  margin: 10px;
-  border-radius: 3px;
+  border-radius: 10px;
   float: right;
+  width: 8vw;
+  height: 6vh;
   font-size: 15px;
   font-weight: bold;
   padding: 3px 11px;
-  margin-top: 3;
+  margin-top: 3; 
+  margin-right: 8vh;
   background-color: #f2f2f2;
   color:#2e2e2e;
   border:solid 1px #2e2e2e;
@@ -129,36 +128,40 @@ body {
 
 #reject:hover{
   border-color: #2e2e2e;
-  transform: scale(1.05);
   color: #2e2e2e;
   background-position: 100% center;
+
 }
 
 #accept{
-  margin: 10px;
   border: none;
-  border-radius: 3px;
+  width: 8vw;
+  height: 6vh;
+  border-radius: 10px;
   background-color: #0d6073;
   float: right;
   font-size: 15px;
   font-weight: bold;
   padding: 3px 11px;
   margin-top: 3;
+  margin-right: 4vh;
   cursor: pointer;
+  
 }
 
 #accept:hover{
   border-color: #05c7f2;
-  transform: scale(1.05);
   color: #f2f2f2;
   background-position: 100% center;
   border: none;
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 15px rgba(92, 143, 182, 0.4);
 }
  
 
 
 .cookies{
-  color:#2e2e2e;
+  color:#f2f2f2;
 }
 
 @media (max-width: 600px) {
