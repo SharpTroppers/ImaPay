@@ -20,6 +20,37 @@ body {
   background-color: darkgreen;
   height: 10vh;
   margin-bottom: 1em;
+  display: flex;
+
+
+}
+
+.navegacao ul{
+  display: flex;
+  height: 10vh;
+  line-height: 1%;
+  margin: auto;
+  justify-content: center;
+
+}
+
+.navegacao li{
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin: 0 15px;
+
+}
+
+.navegacao li a:hover{
+  color: #000a0c
+}
+
+.login-btn{
+  display: flex;
+  list-style: none;
+  justify-content: left;
+  margin: auto;
 }
 
 .home-container {
