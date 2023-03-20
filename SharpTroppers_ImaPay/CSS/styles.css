@@ -88,40 +88,53 @@ body {
 }
 
 .modal {
-  display: none;
+  display: flex;
+  justify-content: center;
   position: fixed;
   z-index: 1;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-
+  bottom: 0;
+  width: 70%;
+  margin: 0 auto;
   overflow: auto;
 }
 
+.title-modal{
+  color:#0d6073;
+  padding-bottom: 5px;
+  font-weight: bolder;
+}
+
 .modal-content {
-  height: 400px;
-  background-color: #2e2e2e;
-  margin: auto;
+  background-color: #f2f2f2;
+  margin: 0 auto;
   padding: 20px 20px 50px 20px;
   border: 1px solid #888;
   width: 80%;
   border-radius: 10px;
 }
 
-embed  {
-  width: 100%;
-  height: 100%;
-  background-color:#f2f2f2;
-  color: #fff;
-} 
-
-.close:disabled {
-  background-color: #839497;
-  color: #666;
+#reject{
+  margin: 10px;
+  border-radius: 3px;
+  float: right;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 3px 11px;
+  margin-top: 3;
+  background-color: #f2f2f2;
+  color:#2e2e2e;
+  border:solid 1px #2e2e2e;
+  cursor:pointer;
 }
 
-.close {
+#reject:hover{
+  border-color: #2e2e2e;
+  transform: scale(1.05);
+  color: #2e2e2e;
+  background-position: 100% center;
+}
+
+#accept{
   margin: 10px;
   border: none;
   border-radius: 3px;
@@ -129,18 +142,24 @@ embed  {
   float: right;
   font-size: 15px;
   font-weight: bold;
-  padding: 1px 8px;
+  padding: 3px 11px;
   margin-top: 3;
-}
-.terms-and-conditions  {
-  margin: 8px 9px 8px 1px;
+  cursor: pointer;
 }
 
- label {
-  font-size: 21px;
+#accept:hover{
+  border-color: #05c7f2;
+  transform: scale(1.05);
+  color: #f2f2f2;
+  background-position: 100% center;
+  border: none;
 }
+ 
 
 
+.cookies{
+  color:#2e2e2e;
+}
 
 @media (max-width: 600px) {
   .home-container {
@@ -165,7 +184,6 @@ embed  {
   }
   .button-account:hover {
   }
-  label {
-    font-size: 16px;
+  
 }
-}
+
