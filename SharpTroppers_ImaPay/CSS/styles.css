@@ -5,7 +5,7 @@
   box-sizing: border-box;
   color: #f2f2f2;
   font-family: "Lora", serif;
-} 
+}
 body {
   background-color: black;
   background-image: url(../IMG/global-communication-background-business-network-design.jpg);
@@ -13,44 +13,102 @@ body {
   background-repeat: no-repeat;
   background-position: center;
 }
-
-.nav-container {
-  padding: 1em;
-  margin: auto;
-  background-color: darkgreen;
-  height: 10vh;
-  margin-bottom: 1em;
+header {
+  border-bottom: solid 0.1px;
   display: flex;
-
-
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  background-color: ;
+}
+.logo {
+  width: 10vw;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ;
+}
+.logo-img {
+  width: 3vw;
+  height: 6vh;
 }
 
-.navegacao ul{
+.nav-container {
+  background-color: ;
+  height: 10vh;
+  display: flex;
+  width: 40vw;
+}
+.nav-list-sorted {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.nav-list {
+  list-style: none;
+}
+.nav-link {
+  text-decoration: none;
+}
+
+.navegacao ul {
   display: flex;
   height: 10vh;
   line-height: 1%;
   margin: auto;
   justify-content: center;
-
 }
 
-.navegacao li{
+.navegacao li {
   display: flex;
   flex-direction: row;
   list-style: none;
   margin: 0 15px;
-
 }
 
-.navegacao li a:hover{
-  color: #000a0c
+.navegacao li a:hover {
+  color: #000a0c;
+}
+.login {
+  width: 10vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  cursor: pointer;
+}
+.login::after {
+  content: "";
+  width: 0px;
+  height: 1px;
+  display: block;
+  background: black;
+  transition: 300ms;
+}
+.login:hover::after {
+  border-bottom: solid 1px;
+  width: 80%;
+}
+.login-line {
+  display: inline-block;
 }
 
-.login-btn{
+.login-img {
+  width: 3vw;
+  height: 5vh;
+}
+
+.login-btn {
   display: flex;
   list-style: none;
-  justify-content: left;
-  margin: auto;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 .home-container {
@@ -80,9 +138,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  text-align: justify;
   align-items: flex-start;
   width: 60vw;
+}
+.paragraph {
+  word-spacing: 1rem;
+  text-align: justify;
 }
 .button {
   width: 100%;
@@ -90,6 +151,7 @@ body {
   display: flex;
   align-items: center;
 }
+
 .button-account {
   background-color: black;
   text-decoration: none;
@@ -126,22 +188,21 @@ body {
   overflow: auto;
 }
 
-.title-modal{
-  color:#f2f2f2;
+.title-modal {
+  color: #f2f2f2;
   padding-bottom: 5px;
   font-weight: bolder;
 }
 
 .modal-content {
-  background-color:#2e2e2e ;
+  background-color: #2e2e2e;
   margin: 0 auto;
   padding: 20px 20px 50px 20px;
   border: 1px solid #2e2e2e;
   width: 100%;
-
 }
 
-#reject{
+#reject {
   border-radius: 10px;
   float: right;
   width: 8vw;
@@ -149,22 +210,21 @@ body {
   font-size: 15px;
   font-weight: bold;
   padding: 3px 11px;
-  margin-top: 3; 
+  margin-top: 3;
   margin-right: 8vh;
   background-color: #f2f2f2;
-  color:#2e2e2e;
-  border:solid 1px #2e2e2e;
-  cursor:pointer;
+  color: #2e2e2e;
+  border: solid 1px #2e2e2e;
+  cursor: pointer;
 }
 
-#reject:hover{
+#reject:hover {
   border-color: #2e2e2e;
   color: #2e2e2e;
   background-position: 100% center;
-
 }
 
-#accept{
+#accept {
   border: none;
   width: 8vw;
   height: 6vh;
@@ -177,10 +237,9 @@ body {
   margin-top: 3;
   margin-right: 4vh;
   cursor: pointer;
-  
 }
 
-#accept:hover{
+#accept:hover {
   border-color: #05c7f2;
   color: #f2f2f2;
   background-position: 100% center;
@@ -188,11 +247,9 @@ body {
   color: rgba(255, 255, 255, 1);
   box-shadow: 0 5px 15px rgba(92, 143, 182, 0.4);
 }
- 
 
-
-.cookies{
-  color:#f2f2f2;
+.cookies {
+  color: #f2f2f2;
 }
 
 @media (max-width: 600px) {
@@ -218,6 +275,4 @@ body {
   }
   .button-account:hover {
   }
-  
 }
-

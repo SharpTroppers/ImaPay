@@ -1,68 +1,81 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dados Pessoais</title>
+    <link
+      rel="icon"
+      href="/SharpTroppers_ImaPay/IMG/favicon_io (3)/android-chrome-512x512.png"
+    />
+    <link rel="stylesheet" href="../../CSS/signUp.css" />
+    <link rel="stylesheet" href="../../CSS/styles.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dados Pessoais</title>
-  <link rel="icon" href="/SharpTroppers_ImaPay/IMG/favicon_io (3)/android-chrome-512x512.png" />
-  <link rel="stylesheet" href="../../CSS/signUp.css" />
-  <link rel="stylesheet" href="../../CSS/styles.css" />
-</head>
+  <body id="body-container">
+    <aside id="side-image"></aside>
+    <main class="main-container-style">
+      <header class="forms-header-container">
+        <h1 id="header-title">Registro Pessoa Física</h1>
+      </header>
 
-<body id="body-container">
-  <aside id="side-image"></aside>
-  <main class="main-container-style">
+      <form id="forms-container-style" onsubmit="proceedToAddressStep()">
+        <section class="forms-sections-containers">
+          <label class="labels-styling" for="nome">Nome</label>
+          <input class="inputs-style" id="nome" placeholder="Nome completo" />
+        </section>
 
-    <header class="forms-header-container">
-      <h1 id="header-title">Registro Pessoa Física</h1>
-    </header>
+        <section class="forms-sections-containers">
+          <label class="labels-styling" for="email">Email</label>
+          <input
+            class="inputs-style"
+            id="email"
+            placeholder="examplo@bankmail.com"
+          />
+        </section>
 
-    <form id="forms-container-style" onsubmit="proceedToAddressStep()">
+        <section class="forms-sections-containers">
+          <label class="labels-styling" for="cpf">CPF</label>
+          <input class="inputs-style" id="cpf" placeholder="000.000.000-00" />
+        </section>
 
-      <section class="forms-sections-containers">
-        <label class="labels-styling" for="nome">Nome</label>
-        <input class="inputs-style" id="nome" placeholder="Nome completo">
-      </section>
+        <section class="forms-sections-containers">
+          <label class="labels-styling" for="celular">Celular</label>
+          <input
+            class="inputs-style"
+            id="celular"
+            placeholder="(99) 9 9999-9999"
+          />
+        </section>
 
-      <section class="forms-sections-containers">
-        <label class="labels-styling" for="email">Email</label>
-        <input class="inputs-style" id="email" placeholder="examplo@bankmail.com">
-      </section>
+        <section class="forms-sections-containers">
+          <label class="labels-styling" for="data-de-nascimento">
+            Data de nascimento
+          </label>
+          <input
+            class="inputs-style"
+            id="data-de-nascimento"
+            placeholder=" DD/MM/AAAA"
+          />
+        </section>
 
-      <section class="forms-sections-containers">
-        <label class="labels-styling" for="cpf">CPF</label>
-        <input class="inputs-style" id="cpf" placeholder="000.000.000-00">
-      </section>
+        <section class="forms-sections-containers" id="submit-button-container">
+          <input
+            class="submit-button-style no-button-style"
+            type="submit"
+            value="PRÓXIMO"
+          />
+        </section>
+      </form>
+    </main>
+  </body>
 
-      <section class="forms-sections-containers">
-        <label class="labels-styling" for="celular">Celular</label>
-        <input class="inputs-style" id="celular" placeholder="(99) 9 9999-9999">
-      </section>
-
-      <section class="forms-sections-containers">
-        <label class="labels-styling" for="data-de-nascimento">
-          Data de nascimento
-        </label>
-        <input class=" inputs-style" id="data-de-nascimento" placeholder=" DD/MM/AAAA">
-      </section>
-
-      <section class="forms-sections-containers" id="submit-button-container">
-        <input class="submit-button-style no-button-style" type="submit" value="PRÓXIMO">
-      </section>
-    </form>
-
-  </main>
-
-</body>
-
-<script>
-  function proceedToAddressStep() {
-    event.preventDefault();
-    // create JSON file
-    window.location.href = "./signupStepTwo.html";
-  }
-</script>
-
+  <script>
+    function proceedToAddressStep() {
+      event.preventDefault();
+      // create JSON file
+      window.location.href = "./signupStepTwo.html";
+    }
+  </script>
 </html>
