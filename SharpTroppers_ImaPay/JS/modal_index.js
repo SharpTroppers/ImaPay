@@ -1,16 +1,23 @@
-const modal = document.getElementById("myModal");
-const reject = document.getElementById("reject");
-const accept = document.getElementById("accept")
-
+const cookiesModal = document.querySelector(".cookies-modal");
+const rejectBtn = document.querySelector(".reject-btn");
+const acceptBtn = document.querySelector(".accept-btn");
+const body = document.querySelector("body");
 
 setTimeout(() => {
-  modal.style.display = "block";
+  cookiesModal.style.visibility = "visible";
 }, 1000);
 
-reject.onclick = function(){
-  modal.style.display="none";
-}
-accept.onclick = function(){
-  modal.style.display="none";
-}
+rejectBtn.onclick = function () {
+  cookiesModal.style.display = "none";
+};
+acceptBtn.onclick = function () {
+  cookiesModal.style.display = "none";
+};
 
+// rejectBtn.addEventListener("click", () => {
+//   cookiesModal.style.display = "none";
+// });
+
+// acceptBtn.addEventListener("click", () => {
+//   cookiesModal.style.display = "none";
+// });

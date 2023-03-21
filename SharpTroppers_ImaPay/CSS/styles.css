@@ -19,7 +19,14 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 10vh;
+  margin-bottom: 2vh;
 }
+
+/* .forgot-password {
+  font-size: 10px;
+  color: blue;
+} */
+
 .logo {
   width: 10vw;
   height: 10vh;
@@ -27,13 +34,18 @@ header {
   align-items: center;
   justify-content: space-evenly;
 }
+.homepage-link {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  gap: 0.5vw;
+}
 .logo-img {
   width: 3vw;
   height: 6vh;
 }
 
 .nav-container {
-  background-color: ;
   height: 10vh;
   display: flex;
   width: 40vw;
@@ -178,29 +190,28 @@ header {
   border: none;
 }
 
-.modal {
-  position: fixed;
-  z-index: 1;
-  bottom: 0;
-  width: 100%;
-  overflow: auto;
-}
-
 .title-modal {
   color: #f2f2f2;
   padding-bottom: 5px;
   font-weight: bolder;
 }
 
-.modal-content {
+.cookies-modal {
+  visibility: hidden;
+  border-radius: 20px;
+  position: fixed;
+  z-index: 1;
+  bottom: 5%;
+  left: 5%;
+  width: 90%;
   background-color: #2e2e2e;
   margin: 0 auto;
-  padding: 20px 20px 50px 20px;
+  padding: 20px 20px 20px 20px;
   border: 1px solid #2e2e2e;
-  width: 100%;
+  width: 90%;
 }
 
-#reject {
+.cookies-btn {
   border-radius: 10px;
   float: right;
   width: 8vw;
@@ -216,38 +227,35 @@ header {
   cursor: pointer;
 }
 
-#reject:hover {
+.reject-btn {
+  background-color: #f2f2f2;
+  color: #2e2e2e;
+  border: solid 1px #2e2e2e;
+  cursor: pointer;
+}
+
+.accept-btn {
+  border: none;
+  color: rgba(255, 255, 255, 1);
+  background-color: #0d6073;
+  float: right;
+  font-weight: bold;
+  margin-right: 4vh;
+  cursor: pointer;
+}
+.reject-btn:hover {
   border-color: #2e2e2e;
   color: #2e2e2e;
   background-position: 100% center;
 }
 
-#accept {
-  border: none;
-  width: 8vw;
-  height: 6vh;
-  border-radius: 10px;
-  background-color: #0d6073;
-  float: right;
-  font-size: 15px;
-  font-weight: bold;
-  padding: 3px 11px;
-  margin-top: 3;
-  margin-right: 4vh;
-  cursor: pointer;
-}
-
-#accept:hover {
+.accept-btn:hover {
   border-color: #05c7f2;
   color: #f2f2f2;
   background-position: 100% center;
   border: none;
   color: rgba(255, 255, 255, 1);
   box-shadow: 0 5px 15px rgba(92, 143, 182, 0.4);
-}
-
-.cookies {
-  color: #f2f2f2;
 }
 
 @media (max-width: 600px) {
