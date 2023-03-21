@@ -19,15 +19,13 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 10vh;
-  background-color: ;
 }
 .logo {
   width: 10vw;
   height: 10vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  background-color: ;
+  justify-content: space-evenly;
 }
 .logo-img {
   width: 3vw;
