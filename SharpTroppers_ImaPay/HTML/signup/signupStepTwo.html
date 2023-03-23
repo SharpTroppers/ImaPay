@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Endereço</title>
     <link rel="stylesheet" href="../../CSS/signUp.css" />
-    <link rel="stylesheet" href="../../CSS/styles.css" />
 </head>
 
 <body id="body-container">
@@ -39,9 +38,13 @@
                 </label>
                 <input class=" inputs-style" id="country" placeholder="País">
             </section>
-            <section class="forms-sections-containers" id="submit-button-container">
-                <input class="submit-button-style no-button-style" type="submit" value="PRÓXIMO">
-            </section>
+            <nav id="nav-button-container">
+                <button class="submit-button-style-back submit-button-style no-button-style"
+                    onclick="returnToUserData()">
+                    VOLTAR
+                </button>
+                <input class="submit-button-style no-button-style" type="submit" value="PRÓXIMO" />
+            </nav>
         </form>
     </main>
 </body>
@@ -51,6 +54,10 @@
         event.preventDefault();
         // create JSON file
         window.location.href = "./signupStepThree.html";
+    }
+    function returnToUserData() {
+        event.preventDefault();
+        window.location.href = "./signupStepOne.html";
     }
 </script>
 
