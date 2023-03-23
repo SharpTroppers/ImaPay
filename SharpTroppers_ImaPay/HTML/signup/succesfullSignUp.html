@@ -11,6 +11,11 @@
 
 <body id="body-container">
     <aside id="successfully-side-image"></aside>
+    <div class="close-container" onclick="proceedToHomePage()">
+        <div class="left-right"></div>
+        <div class="right-left"></div>
+        <label class="close close-label-style">FECHAR</label>
+    </div>
     <main class="main-container-style" id="main-container-success-sign-up-style">
 
         <header class="forms-header-container" id="success-welcome-message-style">
@@ -28,6 +33,12 @@
     function proceedToLoginPage() {
         // create JSON file
         window.location.href = " ../login.html";
-    } </script>
+    }
+    function proceedToHomePage() {
+        event.preventDefault();
+        window.location.href = "../index.html";
+    }
+</script>
+
 
 </html>

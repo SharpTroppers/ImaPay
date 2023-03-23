@@ -11,11 +11,16 @@
 
 <body id="body-container">
     <aside id="side-image"></aside>
+    <div class="close-container" onclick="proceedToHomePage()">
+        <div class="left-right"></div>
+        <div class="right-left"></div>
+        <label class="close close-label-style">FECHAR</label>
+    </div>
     <main class="main-container-style">
         <header class="forms-header-container">
             <h1 id="header-title">Registro Pessoa Física</h1>
         </header>
-        <form id="forms-container-style" onsubmit="proceedToAddressStep()">
+        <form id="form-container-style" onsubmit="proceedToAddressStep()">
             <section class="forms-sections-containers">
                 <label class="labels-styling" for="address">Endereço</label>
                 <input class="inputs-style" id="address" placeholder="Endereço">
@@ -48,17 +53,6 @@
         </form>
     </main>
 </body>
-
-<script>
-    function proceedToAddressStep() {
-        event.preventDefault();
-        // create JSON file
-        window.location.href = "./signupStepThree.html";
-    }
-    function returnToUserData() {
-        event.preventDefault();
-        window.location.href = "./signupStepOne.html";
-    }
-</script>
+<script src="../../JAVASCRIPT/navigationController.js"></script>
 
 </html>
