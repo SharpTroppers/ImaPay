@@ -1,11 +1,12 @@
 *{
-    font-family: "Lora", serif;
+    font-family: "Roboto", sans-serif;
     box-sizing: border-box;
 }
 .recovery p{
-    top: 10%;
-    margin: 30px;
-    font-size: 22px;
+    text-align: center;
+    top: 0;
+    padding: 20px;
+    font-size: 24px;
 }
 .recovery{
     /* transform: translateY(-50% -50%); */
@@ -19,8 +20,8 @@
     /* opacity: 0.8;   */
     text-align: center;
     justify-content: center;
-    align-items: center;
-    left: 37.5%;
+    align-items: start;
+    left: 38%;
     top: 30px;
     position: relative;
     display: flex;
@@ -34,43 +35,65 @@
     align-items: start;
     justify-content: start;
     top:  5%;
-    
-
+}
+.label{
+    position: absolute;
+    justify-content: center;
+    right: 10%;
+}
+.recovery-form h2{
+    position: relative;
+    justify-content: center;
+    text-align: start;
+    color:white;
+    top: 150px;
+    margin-left: 10px;
 }
 .recovery input{
-    text-align: center;
+    text-align: start;
     position: relative;
     margin: 10px;
     padding: 10px;
-    top: 100px;
+    top: 150px;
     border-radius: 10px;
-    width: 250px;
+    width: 300px;
+    height: 40px;
     font-size: 20px;
     color: black;
+    background-color: #2e2e2e;
 }
 .recovery label{
+    font-weight: bold;
     position: absolute;
-    left: 5%;
+    left: 12%;
     top: 0;
     font-size: 30px;
-    color: #0d0d0d;
 }
 .recovery-buttom{
     border: #0d0d0d solid;
     border-radius: 10px;
     color: #0d0d0d;
     font-size: 20px;
-    width: 100px;
+    width: 300px;
     height: 50px;
+    left: 5%;
     position: absolute;
-    left: 33%;
     top: 350px;
-
 }
-.recovery-buttom:hover{
+.recovery-buttom:hover{ 
+    transition: 400ms;
+    border: none;
+    background-color: #0d6073;
+    color: white;
+    cursor: pointer;
+}
+.align{
+    left: 80px;
+}
+/* .recovery-buttom:hover{
     cursor: pointer;
     background-color: #05cff2; 
     border-color: #05c7f2;
     transform: scale(1.10);
 
-}
+} */
