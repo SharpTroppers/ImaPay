@@ -11,6 +11,11 @@
 
 <body id="body-container">
     <aside id="side-image"></aside>
+    <div class="close-container" onclick="proceedToHomePage()">
+        <div class="left-right"></div>
+        <div class="right-left"></div>
+        <label class="close close-label-style">FECHAR</label>
+    </div>
     <main class="main-container-style">
         <header class="forms-header-container">
             <h1 id="header-title">Registro Pessoa Física</h1>
@@ -58,6 +63,10 @@
     function returnToUserData() {
         event.preventDefault();
         window.location.href = "./signupStepOne.html";
+    }
+    function proceedToHomePage() {
+        event.preventDefault();
+        window.location.href = "../index.html";
     }
 </script>
 
