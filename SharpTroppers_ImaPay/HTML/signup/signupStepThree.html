@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dados da Conta</title>
+    <link rel="stylesheet" href="../../CSS/signUp.css" />
+</head>
+
+<body id="body-container">
+    <aside id="side-image"></aside>
+    <div class="close-container" onclick="proceedToHomePage()">
+        <div class="left-right"></div>
+        <div class="right-left"></div>
+        <label class="close close-label-style">FECHAR</label>
+    </div>
+    <main class="main-container-style">
+        <header class="forms-header-container">
+            <h1 id="header-title">Registro Pessoa Física</h1>
+        </header>
+        <form id="form-container-style" onsubmit="finishSignUp()">
+            <section class="forms-sections-containers">
+                <label class="labels-styling" for="account-name">Nome da Conta</label>
+                <input required class="inputs-style" id="account-name" placeholder="Nome da Conta">
+            </section>
+            <section class="forms-sections-containers">
+                <label class="labels-styling" for="password">Senha</label>
+                <input required type="password" class="inputs-style" id="password" placeholder="Senha">
+            </section>
+            <section class="forms-sections-containers">
+                <label class="labels-styling" for="password-confirmation">Confirmação de senha</label>
+                <input required type="password" class="inputs-style" id="password-confirmation" placeholder="Senha">
+            </section>
+            <section class="forms-sections-containers" id="forms-sections-container-fir-password-checkup">
+                <p id="upper-case-letter-verification">* Uma letra maiuscula.</p>
+                <p id="lower-case-letter-verification">* Uma letra minuscula.</p>
+                <p id="symbol-message-verification">* Um simbolo.</p>
+                <p id="number-verification">* Um número.</p>
+            </section>
+            <nav id="nav-button-container">
+                <button class="submit-button-style-back submit-button-style no-button-style"
+                    onclick="returnToAddressData()">
+                    VOLTAR
+                </button>
+                <input class="submit-button-style no-button-style" id="finalizing-form-button" type="submit" value="FINALIZAR
+CADASTRO" />
+            </nav>
+        </form>
+    </main>
+</body>
+
+<script>
+    function finishSignUp() {
+        event.preventDefault();
+        // create JSON file
+        window.location.href = "./succesfullSignup.html";
+    }
+    function returnToAddressData() {
+        event.preventDefault();
+        window.location.href = "./signupStepOne.html";
+    }
+    function proceedToHomePage() {
+        event.preventDefault();
+        window.location.href = "../index.html";
+    }
+</script>
+
+</html>

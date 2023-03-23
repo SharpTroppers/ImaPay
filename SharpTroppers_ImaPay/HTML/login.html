@@ -5,15 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
+    <link rel="icon" href="../IMG/favicon_io (3)/android-chrome-512x512.png" />
     <link rel="stylesheet" href="../CSS/styles.css" />
     <link rel="stylesheet" href="../CSS/login.css" />
   </head>
   <body>
-    <nav class="nav-container">
-      <div>Sharp Troopers</div>
+    <header>
+      <figure class="logo">
+        <a class='homepage-link'href='index.html'> 
+          <img class="logo-img" id="logo" src="../IMG/tropper_logo.png" />
+          <span >Ima Pay</span>
+        </a>
+      </figure>
+      <nav class="nav-container">
+        <ul class="nav-list-sorted">
+          <li class="nav-list"><a class="nav-link" href="#"> Sobre nós </a></li>
+          <li class="nav-list"><a class="nav-link" href="#"> Serviços </a></li>
+          <li class="nav-list"><a class="nav-link" href="#"> Perguntas </a></li>
+        </ul>
+      </div> 
     </nav>
+    <figure class="login" >
+
+      <a class="login-btn" href="login.html" class="login-btn">Login
+        <img src="../IMG/icone-connexion-grise.png" class="login-img"/>
+      </a>
+    </figure>
+  </header>
     <main>
-      <form class="login-form"></form>
+      <div id="page">
+        <div id="login-page">
+          <div id="form-page">
+            <h2>Faça seu login</h2>
+            <form action="">
+              <label for="cpf">CPF</label>
+              <input type="text" id="name" name="cpf" />
+
+              <label for="password">Senha</label>
+              <input type="password" id="password" name="senha" />
+              <div class='forgot-password'>  <a href='./recovery/passwordRecovery.html'>Esqueceu a senha?</a></div>
+              <button type="submit">Entrar</button>
+              <div class='signup-link'><span>Nao possui uma conta?</span>  <a href="signup/signupStepOne.html">cadastre-se</a></div>
+            
+            </form>
+          </div>
+        </div>
+      </div>
     </main>
   </body>
 </html>
