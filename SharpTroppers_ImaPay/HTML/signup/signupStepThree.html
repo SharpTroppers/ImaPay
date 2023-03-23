@@ -20,7 +20,7 @@
         <header class="forms-header-container">
             <h1 id="header-title">Registro Pessoa Física</h1>
         </header>
-        <form id="forms-container-style" onsubmit="proceedToAddressStep()">
+        <form id="form-container-style" onsubmit="finishSignUp()">
             <section class="forms-sections-containers">
                 <label class="labels-styling" for="account-name">Nome da Conta</label>
                 <input class="inputs-style" id="account-name" placeholder="Nome da Conta">
@@ -52,7 +52,7 @@ CADASTRO" />
 </body>
 
 <script>
-    function proceedToAddressStep() {
+    function finishSignUp() {
         event.preventDefault();
         // create JSON file
         window.location.href = "./succesfullSignup.html";
