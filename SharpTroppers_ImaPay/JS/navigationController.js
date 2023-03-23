@@ -19,8 +19,7 @@ function returnToUserData() {
     event.preventDefault();
     window.location.href = "./signupStepOne.html";
 }
-
-function proceedToAddressStep() {
+function proceedToAccountData() {
     event.preventDefault();
     // create JSON file
     window.location.href = "./signupStepThree.html";
@@ -37,14 +36,22 @@ function agreeToTermsAndService(event) {
     const checkbox = document.getElementById("terms-and-services-checkbox");
     checkbox.checked = true;
     hideModal(event)
-  }
+}
 
-  function showModal(event) {
+function showModal(event) {
     const modal = document.getElementById("modal-for-terms-of-service");
     modal.style.display = "flex";
-  }
+}
 
-  function hideModal() {
+function hideModal() {
     const modal = document.getElementById("modal-for-terms-of-service");
     modal.style.display = "none";
-  }
+}
+
+function toggleSubmitButton(){
+    const submitButton = document.getElementById("submit-button");
+    const isDisabled = submitButton.disabled;
+    
+    if(isDisabled) return submitButton.disabled = false;
+    submitButton.disabled = true;
+}
