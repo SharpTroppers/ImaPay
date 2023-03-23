@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dados da Conta</title>
     <link rel="stylesheet" href="../../CSS/signUp.css" />
-    <link rel="stylesheet" href="../../CSS/styles.css" />
 </head>
 
 <body id="body-container">
@@ -29,9 +28,20 @@
                 <label class="labels-styling" for="password-confirmation">Confirmação de senha</label>
                 <input type="password" class="inputs-style" id="password-confirmation" placeholder="Senha">
             </section>
-            <section class="forms-sections-containers" id="submit-button-container">
-                <input class="submit-button-style no-button-style" type="submit" value="FINALIZAR CADASTRO">
+            <section class="forms-sections-containers" id="forms-sections-container-fir-password-checkup">
+                <p id="upper-case-letter-verification">* Uma letra maiuscula.</p>
+                <p id="lower-case-letter-verification">* Uma letra minuscula.</p>
+                <p id="symbol-message-verification">* Um simbolo.</p>
+                <p id="number-verification">* Um número.</p>
             </section>
+            <nav id="nav-button-container">
+                <button class="submit-button-style-back submit-button-style no-button-style"
+                    onclick="returnToAddressData()">
+                    VOLTAR
+                </button>
+                <input class="submit-button-style no-button-style" id="finalizing-form-button" type="submit" value="FINALIZAR
+CADASTRO" />
+            </nav>
         </form>
     </main>
 </body>
@@ -41,6 +51,10 @@
         event.preventDefault();
         // create JSON file
         window.location.href = "./succesfullSignup.html";
+    }
+    function returnToAddressData() {
+        event.preventDefault();
+        window.location.href = "./signupStepOne.html";
     }
 </script>
 
