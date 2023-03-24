@@ -1,5 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
 *{
-    font-family: "Roboto", sans-serif;
+    font-family: 'Lora', serif;
     box-sizing: border-box;
 }
 .recovery p{
@@ -37,48 +38,54 @@
     top:  5%;
 }
 .label{
-    position: absolute;
-    justify-content: center;
-    right: 10%;
+    /* position: absolute; */
+    /* justify-content: center; */
+    /* right: 10%; */
 }
 .recovery-form h2{
-    position: relative;
-    justify-content: center;
-    text-align: start;
-    color:white;
-    top: 150px;
-    margin-left: 10px;
-}
-.recovery input{
-    text-align: start;
-    position: relative;
-    margin: 10px;
-    padding: 10px;
-    top: 150px;
-    border-radius: 10px;
-    width: 300px;
-    height: 40px;
-    font-size: 20px;
-    color: black;
-    background-color: #2e2e2e;
-}
-.recovery label{
     font-weight: bold;
     position: absolute;
     left: 12%;
     top: 0;
     font-size: 30px;
 }
-.recovery-buttom{
-    border: #0d0d0d solid;
-    border-radius: 10px;
-    color: #0d0d0d;
+.recovery input{
+    position: relative;
+    margin: 10px;
+    padding: 10px;
+    top: 150px;
+    border-radius: 5px;
+    width: 300px;
+    height: 40px;
     font-size: 20px;
+    background-color: #2e2e2e;
+    outline: 0;
+    border: 1px solid #dadada;
+}
+.recovery label{
+    display: flex;
+    position: relative;
+    height: 0vh;
+    font-size: 1.5rem;
+    text-align: start;
+    color:white;
+    width: 38.8vh;
+    top: 145px;
+    margin-left: 10px;
+
+}
+.recovery-buttom{
+    display: flex;
+    background: none;
+    border: 1px solid #dadada;
+    border-radius: 5px;
+    font-size: 1.3rem;
     width: 300px;
     height: 50px;
     left: 5%;
-    position: absolute;
+    position: relative;
     top: 350px;
+    color: #ffffff;
 }
 .recovery-buttom:hover{ 
     transition: 400ms;
@@ -88,12 +95,15 @@
     cursor: pointer;
 }
 .align{
-    left: 80px;
+    left: 9px;
+    text-decoration: none;
+    top: 250px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
-/* .recovery-buttom:hover{
-    cursor: pointer;
-    background-color: #05cff2; 
-    border-color: #05c7f2;
-    transform: scale(1.10);
-
-} */
+.recovery .alinhar a{
+    display: flex;
+    text-decoration: none;
+    left: 100px;
+}
