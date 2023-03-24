@@ -11,32 +11,37 @@
 
 <body id="body-container">
     <aside id="side-image"></aside>
+    <div class="close-container" onclick="proceedToHomePage()">
+        <div class="left-right"></div>
+        <div class="right-left"></div>
+        <label class="close close-label-style">FECHAR</label>
+    </div>
     <main class="main-container-style">
         <header class="forms-header-container">
             <h1 id="header-title">Registro Pessoa Física</h1>
         </header>
-        <form id="forms-container-style" onsubmit="proceedToAddressStep()">
+        <form id="form-container-style" onsubmit="proceedToAccountData()">
             <section class="forms-sections-containers">
                 <label class="labels-styling" for="address">Endereço</label>
-                <input class="inputs-style" id="address" placeholder="Endereço">
+                <input required class="inputs-style" id="address" placeholder="Endereço">
             </section>
             <section class="forms-sections-containers">
                 <label class="labels-styling" for="number">Número</label>
-                <input class="inputs-style" id="number" placeholder="Número">
+                <input required class="inputs-style" id="number" placeholder="Número">
             </section>
             <section class="forms-sections-containers">
                 <label class="labels-styling" for="neighborhood">Bairro</label>
-                <input class="inputs-style" id="neighborhood" placeholder="Bairro">
+                <input required class="inputs-style" id="neighborhood" placeholder="Bairro">
             </section>
             <section class="forms-sections-containers">
                 <label class="labels-styling" for="city-or-province-name">Cidade</label>
-                <input class="inputs-style" id="city-or-province-name" placeholder="Cidade">
+                <input required class="inputs-style" id="city-or-province-name" placeholder="Cidade">
             </section>
             <section class="forms-sections-containers">
                 <label class="labels-styling" for="country">
                     País
                 </label>
-                <input class=" inputs-style" id="country" placeholder="País">
+                <input required class=" inputs-style" id="country" placeholder="País">
             </section>
             <nav id="nav-button-container">
                 <button class="submit-button-style-back submit-button-style no-button-style"
@@ -49,16 +54,6 @@
     </main>
 </body>
 
-<script>
-    function proceedToAddressStep() {
-        event.preventDefault();
-        // create JSON file
-        window.location.href = "./signupStepThree.html";
-    }
-    function returnToUserData() {
-        event.preventDefault();
-        window.location.href = "./signupStepOne.html";
-    }
-</script>
+<script src="../../JS/navigationController.js"></script>
 
 </html>

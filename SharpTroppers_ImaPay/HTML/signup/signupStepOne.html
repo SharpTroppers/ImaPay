@@ -11,64 +11,83 @@
 </head>
 
 <body id="body-container">
+  <section id="modal-for-terms-of-service">
+    <main id="modal-text-container">
+      <header id="modal-header-container">
+        <h1>Termos de Serviço</h1>
+      </header>
+      <article id="modal-content-container">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quidem debitis at est facere culpa praesentium
+          quos
+          necessitatibus distinctio cumque consectetur beatae quas, laborum delectus eligendi illum, magnam maxime
+          quibusdam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed dolores ipsum, sapiente reprehenderit
+          inventore modi eum.
+        </p>
+      </article>
+
+      <footer id="modal-footer-container">
+        <button class="modal-buttons-style" id="agree-button" onclick="agreeToTermsAndService()">
+          CONCORDO
+        </button>
+        <button class="modal-buttons-style" id="disagree-button" onclick="hideModal()">
+          CANCELAR
+        </button>
+      </footer>
+    </main>
+  </section>
 
   <aside id="side-image">
   </aside>
-
-
+  <div class="close-container" onclick="proceedToHomePage()">
+    <div class="left-right"></div>
+    <div class="right-left"></div>
+    <label class="close close-label-style">FECHAR</label>
+  </div>
   <main class="main-container-style">
     <header class="forms-header-container">
       <h1 id="header-title">Registro Pessoa Física</h1>
     </header>
 
-    <form id="forms-container-style" onsubmit="proceedToAddressStep()">
+    <form id="form-container-style" onsubmit="proceedToAddressStep()">
       <section class="forms-sections-containers">
         <label class="labels-styling" for="nome">Nome</label>
-        <input class="inputs-style" id="nome" placeholder="Nome completo" />
+        <input required class="inputs-style" id="nome" placeholder="Nome completo" />
       </section>
-
       <section class="forms-sections-containers">
         <label class="labels-styling" for="email">Email</label>
-        <input class="inputs-style" id="email" placeholder="examplo@bankmail.com" />
+        <input required class="inputs-style" id="email" placeholder="examplo@bankmail.com" />
       </section>
-
       <section class="forms-sections-containers">
         <label class="labels-styling" for="cpf">CPF</label>
-        <input class="inputs-style" id="cpf" placeholder="000.000.000-00" />
+        <input required class="inputs-style" id="cpf" placeholder="000.000.000-00" />
       </section>
-
       <section class="forms-sections-containers">
         <label class="labels-styling" for="celular">Celular</label>
-        <input class="inputs-style" id="celular" placeholder="(99) 9 9999-9999" />
+        <input required class="inputs-style" id="celular" placeholder="(99) 9 9999-9999" />
       </section>
-
       <section class="forms-sections-containers">
         <label class="labels-styling" for="data-de-nascimento">
           Data de nascimento
         </label>
-        <input class="inputs-style" id="data-de-nascimento" placeholder=" DD/MM/AAAA" />
+        <input required class="inputs-style" id="data-de-nascimento" placeholder=" DD/MM/AAAA" />
       </section>
+
+      <section id="terms-and-services-container">
+        <input onchange="toggleSubmitButton()" type="checkbox" id="terms-and-services-checkbox" />
+        <p id="terms-and-services-text">Li e concordo com os
+          <a onclick="showModal(event)">Termos de
+            Serviço</a>
+        </p>
+      </section>
+
       <nav id="nav-button-container">
-        <button class="submit-button-style-back submit-button-style no-button-style" onclick="proceedToHomePage()">
-          VOLTAR AO INICIO
-        </button>
-        <input class="submit-button-style no-button-style" type="submit" value="PRÓXIMO" />
+        <input disabled="true" id="submit-button" class="submit-button-style no-button-style" type="submit"
+          value="PRÓXIMO" />
       </nav>
     </form>
   </main>
 </body>
-
-<script>
-  function proceedToAddressStep() {
-    event.preventDefault();
-    // create JSON file
-    window.location.href = "./signupStepTwo.html";
-  }
-
-  function proceedToHomePage() {
-    event.preventDefault();
-    window.location.href = "../index.html";
-  }
+<script src="../../JS/navigationController.js">
 </script>
 
 </html>
