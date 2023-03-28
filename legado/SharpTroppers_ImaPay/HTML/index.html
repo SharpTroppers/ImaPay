@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ImaPay</title>
+    <link rel="stylesheet" href="../CSS/styles.css" />
+    <link rel="icon" href="../IMG/tropper_logo.png" />
+    <link
+      rel="icon"
+      href="/SharpTroppers_ImaPay/IMG/favicon_io (3)/android-chrome-512x512.png"
+    />
+  </head>
+
+  <body>
+    <header>
+      <figure class="logo">
+        <a class='homepage-link'href='index.html'> 
+          <img class="logo-img" id="logo" src="../IMG/tropper_logo.png" />
+          <span >Ima Pay</span>
+        </a>
+      </figure>
+      <!-- <nav class="nav-container"> -->
+        <ul class="nav-list-sorted">
+          <li class="nav-list"><a class="nav-link" href="#"> Sobre nós </a></li>
+          <li class="nav-list"><a class="nav-link" href="#"> Serviços </a></li>
+          <li class="nav-list"><a class="nav-link" href="#"> Perguntas </a></li>
+        </ul>
+    <!-- </nav> -->
+    <figure class="login" >
+
+      <a class="login-btn" href="login.html" class="login-btn">Login
+        <img src="../IMG/icone-connexion-grise.png" class="login-img"/>
+      </a>
+    </figure>
+  </header>
+
+    <div class="cookies-modal">
+        <div>
+          <div>
+            <h3 class="title-modal">Valorizamos sua privacidade</h3>
+          </div>
+          <p class="cookies">
+            Usamos cookies para aprimorar sua experiência de navegação, veicular
+            anúncios ou conteúdo personalizado e analisar nosso tráfego. Ao
+            clicar em "Aceitar", você concorda com o uso de cookies.
+          </p>
+        </div>
+        <button class='cookies-btn reject-btn'>Rejeitar</button>
+        <button class='cookies-btn accept-btn'>Aceitar</button>
+      </div>
+    </div>
+
+    <main>
+      <section class="home-container">
+        <div class="card-container primary-box">
+          <h1>Inovando para simplificar a sua vida financeira.</h1>
+        </div>
+        <div class="card-container secondary-box">
+          <p class="paragraph">
+            Bem-vindo(a) à imaPay, a fintech que está revolucionando a forma
+            como as pessoas lidam com suas finanças. Com a nossa plataforma
+            inovadora, você poderá gerenciar suas finanças pessoais e realizar
+            transações de forma rápida, segura e fácil.
+          </p>
+          <div class="button">
+            <a class="button-account" href="./signUp/signupStepOne.html">
+              Abra sua conta.
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="../JS/modal_index.js"></script>
+  </body>
+
+  <script>
+    function gotToSignUpPage() {
+      window.location.href = "./signUp/signupStepOne.html";
+    }
+  </script>
+</html>
