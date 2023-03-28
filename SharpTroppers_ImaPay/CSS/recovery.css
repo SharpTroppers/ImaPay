@@ -2,7 +2,11 @@
 *{
     font-family: 'Lora', serif;
     box-sizing: border-box;
-} */
+    padding: 0;
+    margin: 0;
+    border: 0;
+
+}
 .recovery p {
   text-align: center;
   top: 0;
@@ -10,18 +14,9 @@
   font-size: 24px;
 }
 .recovery {
-  /* transform: translateY(-50% -50%); */
-  /* position: relative; */
-  /* padding: 5px; */
-  /* top: 20%; */
-  /* border-radius: 20px; */
-  /* height: 500px; */
-  /* width: 300px; */
-  /* background-color: #0d6073; */
-  /* opacity: 0.8;   */
   text-align: center;
   justify-content: center;
-  align-items: start;
+  align-items: center;
   left: 38%;
   top: 30px;
   position: relative;
@@ -37,15 +32,9 @@
   justify-content: start;
   top: 5%;
 }
-.label{
-    /* position: absolute; */
-    /* justify-content: center; */
-    /* right: 10%; */
-}
 .recovery-form h2{
     font-weight: bold;
     position: absolute;
-    left: 12%;
     top: 0;
     font-size: 30px;
 }
@@ -61,15 +50,16 @@
     background-color: #2e2e2e;
     outline: 0;
     border: 1px solid #dadada;
+    text-decoration: none;
 }
 .recovery label{
     display: flex;
     position: relative;
     height: 0vh;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     text-align: start;
     color:white;
-    width: 38.8vh;
+    /* width: 38.8vh; */
     top: 145px;
     margin-left: 10px;
 
@@ -86,6 +76,7 @@
     position: relative;
     top: 350px;
     color: #ffffff;
+    text-decoration: none;
 }
 .recovery-buttom:hover {
   transition: 400ms;
@@ -102,8 +93,20 @@
     align-items: center;
     justify-content: center;
 }
-.recovery .alinhar a{
+a{
     display: flex;
     text-decoration: none;
-    left: 100px;
+}
+.alinhar{
+  top: 25vh;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.alinhar2{
+  top: 7vh;
+  margin-left: 50px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
