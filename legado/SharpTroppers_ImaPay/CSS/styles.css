@@ -51,7 +51,7 @@ header {
   width: 40vw;
 }
 .nav-list-sorted {
-  width: 40vw;
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
