@@ -1,8 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
 :root {
   --color-secundary-500: #0d6073;
+  height: 100%;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +13,7 @@
 }
 body {
   background-color: black;
-  background-image: url(./assets/global-communication-background-business-network-design.jpg);
+  background-image: url(./assets/img/stars.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
