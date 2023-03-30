@@ -55,7 +55,8 @@
   cursor: pointer;
   transition-timing-function: ease;
   transition-duration: 0.5s;
-  background: #fff linear-gradient(90deg, black 50%, #0d6073 50%);
+  background: #fff
+    linear-gradient(90deg, black 50%, var(--color-secundary-500) 50%);
   background-position: 0% center;
   background-size: 200%;
 }
