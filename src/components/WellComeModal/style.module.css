@@ -1,0 +1,76 @@
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+.home-container {
+  position: relative;
+  z-index: 1;
+}
+
+.star-wars-message-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.containerStar {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  width: 70vw;
+  z-index: 10000;
+}
+
+.containerStar::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.containerStar > .slide {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.containerStar > .show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.containerStar > .title {
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+
+.containerStar > .subtitle {
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+.containerStar > .close-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+}
