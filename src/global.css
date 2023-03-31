@@ -11,10 +11,3 @@
   color: #f2f2f2;
   font-family: "Lora", serif;
 }
-body {
-  background-color: black;
-  background-image: url(./assets/img/stars.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
