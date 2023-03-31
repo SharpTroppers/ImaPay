@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { HomePage } from "./pages/HomePage/HomePage";
-import { UserPage } from "./pages/UserPage";
+import { UserPage } from "./pages/UserPage/User";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
 import { PasswordRecoverPage } from "./pages/PasswordRecoveryPage/PasswordRecoverPage";
 import { SignUpPage } from "./pages/SignUpPage/SignUpPage";
