@@ -16,7 +16,7 @@ export function HomePage() {
           forma rápida, segura e fácil.
         </p>
         <div className={styles.button}>
-          <NavLink className={styles["button-account"]} to='/signup'>
+          <NavLink className={styles["button-account"]} to="/signup">
             Abra sua conta.
           </NavLink>
         </div>
