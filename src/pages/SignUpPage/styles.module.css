@@ -1,0 +1,210 @@
+ /* General Rules */
+
+ @import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
+
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     color: #f2f2f2;
+     font-family: "Lora", serif;
+ }
+
+ #signup-main-container {
+     width: 100vw;
+     height: 100vh;
+     min-height: 30rem;
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: flex-start;
+ }
+
+ /* Classes */
+
+ .submit-button-style-back {
+     font-size: 0.8rem;
+     background-color: transparent;
+     border: 1px solid #E8EAED;
+ }
+
+ .modal-buttons-style {
+     width: 20%;
+     height: 70%;
+     color: white;
+     font-weight: 800;
+     margin-left: 1rem;
+     border: none;
+     border-radius: 4px;
+     outline: inherit;
+     cursor: pointer;
+ }
+
+ .modal-buttons-style:hover {
+     background-position: 100% center;
+     transform: scale(1.05);
+ }
+
+
+
+ /* Ids */
+
+ #side-image {
+     position: relative;
+     display: inline-block;
+     height: 100%;
+     width: 100%;
+     background-image: url('../../assets/IMG/mulher-segurando-smartphone.jpg');
+     background-repeat: no-repeat;
+     background-size: cover;
+ }
+
+ #successfully-side-image {
+     display: block;
+     position: static;
+     height: 100%;
+     width: 100%;
+     background-image: url('../IMG/mulher-aperto-de-mao-bem-vindo.jpg');
+     background-repeat: no-repeat;
+     background-size: cover;
+ }
+
+
+
+ #submit-button-container {
+     align-items: center;
+     margin: 10% 0 0 0;
+ }
+
+ #main-container-success-sign-up-style {
+     justify-content: space-between;
+     align-items: center;
+ }
+
+ #sign-up-go-to-login-page-style {
+     width: 40%;
+     height: 10%;
+     color: #E8EAED;
+     border-radius: 0.25rem;
+     padding: 0.625 1.25;
+     font-size: 1rem;
+     background-color: #05C7F2;
+     margin-bottom: 2rem;
+ }
+
+ #forms-sections-container-fir-password-checkup {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: left;
+     height: 30%;
+     padding: 0 1rem;
+ }
+
+ #success-welcome-message-style {
+     height: 10%;
+ }
+
+ #success-icon {
+     width: 40%;
+ }
+
+ #modal-for-terms-of-service {
+     position: fixed;
+     display: none;
+     justify-content: center;
+     align-items: center;
+     top: 0;
+     height: 100vh;
+     width: 100vw;
+     background-color: rgb(0, 0, 0);
+     background-color: rgba(0, 0, 0, 0.4);
+     z-index: 1;
+ }
+
+ #modal-header-container {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     height: 15%;
+     width: 100%;
+     border: solid #05C7F2;
+     border-width: 0 0 1px 0;
+     padding: 2% 5%;
+     text-align: center;
+ }
+
+ #modal-header-container h1 {
+     color: #0D0D0D;
+ }
+
+ #modal-content-container,
+ #modal-content-container p {
+     height: 70%;
+     width: 100%;
+     padding: 2% 5%;
+     font-size: 1.5rem;
+     color: #0D0D0D;
+     text-align: justify;
+     word-break: break-all;
+ }
+
+ #agree-button {
+     background-color: green;
+ }
+
+ #disagree-button {
+     background-color: red;
+ }
+
+ #modal-footer-container {
+     display: flex;
+     justify-content: flex-end;
+     align-items: center;
+     height: 15%;
+     width: 100%;
+     border: solid #05C7F2;
+     border-width: 1px 0 0 0;
+     padding: 0 0.5rem;
+ }
+
+ #modal-text-container {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     width: 30%;
+     height: 50%;
+     min-width: 36rem;
+     min-height: 28.75rem;
+     justify-content: center;
+     background-color: white;
+     border-radius: 4px;
+     opacity: 1;
+     z-index: 3;
+ }
+
+ #finalizing-form-button {
+     font-size: 0.8rem;
+ }
+
+ /* Media Querys */
+ @media screen and (max-width: 1250px) {
+
+     #side-image {
+         display: none;
+     }
+
+     #success-icon {
+         width: 30%;
+     }
+
+     .main-container-style {
+         width: 100%;
+         min-height: auto;
+     }
+
+     #form-container-style {
+         max-width: 25rem;
+     }
+ }
