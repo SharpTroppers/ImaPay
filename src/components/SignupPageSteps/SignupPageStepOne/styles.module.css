@@ -68,10 +68,9 @@
     height: 70%;
     color: #E8EAED;
     border-radius: 0.25rem;
-    padding: 0.625 1.25;
+    padding: 0.625rem 1.25rem;
     font-size: 1rem;
     background-color: #0d6073;
-    /* border: solid 1px #E8EAED; */
     transition-timing-function: ease;
     transition-duration: 0.5s;
 }

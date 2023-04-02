@@ -2,8 +2,15 @@ import React from 'react'
 import SignupFormCloseUp from '../SingupFormCloseButton';
 import styles from "./styles.module.css";
 
+interface stepperHandler {
+  stepperHandler: () => void
+}
 
-const SignupPageStepOne = () => {
+const SignupPageStepOne = ({stepperHandler} : stepperHandler) => {
+
+  const handleSubmit = () => {
+    stepperHandler()
+  }
   return (
     <>
     <main className={styles["main-container-style"]}>
@@ -11,7 +18,7 @@ const SignupPageStepOne = () => {
         <h1 id={styles["header-title"]}>Registro Pessoa Física</h1>
       </header>
     <SignupFormCloseUp/>
-    <form id={styles["form-container-style"]} onSubmit={() => proceedToAddressStep()}>
+    <form id={styles["form-container-style"]} onSubmit={() => handleSubmit()}>
       <div className={styles["forms-sections-containers"]}>
         <label className={styles["labels-styling"]} >Nome</label>
         <input required className={styles["inputs-style"]} id={styles["nome"]} placeholder="Nome completo" />
@@ -43,13 +50,14 @@ const SignupPageStepOne = () => {
       </div>
 
       <nav id={styles["nav-button-container"]}>
-        <input 
+        <button 
           disabled={true} 
           id={styles["submit-button"]} 
-          className={styles["submit-button-style no-button-style"]} 
+          className={`${styles["submit-button-style"]} ${styles["no-button-style"]}`} 
           type="submit"
-          value="PRÓXIMO" 
-        />
+          >
+          PRÓXIMO
+        </button>
       </nav>
     </form>
   </main>

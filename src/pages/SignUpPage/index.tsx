@@ -1,10 +1,12 @@
 import { useState } from "react";
 import SignupPageStepOne from "../../components/SignupPageSteps/SignupPageStepOne";
+import SignupPageStepTwo from '../../components/SignupPageSteps/SignupPageStepTwo'
+import SignupPageStepThree from '../../components/SignupPageSteps/SignupPageStepThree'
 import styles from "./styles.module.css";
 
 export function SignUpPage() {
 
-  const [stepper, setStepper] = useState(0);
+  const [step, setStep] = useState(0);
   
   const proceedToAddressStep = () => {
     // event.preventDefault();
@@ -64,6 +66,13 @@ const toggleSubmitButton = () => {
     // submitButton.disabled = true;
 }
 
+const stepperHandler = () => {
+  if(step + 1 < 2) setStep(step + 1)
+  console.log('lol', step)
+}
+
+const stepsArray = [<SignupPageStepOne stepperHandler={stepperHandler}/>, <SignupPageStepTwo/>, <SignupPageStepThree/>]
+
   return (
     <div id={styles["signup-main-container"]}>
   <section id={styles["modal-for-terms-of-service"]}>
@@ -93,7 +102,7 @@ const toggleSubmitButton = () => {
 
   <aside id={styles["side-image"]}>
   </aside>
-  <SignupPageStepOne/>
+  {stepsArray[step]}
 </div>
   );
 }
