@@ -1,16 +1,16 @@
-import React from 'react'
+import React, {FormEvent} from 'react'
+import { signupFormStepHandler } from '../../../models/signupForm';
 import SignupFormCloseUp from '../SingupFormCloseButton';
 import styles from "./styles.module.css";
 
-interface stepperHandler {
-  stepperHandler: () => void
-}
+const SignupPageStepOne = ({stepForward} : signupFormStepHandler) => {
 
-const SignupPageStepOne = ({stepperHandler} : stepperHandler) => {
-
-  const handleSubmit = () => {
-    stepperHandler()
+  const handleSubmit = (event: any) => {
+    event.preventDefault()
+    console.log('lol')
+    stepForward()
   }
+
   return (
     <>
     <main className={styles["main-container-style"]}>
@@ -18,7 +18,7 @@ const SignupPageStepOne = ({stepperHandler} : stepperHandler) => {
         <h1 id={styles["header-title"]}>Registro Pessoa Física</h1>
       </header>
     <SignupFormCloseUp/>
-    <form id={styles["form-container-style"]} onSubmit={() => handleSubmit()}>
+    <form id={styles["form-container-style"]} onSubmit={handleSubmit}>
       <div className={styles["forms-sections-containers"]}>
         <label className={styles["labels-styling"]} >Nome</label>
         <input required className={styles["inputs-style"]} id={styles["nome"]} placeholder="Nome completo" />
@@ -51,12 +51,12 @@ const SignupPageStepOne = ({stepperHandler} : stepperHandler) => {
 
       <nav id={styles["nav-button-container"]}>
         <button 
-          disabled={true} 
-          id={styles["submit-button"]} 
+          // disabled={true} 
+          // id={styles["submit-button"]} 
           className={`${styles["submit-button-style"]} ${styles["no-button-style"]}`} 
           type="submit"
           >
-          PRÓXIMO
+            PRÓXIMO
         </button>
       </nav>
     </form>

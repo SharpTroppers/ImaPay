@@ -49,11 +49,11 @@
     margin-top: 1rem;
 }
 
-#submit-button:disabled {
+/* #submit-button:disabled {
     background-color: transparent;
-    border: solid #05C7F2;
+    border: solid #E8EAED;
     border-width: 1px;
-}
+} */
 
 #header-title {
     font-size: 1.5rem;
@@ -68,6 +68,7 @@
     height: 70%;
     color: #E8EAED;
     border-radius: 0.25rem;
+    border: 1px solid #05C7F2;
     padding: 0.625rem 1.25rem;
     font-size: 1rem;
     background-color: #0d6073;
@@ -75,7 +76,14 @@
     transition-duration: 0.5s;
 }
 
-.submit-button-style:hover {
+.submit-button-style:disabled {
+    background-color: transparent;
+    color: #7E7E7E;
+    border: solid #7E7E7E;
+    border-width: 1px;
+}
+
+.submit-button-style:hover:enabled {
     border-color: #05c7f2;
     color: #f2f2f2;
     background-position: 100% center;
@@ -84,7 +92,6 @@
 
 .no-button-style {
     background: none;
-    border: none;
     font: inherit;
     cursor: pointer;
     font-weight: 800;

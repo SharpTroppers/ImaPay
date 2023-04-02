@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SignupPageStepOne from "../../components/SignupPageSteps/SignupPageStepOne";
 import SignupPageStepTwo from '../../components/SignupPageSteps/SignupPageStepTwo'
 import SignupPageStepThree from '../../components/SignupPageSteps/SignupPageStepThree'
@@ -7,71 +7,85 @@ import styles from "./styles.module.css";
 export function SignUpPage() {
 
   const [step, setStep] = useState(0);
+
+  useEffect(() => {
+    console.log(step)
+  }, [step])
   
-  const proceedToAddressStep = () => {
-    // event.preventDefault();
-    // create JSON file
-    window.location.href = "./signupStepTwo.html";
-}
+  
+//   const proceedToAddressStep = () => {
+//     // event.preventDefault();
+//     // create JSON file
+//     window.location.href = "./signupStepTwo.html";
+// }
 
-const proceedToHomePage = () => {
-    // event.preventDefault();
-    window.location.href = "../index.html";
-}
+// const proceedToHomePage = () => {
+//     // event.preventDefault();
+//     window.location.href = "../index.html";
+// }
 
-const finishSignUp = () => {
-    // event.preventDefault();
-    // create JSON file
-    window.location.href = "./succesfullSignup.html";
-}
+// const finishSignUp = () => {
+//     // event.preventDefault();
+//     // create JSON file
+//     window.location.href = "./succesfullSignup.html";
+// }
 
-const returnToUserData = () => {
-    // event.preventDefault();
-    window.location.href = "./signupStepOne.html";
-}
-const proceedToAccountData = () => {
-    // event.preventDefault();
-    // create JSON file
-    window.location.href = "./signupStepThree.html";
-}
+// const returnToUserData = () => {
+//     // event.preventDefault();
+//     window.location.href = "./signupStepOne.html";
+// }
+// const proceedToAccountData = () => {
+//     // event.preventDefault();
+//     // create JSON file
+//     window.location.href = "./signupStepThree.html";
+// }
 
-const toggleModal = () => {
-    // console.log('kk', modal.styles.display )
-    const modal = document.getElementById("modal-for-terms-of-service");
-    // if(modal.styles.display === "none") return modal.styles.display = "flex";
-    // return modal.styles.display = "flex";
-}
+// const toggleModal = () => {
+//     // console.log('kk', modal.styles.display )
+//     const modal = document.getElementById("modal-for-terms-of-service");
+//     // if(modal.styles.display === "none") return modal.styles.display = "flex";
+//     // return modal.styles.display = "flex";
+// }
 
-const agreeToTermsAndService = (event) => {
-    const checkbox = document.getElementById("terms-and-services-checkbox");
-    // checkbox.checked = true;
-    // hideModal(event)
-}
+// const agreeToTermsAndService = (event) => {
+//     const checkbox = document.getElementById("terms-and-services-checkbox");
+//     // checkbox.checked = true;
+//     // hideModal(event)
+// }
 
-const showModal = (event) => {
-    const modal = document.getElementById("modal-for-terms-of-service");
-    // modal.styles.display = "flex";
-}
+// const showModal = (event) => {
+//     const modal = document.getElementById("modal-for-terms-of-service");
+//     // modal.styles.display = "flex";
+// }
 
-const hideModal = () => {
-    const modal = document.getElementById("modal-for-terms-of-service");
-    // modal.styles.display = "none";
-}
+// const hideModal = () => {
+//     const modal = document.getElementById("modal-for-terms-of-service");
+//     // modal.styles.display = "none";
+// }
 
-const toggleSubmitButton = () => {
-    const submitButton = document.getElementById("submit-button");
-    // const isDisabled = submitButton.disabled;
+// const toggleSubmitButton = () => {
+//     const submitButton = document.getElementById("submit-button");
+//     // const isDisabled = submitButton.disabled;
     
-    // if(isDisabled) return submitButton.disabled = false;
-    // submitButton.disabled = true;
-}
+//     // if(isDisabled) return submitButton.disabled = false;
+//     // submitButton.disabled = true;
+// }
 
-const stepperHandler = () => {
+const stepForward = () => {
   if(step + 1 < 2) setStep(step + 1)
   console.log('lol', step)
 }
 
-const stepsArray = [<SignupPageStepOne stepperHandler={stepperHandler}/>, <SignupPageStepTwo/>, <SignupPageStepThree/>]
+const stepBackward = () => {
+  if(step - 1 >= 0) setStep(step - 1)
+  console.log('lol', step)
+}
+
+const stepsArray = [<SignupPageStepOne stepForward={stepForward}/>, <SignupPageStepTwo stepForward={stepForward}/>, <SignupPageStepThree stepForward={stepForward}/>]
+
+const stepRender = (stepNumber: number) => {
+  return stepsArray[stepNumber]
+}
 
   return (
     <div id={styles["signup-main-container"]}>
@@ -102,7 +116,7 @@ const stepsArray = [<SignupPageStepOne stepperHandler={stepperHandler}/>, <Signu
 
   <aside id={styles["side-image"]}>
   </aside>
-  {stepsArray[step]}
+  {stepRender(step)}
 </div>
   );
 }
