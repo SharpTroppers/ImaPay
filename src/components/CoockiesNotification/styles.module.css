@@ -14,7 +14,10 @@
   left: 5%;
   width: 70%;
   background-color: #2e2e2e;
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  margin-left: 10%;
+  align-self: center;
+  justify-self: center;
   padding: 20px 20px 20px 20px;
   border: 2px solid #2e2e2e;
   align-items: center;

@@ -30,8 +30,8 @@ export function CoockiesNotification() {
   return (
     <>
       {showOpening && (
-        <div className={styles.coockiesModal}>
-          <animated.div>
+        <animated.div className={styles.coockiesModal} style={slide}>
+          <animated.div style={slide}>
             <animated.div>
               <animated.h3 className={styles.titleModal}>
                 Valorizamos sua privacidade
@@ -58,7 +58,7 @@ export function CoockiesNotification() {
               Aceitar
             </button>
           </div>
-        </div>
+        </animated.div>
       )}
     </>
   );
