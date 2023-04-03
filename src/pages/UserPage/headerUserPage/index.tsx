@@ -3,12 +3,13 @@ import Exit from "../../../assets/img/exit.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export function HeaderUserPage() {
-  const [userName, setUserName] = useState("Usuário");
-
+interface Props {
+  name: string;
+}
+export default function HeaderUserPage({ name }: Props) {
   return (
-    <header>
-      <h1>Olá, {userName}</h1>
+    <header className={styles["header-container"]}>
+      <h1>Olá,{name} </h1>
       <figure className={styles["header-imagem"]}>
         <Link to="/" className={styles["link"]}>
           <img src={Exit} alt="simbolo de saída da conta" />
