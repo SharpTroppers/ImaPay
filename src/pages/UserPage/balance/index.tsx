@@ -1,9 +1,15 @@
 import { useState } from "react";
 import styles from "./style.module.css";
 import Money from "../../../assets/img/money-bold.svg";
+import useUser from "../../../../hooks/useUser";
+import Historic, { User } from '../historic';
+
 
 export function Balance() {
   const [balance, setBalance] = useState(50);
+  const { 
+    userList,
+  } = useUser()
 
   return (
     <section className={styles["home-container"]}>
@@ -32,6 +38,12 @@ export function Balance() {
           </div>
         </div>
       </section>
+      <div>
+      <Historic
+        users={userList} 
+      />
+       
+</div>
     </section>
   );
 }
