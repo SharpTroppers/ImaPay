@@ -9,7 +9,7 @@ interface Props {
 export default function HeaderUserPage({ name }: Props) {
   return (
     <header className={styles["header-container"]}>
-      <h1>Olá,{name} </h1>
+      <h1>Olá, {name} </h1>
       <figure className={styles["header-imagem"]}>
         <Link to="/" className={styles["link"]}>
           <img src={Exit} alt="simbolo de saída da conta" />
