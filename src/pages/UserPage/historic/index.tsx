@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./style.module.css";
-import { Trash } from "phosphor-react";
 
 export interface User {
   id: number;
