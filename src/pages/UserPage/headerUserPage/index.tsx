@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 interface Props {
   name: string;
 }
-export default function HeaderUserPage({ name }: Props) {
+ function HeaderUserPage({ name }: Props) {
   return (
     <header className={styles["header-container"]}>
       <h1>Olá,{name} </h1>
@@ -19,3 +19,5 @@ export default function HeaderUserPage({ name }: Props) {
     </header>
   );
 }
+
+export default HeaderUserPage;

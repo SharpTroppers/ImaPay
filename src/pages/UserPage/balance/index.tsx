@@ -1,16 +1,20 @@
 import { useState } from "react";
 import styles from "./style.module.css";
 import Money from "../../../assets/img/money-bold.svg";
+import Historic from '../historic';
+import useUser from "../../../../hooks/useUser";
 
 export function Balance() {
   const [balance, setBalance] = useState(50);
-
+  const { 
+      userList,
+    } = useUser()
   return (
     <section className={styles["home-container"]}>
       <section className={styles["balance"]}>
         <figure>
           <h2 className={styles["balance-title"]}>Meu Saldo</h2>
-          <img src={eye} alt="" onClick={OnChange} />
+          {/* <img src={eye} alt="" onClick={OnChange} /> */}
         </figure>
         <div className={styles["balance-container"]}>
           <div className={styles["balance-container-box"]}>
