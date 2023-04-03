@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSpring, animated } from "react-spring";
 import styles from "./style.module.css";
 
-export function StarWarsOpening() {
+export function StarWarsOpening({ onClose }) {
   const [showOpening, setShowOpening] = useState(true);
 
   const slide = useSpring({
@@ -16,6 +16,7 @@ export function StarWarsOpening() {
 
   const handleClose = () => {
     setShowOpening(false);
+    onClose(); // Chama a função onClose passada por props
   };
 
   return (

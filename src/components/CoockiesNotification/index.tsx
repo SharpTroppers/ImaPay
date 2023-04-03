@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./styles.module.css";
 import { useSpring, animated } from "react-spring";
 
-export function CoockiesNotification() {
+export function CoockiesNotification(props) {
   const [showOpening, setShowOpening] = useState(true);
 
   const slide = useSpring({
@@ -16,15 +16,18 @@ export function CoockiesNotification() {
 
   const handleClose = () => {
     setShowOpening(false);
+    props.onCloseModal(); // chamando a função onCloseModal passada como prop
   };
 
   const handleReject = () => {
     setShowOpening(false);
+    props.onCloseModal(); // chamando a função onCloseModal passada como prop
   };
 
   const handleAccept = () => {
     setShowOpening(false);
     // Add any logic for accepting the cookies here
+    props.onCloseModal(); // chamando a função onCloseModal passada como prop
   };
 
   return (

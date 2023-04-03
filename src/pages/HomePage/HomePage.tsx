@@ -1,9 +1,16 @@
 import { NavLink } from "react-router-dom";
 import { StarWarsOpening } from "../../components/WellComeModal";
 import { CoockiesNotification } from "../../components/CoockiesNotification";
+import { useState } from "react";
 import styles from "./HomePage.module.css";
 
 export function HomePage() {
+  const [showCookiesNotification, setShowCookiesNotification] = useState(false);
+
+  const handleStarWarsOpeningClose = () => {
+    setShowCookiesNotification(true);
+  };
+
   return (
     <>
       <div className={styles["home-container"]}>
@@ -19,7 +26,6 @@ export function HomePage() {
             inovadora, você poderá gerenciar suas finanças pessoais e realizar
             transações de forma rápida, segura e fácil.
           </p>
-          <StarWarsOpening />
           <div className={styles.button}>
             <NavLink className={styles["button-account"]} to="/signup">
               Abra sua conta.
@@ -27,8 +33,8 @@ export function HomePage() {
           </div>
         </div>
       </div>
-
-      <CoockiesNotification />
+      <StarWarsOpening onClose={handleStarWarsOpeningClose} />
+      {showCookiesNotification && <CoockiesNotification />}
     </>
   );
 }
