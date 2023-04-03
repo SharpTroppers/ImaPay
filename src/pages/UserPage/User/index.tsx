@@ -10,6 +10,7 @@ export function UserPage() {
   const [userName, setUserName] = useState("Usuário");
   const [userList, setUserList] = useState([]);
   const [balance, setBalance] = useState(50);
+  const [balanceAvailable, setBalanceAvailable] = useState(25);
 
   useEffect(() => {
     axios
@@ -20,7 +21,7 @@ export function UserPage() {
   return (
     <div>
       <HeaderUserPage name={userName} />
-      <Balance balance={balance} />
+      <Balance balance={balance} balanceAvailable={balanceAvailable} />
       <Historic users={userList} />
     </div>
   );
