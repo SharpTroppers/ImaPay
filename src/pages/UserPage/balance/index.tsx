@@ -1,16 +1,32 @@
 import { useState } from "react";
 import styles from "./style.module.css";
-import Money from "../../../assets/img/money-bold.svg";
+import Money from "../../../assets/img/money-thin.svg";
+import EyeOpen from "../../../assets/img/eye-thin.svg";
+import EyeClose from "../../../assets/img/eye-slash-thin.svg";
+import Historic from "../historic";
 
-export function Balance() {
-  const [balance, setBalance] = useState(50);
+interface Props {
+  balance: number;
+}
+export function Balance({ balance }: Props) {
+  const [eye, setEye] = useState(EyeOpen);
+
+  const ChanceClick = () => {
+    if (eye === EyeOpen) setEye(EyeClose);
+    if (eye === EyeClose) setEye(EyeOpen);
+  };
 
   return (
     <section className={styles["home-container"]}>
       <section className={styles["balance"]}>
-        <figure>
-          <h2 className={styles["balance-title"]}>Meu Saldo</h2>
-          <img src={eye} alt="" onClick={OnChange} />
+        <figure className={styles["balance-title"]}>
+          <h2 className={styles["balance-title-h2"]}>Meu Saldo</h2>
+          <img
+            src={eye}
+            alt=""
+            onClick={ChanceClick}
+            className={styles["balance-title-imagem"]}
+          />
         </figure>
         <div className={styles["balance-container"]}>
           <div className={styles["balance-container-box"]}>
@@ -21,7 +37,7 @@ export function Balance() {
               <div className={styles["balance-value"]}>
                 <h2 className={styles["balance-value-title"]}>Saldo total</h2>
                 <p className={styles["balance-value-number"]}>
-                  R$: {balance.toFixed(2)}
+                  {eye === EyeOpen ? `R$ ${balance.toFixed(2)}` : "..."}
                 </p>
               </div>
             </div>
@@ -34,16 +50,13 @@ export function Balance() {
                   Saldo disponível para saque
                 </h2>
                 <p className={styles["balance-value-number"]}>
-                  R$: {balance.toFixed(2)}
+                  {eye === EyeOpen ? `R$ ${balance.toFixed(2)}` : "..."}
                 </p>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <div>
-        <Historic users={userList} />
-      </div>
     </section>
   );
 }

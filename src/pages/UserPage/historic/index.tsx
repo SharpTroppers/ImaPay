@@ -12,12 +12,12 @@ export interface User {
 interface UserTableProps {
   users: User[];
 }
-const Historic: React.FC<UserTableProps> = ({ users}) => {
+const Historic: React.FC<UserTableProps> = ({ users }) => {
   const timeElapsed = Date.now();
   const today = new Date(timeElapsed);
   return (
     <section className={styles["historic-cont"]}>
-      <h2 className={styles["historic-subtitle"]} >Histórico </h2>
+      <h2 className={styles["historic-subtitle"]}>Histórico </h2>
       <table>
         <thead>
           <tr>
@@ -35,7 +35,6 @@ const Historic: React.FC<UserTableProps> = ({ users}) => {
               <td>{user.date}</td>
               <td>{user.type}</td>
               <td>R$ {user.valor.toFixed(2)}</td>
-            
             </tr>
           ))}
         </tbody>
