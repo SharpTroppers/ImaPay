@@ -1,19 +1,9 @@
 import { useState } from "react";
 import styles from "./style.module.css";
-import Money from "../../../assets/img/money-thin.svg";
-import Eyeclose from "../../../assets/img/eye-slash-thin.svg";
-import EyeOpen from "../../../assets/img/eye-thin.svg";
+import Money from "../../../assets/img/money-bold.svg";
 
-interface Props {
-  balance: number;
-}
-export function Balance({ balance }: Props) {
-  const [eye, setEye] = useState(EyeOpen);
-
-  const OnChange = () => {
-    if (eye === EyeOpen) setEye(Eyeclose);
-    if (eye === Eyeclose) setEye(EyeOpen);
-  };
+export function Balance() {
+  const [balance, setBalance] = useState(50);
 
   return (
     <section className={styles["home-container"]}>
@@ -51,6 +41,9 @@ export function Balance({ balance }: Props) {
           </div>
         </div>
       </section>
+      <div>
+        <Historic users={userList} />
+      </div>
     </section>
   );
 }

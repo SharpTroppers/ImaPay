@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "date": "01-02-2023",
+      "type": "Deposito",
+      "valor": 25
+    },
+    {
+      "id": 2,
+      "date": "01-02-2023",
+      "type": "Deposito",
+      "valor": 25
+    },
+    {
+      "id": 3,
+      "date": "01-02-2023",
+      "type": "Transferência",
+      "valor": 30
+    },
+    {
+      "id": 4,
+      "date": "01-02-2023",
+      "type": "deposito",
+      "valor": 50
+    },
+    {
+      "id": 5,
+      "date": "01-02-2023",
+      "type": "saque",
+      "valor": 25
+    },
+    {
+      "id": 6,
+      "date": "01-02-2023",
+      "type": "Transferência",
+      "valor": 25
+    }
+  ]
+}
