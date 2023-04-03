@@ -24,19 +24,19 @@ export function StarWarsOpening({ onClose }) {
       {showOpening && (
         <div className={styles.containerStar}>
           <animated.h1 className="slide title" style={slide}>
-            A long time ago in a galaxy far, far away...
+            Bem vindo a Frota novo Trooper...
           </animated.h1>
           <animated.h2
             className={`${styles["slide"]} ${styles["subtitle"]}`}
             style={slide}
           >
-            Episode IV
+            Mesmo na mais distante galáxia, seu dinheiro estará seguro.
           </animated.h2>
           <animated.h3
             className={`${styles["slide"]} ${styles["subtitle"]}`}
             style={slide}
           >
-            A New Hope
+            Prossiga para uma esperiencia incrivel.
           </animated.h3>
           <button className={styles.closeButton} onClick={handleClose}>
             Prosseguir
