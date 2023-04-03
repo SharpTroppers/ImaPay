@@ -7,8 +7,8 @@ import useUser from "../../../../hooks/useUser";
 export function Balance() {
   const [balance, setBalance] = useState(50);
   const { 
-      userList,
-    } = useUser()
+    userList,
+  } = useUser()  
   return (
     <section className={styles["home-container"]}>
       <section className={styles["balance"]}>
@@ -46,7 +46,7 @@ export function Balance() {
         </div>
       </section>
       <div>
-        <Historic users={userList} />
+     <Historic users={userList} />
       </div>
     </section>
   );

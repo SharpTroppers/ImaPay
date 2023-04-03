@@ -34,7 +34,7 @@ const Historic: React.FC<UserTableProps> = ({ users}) => {
               <td>{user.date}</td>
               <td>{user.type}</td>
               <td>R$ {user.valor.toFixed(2)}</td>
-            
+              
             </tr>
           ))}
         </tbody>
