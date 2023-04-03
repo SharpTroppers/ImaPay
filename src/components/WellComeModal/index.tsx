@@ -9,7 +9,7 @@ export function StarWarsOpening({ onClose }) {
     from: { opacity: 0, transform: "translateY(50px)" },
     to: { opacity: 1, transform: "translateY(0px)" },
     config: {
-      tension: 200,
+      tension: 10,
       friction: 15,
     },
   });
