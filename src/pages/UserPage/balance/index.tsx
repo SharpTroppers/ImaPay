@@ -65,5 +65,6 @@ export function Balance({ balance, balanceAvailable }: Props) {
         </div>
       </section>
     </section>
+    
   );
 }

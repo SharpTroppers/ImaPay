@@ -3,7 +3,7 @@ import axios from "axios";
 import styles from "./style.module.css";
 import Money from "../../../assets/img/money-bold.svg";
 import { Balance } from "../balance";
-import HeaderUserPage from "../HeaderUserPage";
+import HeaderUserPage from "../headerUserPage";
 import Historic from "../historic";
 
 export function UserPage() {
@@ -16,13 +16,14 @@ export function UserPage() {
     axios
       .get("http://localhost:3333/users")
       .then(({ data }) => setUserList(data));
-  }, []);
+  }, []); 
 
   return (
     <div>
       <HeaderUserPage name={userName} />
       <Balance balance={balance} balanceAvailable={balanceAvailable} />
       <Historic users={userList} />
+      
     </div>
   );
 }
