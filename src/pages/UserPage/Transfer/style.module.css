@@ -1,0 +1,75 @@
+*{
+color:#000;
+}
+.modal-transfer {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+  }
+  .Close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 2rem;
+  }
+  .Close:hover, .Close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-transfer-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #184a55;
+    border: 0.1rem solid #1c1d21;
+    padding: 1rem;
+    border-radius: 1vw;
+    box-shadow: 0 0;
+    overflow: auto;
+  }
+
+  .input-account{
+    background-color: #313030;
+    margin: 1rem;
+  }
+
+  .input-value{
+    background-color: #313030;
+    margin: 1rem;
+  }
+  
+  .input-optMessage{
+    background-color: #313030;
+    margin:1rem;
+  }
+
+  .input-btn{
+    color:white;
+    background-color: #0d6073;
+    margin:1rem;
+    padding:0.4rem;
+    border-radius: 0.4vw;
+  }
+  
+  .error-message{
+    color: rgb(255,72,72);
+    font-size: 0.75rem;
+    margin-top: 8px;
+  }
+
+  .toast-message{
+    background-color: #000;
+    color:#fefefe;
+  }
+
+
+
