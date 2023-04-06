@@ -9,7 +9,7 @@
 }
 
 .balance {
-  background-color: #0d6073;
+  background-color: var(--color-secundary-500);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
