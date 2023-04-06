@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { HomePage } from "./pages/HomePage/HomePage";
 import { UserPage } from "./pages/UserPage/User";
-import { Transfer } from "./pages/UserPage/Transfer";
+// import { Transfer } from "./pages/UserPage/Transfer";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
 import { PasswordRecoverPage } from "./pages/PasswordRecoveryPage/PasswordRecoverPage";
 import { SignUpPage } from "./pages/SignUpPage/SignUpPage";
@@ -28,10 +28,6 @@ const router = createBrowserRouter([
   {
     path: "/user",
     element: <UserPage />,
-  },
-  {
-    path: "/transfer",
-    element: <Transfer />,
   },
   
   
