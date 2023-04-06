@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import styles from "./style.module.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
+
 
 
 interface ModalProps{
@@ -11,24 +13,28 @@ interface ModalProps{
 }
 
 interface FormData{
-    account: number,
-    value: number;
+    id: number,
+    valor: number;
+    type: string;
     message: string;
 }
 
 
 const Transfer = ({isOpen,onClose}: ModalProps)=> {
-    
+
     const {
          register,
          handleSubmit,
-         formState: { errors },
+         reset,
+         formState,
+         formState: { errors , isSubmitSuccessful},
          } = useForm<FormData>();
 
     const showToastMessage = () =>{
-        toast.success("Teste", {
+        toast.success("Transferido com Sucesso!", {
             position: toast.POSITION.TOP_CENTER,
             className: styles["toast-message"],
+            theme:"dark"
         });
         setTimeout(() =>{
             onClose();
@@ -37,11 +43,25 @@ const Transfer = ({isOpen,onClose}: ModalProps)=> {
         
     }
     const onSubmit = (data: FormData) =>{
-        // alert(JSON.stringify(data));
+        data.type = "Transferência";
+        JSON.stringify(data);
+        //alert(JSON.stringify(data));
         showToastMessage();
-        
-       
     };
+
+    React.useEffect(() => {
+        if( formState.isSubmitSuccessful) {
+            reset({
+                id: 0,
+                valor: 0,
+                type:"",
+                message:""
+        });
+
+        }
+    },[formState, reset])
+
+
     if(!isOpen) return null;
     return(
         <div className={styles["modal-transfer"]} is-hidden="true" >
@@ -57,25 +77,25 @@ const Transfer = ({isOpen,onClose}: ModalProps)=> {
                 <label>Conta de destino</label>
                 <input 
                 className={styles["input-account"]}
-                type ="number"
+                type ="string"
                 placeholder="Número da conta ou documento"
-                {...register("account", {required: true, minLength: 5})}
+                {...register("id", {required: true, minLength: 5})}
                 />
-                {errors?.account?.type ==="required" &&
+                {errors?.id?.type ==="required" &&
                 (<p className={styles["error-message"]}>É necessário os dados da conta</p>)}
-                {errors?.account?.type ==="minLength" && 
+                {errors?.id?.type ==="minLength" && 
                 (<p className={styles["error-message"]}>A conta precisa ter mais de 4 dígitos</p>)}
                 <div>
                 <label>Valor a ser transferido</label>
                 <input
                 className={styles["input-value"]}
-                type="number"
+                type="string"
                 min="0.1"
                 step={"any"}
                 placeholder="Conta ou documento"
-                {...register("value", {required: true})}
+                {...register("valor", {required: true})}
                 />
-                {errors?.value?.type ==="required" &&
+                {errors?.valor?.type ==="required" &&
                 (<p className={styles["error-message"]}>É necessário informar um valor</p>)}
                 </div>
                 <div>
@@ -125,4 +145,25 @@ const Transfer = ({isOpen,onClose}: ModalProps)=> {
         // <p>`Mensagem: ${data.message}`</p>
 }
 
+// const [formData, setFormData] = useState({
+//     id: "",
+//     title: "",
+//     description: ""
+//   });
+
+//   const handleInputChange = event => {
+//     const { name, value } = event.target;
+//     setFormData({ ...formData, [name]: value });
+//   };
+
+//   const handleSubmit = event => {
+//     event.preventDefault();
+//     axios.put(`http://localhost:3001/exemplo/${formData.id}`, formData)
+//       .then(response => {
+//         console.log(response);
+//       })
+//       .catch(error => {
+//         console.log(error);
+//       });
+//   };
 export default Transfer

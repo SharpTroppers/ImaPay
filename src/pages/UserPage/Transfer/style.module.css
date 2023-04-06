@@ -40,11 +40,13 @@ color:#000;
   .input-account{
     background-color: #313030;
     margin: 1rem;
+    
   }
 
   .input-value{
     background-color: #313030;
     margin: 1rem;
+    overflow-y:auto;
   }
   
   .input-optMessage{
@@ -66,10 +68,12 @@ color:#000;
     margin-top: 8px;
   }
 
-  .toast-message{
+  /* .toast-message .content{
+    border: solid red;
     background-color: #000;
-    color:#fefefe;
-  }
+
+  } */
+  
 
 
 
