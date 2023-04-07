@@ -4,6 +4,9 @@
   --color-secundary-200: #05c7f2;
   --color-secundary-500: #0d6073;
   height: 100%;
+  background-image: url(./assets/img/stars.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 * {

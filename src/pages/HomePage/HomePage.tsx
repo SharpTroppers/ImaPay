@@ -1,5 +1,5 @@
-import { StarWarsOpening } from "../../components/WellComeModal";
-import { CoockiesNotification } from "../../components/CoockiesNotification";
+import { StarWarsOpening } from "../../components/WelcomeModal";
+import { CoockiesNotification } from "../../components/CookiesNotification";
 import { useState } from "react";
 import { HomeContent } from "../../components/HomeContent";
 import { HomeFooter } from "../../components/HomeFooter";
