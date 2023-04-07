@@ -3,9 +3,14 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-evenly;
-  height: 100%;
-  width: 95%;
+  height: 100vh;
+  width: 100%;
   justify-items: center;
+  background-color: black;
+  background-image: url(../../assets/img/stars.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .card-container {
