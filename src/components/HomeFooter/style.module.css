@@ -1,0 +1,28 @@
+.footer-container {
+  display: flex;
+  height: 10vh;
+  width: 90vw;
+  margin: auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-logo {
+  height: 100%;
+  border-radius: 50%;
+}
+
+.footer-box {
+}
+
+.box-content_1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.box-content_2 {
+  color: var(--color-secundary-200);
+}
+
+.footer-logo img {
+  height: 100%;
+}

@@ -1,5 +1,5 @@
-import styles from "./MainNavigation.module.css";
+import styles from "./style.module.css";
 
 export function MainNavigation() {
-  return <header>Navigation</header>;
+  return <header className={styles["nav-box"]}>Navigation</header>;
 }
