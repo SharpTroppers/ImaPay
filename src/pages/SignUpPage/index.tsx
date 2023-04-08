@@ -6,82 +6,37 @@ import styles from "./styles.module.css";
 
 export function SignUpPage() {
 
-  const [step, setStep] = useState(0);
+const [step, setStep] = useState(0);
+const [formData, setFormData] = useState({
+  name: '',
+  email: '',
+  cpf: '',
+  cellphone: '',
+  birthday: ''
+})
 
-  useEffect(() => {
-    console.log(step)
-  }, [step])
-  
-  
-//   const proceedToAddressStep = () => {
-//     // event.preventDefault();
-//     // create JSON file
-//     window.location.href = "./signupStepTwo.html";
-// }
+useEffect(() => {
+  console.log(step)
+}, [step])
 
-// const proceedToHomePage = () => {
-//     // event.preventDefault();
-//     window.location.href = "../index.html";
-// }
 
-// const finishSignUp = () => {
-//     // event.preventDefault();
-//     // create JSON file
-//     window.location.href = "./succesfullSignup.html";
-// }
-
-// const returnToUserData = () => {
-//     // event.preventDefault();
-//     window.location.href = "./signupStepOne.html";
-// }
-// const proceedToAccountData = () => {
-//     // event.preventDefault();
-//     // create JSON file
-//     window.location.href = "./signupStepThree.html";
-// }
-
-// const toggleModal = () => {
-//     // console.log('kk', modal.styles.display )
-//     const modal = document.getElementById("modal-for-terms-of-service");
-//     // if(modal.styles.display === "none") return modal.styles.display = "flex";
-//     // return modal.styles.display = "flex";
-// }
-
-// const agreeToTermsAndService = (event) => {
-//     const checkbox = document.getElementById("terms-and-services-checkbox");
-//     // checkbox.checked = true;
-//     // hideModal(event)
-// }
-
-// const showModal = (event) => {
-//     const modal = document.getElementById("modal-for-terms-of-service");
-//     // modal.styles.display = "flex";
-// }
-
-// const hideModal = () => {
-//     const modal = document.getElementById("modal-for-terms-of-service");
-//     // modal.styles.display = "none";
-// }
-
-// const toggleSubmitButton = () => {
-//     const submitButton = document.getElementById("submit-button");
-//     // const isDisabled = submitButton.disabled;
-    
-//     // if(isDisabled) return submitButton.disabled = false;
-//     // submitButton.disabled = true;
-// }
-
-const stepForward = () => {
+const stepForward = (event: React.ChangeEvent<HTMLInputElement>) => {
+  event.preventDefault();
   if(step + 1 < 2) setStep(step + 1)
   console.log('lol', step)
 }
 
-const stepBackward = () => {
-  if(step - 1 >= 0) setStep(step - 1)
+const stepBackward = (event: React.ChangeEvent<HTMLInputElement>) => {
+  event.preventDefault();
   console.log('lol', step)
+  if(step - 1 >= 0) setStep(step - 1)
 }
 
-const stepsArray = [<SignupPageStepOne stepForward={stepForward}/>, <SignupPageStepTwo stepForward={stepForward}/>, <SignupPageStepThree stepForward={stepForward}/>]
+const stepsArray = [
+  <SignupPageStepOne stepForward={stepForward} formData={formData} setFormData={setFormData}/>, 
+  <SignupPageStepTwo stepForward={stepForward} stepBackward={stepBackward} formData={formData} setFormData={setFormData}/>, 
+  <SignupPageStepThree stepForward={stepForward} stepBackward={stepBackward} formData={formData} setFormData={setFormData}/>
+]
 
 const stepRender = (stepNumber: number) => {
   return stepsArray[stepNumber]

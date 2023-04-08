@@ -1,4 +1,5 @@
 import React from 'react'
+import { signupFormStepHandler } from '../../../models/signupForm';
 import SignupFormCloseUp from '../SingupFormCloseButton';
 import styles from "./styles.module.css";
 
@@ -6,7 +7,7 @@ interface stepperHandler {
     stepperHandler: () => void
 }
 
-const SignupPageStepOne = ({stepperHandler} : stepperHandler) => {
+const SignupPageStepOne = ({stepForward, stepBackward} : signupFormStepHandler) => {
   return (
     <>
     <main className={styles["main-container-style"]}>

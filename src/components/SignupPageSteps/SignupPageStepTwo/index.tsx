@@ -38,9 +38,12 @@ const SignupPageStepOne = ({stepForward, stepBackward} : signupFormStepHandler) 
                 <input required className=" inputs-style" id="country" placeholder="País"/>
             </section>
             <nav id="nav-button-container">
-                <button className={styles["submit-button-style-back submit-button-style no-button-style"]}
-                    onClick={stepBackward}>
-                    VOLTAR
+                <button 
+                  className={styles["submit-button-style-back submit-button-style no-button-style"]}
+                  onClick={stepBackward}
+                  type='button'
+                  >
+                  VOLTAR
                 </button>
                 <input className="submit-button-style no-button-style" type="submit" value="PRÓXIMO" />
             </nav>
