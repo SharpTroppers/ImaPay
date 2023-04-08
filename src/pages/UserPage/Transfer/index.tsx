@@ -10,8 +10,9 @@ interface ModalProps {
 }
 
 interface FormData {
-  account: number;
-  value: number;
+  id: number;
+  valor: number;
+  type: string;
   message: string;
 }
 
@@ -50,14 +51,14 @@ const Transfer = ({ isOpen, onClose }: ModalProps) => {
           className={styles["input-account"]}
           type="number"
           placeholder="Número da conta ou documento"
-          {...register("account", { required: true, minLength: 5 })}
+          {...register("id", { required: true, minLength: 5 })}
         />
-        {errors?.account?.type === "required" && (
+        {errors?.id?.type === "required" && (
           <p className={styles["error-message"]}>
             É necessário os dados da conta
           </p>
         )}
-        {errors?.account?.type === "minLength" && (
+        {errors?.id?.type === "minLength" && (
           <p className={styles["error-message"]}>
             A conta precisa ter mais de 4 dígitos
           </p>
@@ -70,9 +71,9 @@ const Transfer = ({ isOpen, onClose }: ModalProps) => {
             min="0.1"
             step={"any"}
             placeholder="Conta ou documento"
-            {...register("value", { required: true })}
+            {...register("valor", { required: true })}
           />
-          {errors?.value?.type === "required" && (
+          {errors?.valor?.type === "required" && (
             <p className={styles["error-message"]}>
               É necessário informar um valor
             </p>
