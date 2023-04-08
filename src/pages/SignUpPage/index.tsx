@@ -8,27 +8,20 @@ export function SignUpPage() {
 
 const [step, setStep] = useState(0);
 const [formData, setFormData] = useState({
-  name: '',
-  email: '',
-  cpf: '',
-  cellphone: '',
-  birthday: ''
+  userName:'',
+  email:'',
+  cpf:'',
+  cellphone:'',
+  birthday:''
 })
-
-useEffect(() => {
-  console.log(step)
-}, [step])
-
 
 const stepForward = (event: React.ChangeEvent<HTMLInputElement>) => {
   event.preventDefault();
   if(step + 1 < 2) setStep(step + 1)
-  console.log('lol', step)
 }
 
 const stepBackward = (event: React.ChangeEvent<HTMLInputElement>) => {
   event.preventDefault();
-  console.log('lol', step)
   if(step - 1 >= 0) setStep(step - 1)
 }
 

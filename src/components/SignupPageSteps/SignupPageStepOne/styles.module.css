@@ -163,13 +163,16 @@
 }
 
 .error-message-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: 30%;
     width: 100%;
 }
 
 .error-message-container p {
-    height: 100%;
     width: 100%;
+    vertical-align: bottom;
 }
 
 .error-message {
@@ -182,49 +185,5 @@
     .main-container-style {
         width: 100%;
         min-height: auto;
-    }
-}
-
-
-.datepicker-wrapper {
-    font-size: 16px;
-    padding: 0.5rem;
-    color: white;
-    border: none;
-    background-color: #2d2d2d;
-    border-radius: 5px;
-    outline: none;
-}
-
-.datepicker-wrapper .react-datepicker__triangle {
-    border-bottom-color: #2d2d2d;
-}
-
-.datepicker-wrapper .react-datepicker__header {
-    background-color: #2d2d2d;
-    border-bottom-color: #3d3d3d;
-    color: white;
-}
-
-.datepicker-wrapper .react-datepicker__current-month,
-.datepicker-wrapper .react-datepicker-time__header {
-    color: white;
-}
-
-.datepicker-wrapper .react-datepicker__day {
-    color: white;
-
-    &:hover {
-        background-color: #3d3d3d;
-    }
-
-    &--selected {
-        background-color: #3d3d3d;
-        color: white;
-    }
-
-    &--today {
-        background-color: #3d3d3d;
-        color: white;
     }
 }

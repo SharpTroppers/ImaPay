@@ -1,45 +1,65 @@
-import React, {FormEvent, useState} from 'react'
-import { signupFormStepHandler } from '../../../models/signupForm';
+import React, {FormEvent, useEffect, useState} from 'react'
 import SignupFormCloseUp from '../SingupFormCloseButton';
 import styles from "./styles.module.css";
 import { useForm, Controller } from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup'
-import {string, object} from 'yup'
+import {string, object, date} from 'yup'
 import {cpf} from 'cpf-cnpj-validator'
 import { ErrorMessage } from '@hookform/error-message';
 import TermsAndServiceModal from '../../TermsAndServiceModal';
 import 'react-modern-calendar-datepicker/lib/DatePicker.css';
-import DatePicker from 'react-modern-calendar-datepicker';
+import "flatpickr/dist/themes/dark.css";
+import Flatpickr from "react-flatpickr";
+import { format, parse, subYears } from 'date-fns';
 
 
 const SignupPageStepOne = ({stepForward, formData, setFormData} : any) => {
   const [modalController, setModalController] = useState(false);
   const [termsAndServiceCheckbox, setTermsAndServiceCheckbox] = useState(false);
+  const minDate = subYears(new Date(), 18);
+  const maxDate = subYears(new Date(), 100);
+
+
+  useEffect(() => {
+    for (const [keyName, propertyValue] of Object.entries(formData)) {
+        setValue(keyName, propertyValue);
+    }
+  }, [])
   
+
   const requiredMessage = "Campo obrigatório"
   
   const schema = object({
     userName: string()
-    .min(3, 'Insira um nome válido')
-    .required(requiredMessage)
-    .test('has-invalid-character', 'Não utilize caracteres especiais', (value: string) => /^[A-Za-zÀ-ÖØ-öø-ſ\-'. ]+$/.test(value)),
-    email: string().email().required(requiredMessage),
+      .required(requiredMessage)
+      .min(3, 'Insira um nome válido')
+      .test('has-invalid-character', 'Não utilize caracteres especiais', (value: string) => /^[A-Za-zÀ-ÖØ-öø-ſ\-'. ]+$/.test(value)),
+    email: string()
+      .email('Digite um email válido')
+      .required(requiredMessage),
     cpf: string()
-    .required(requiredMessage)
-    .test('cpf-valido', 'CPF inválido', (value: any) => cpf.isValid(value)),
+      .required(requiredMessage)
+      .test('cpf-valido', 'CPF inválido', (value: any) => cpf.isValid(value)),
     cellphone: string()
+      .required(requiredMessage)
+      .min(16, 'Digite um telefone válido'),
+    birthday: date()
+      .required()
+      .nullable()
+      .transform((dateValue: Date) => dateValue instanceof Date ? dateValue : null)
+      .min(new Date(), 'Você precisa ter pelo menos 18 anos.')
+      .typeError('Insira uma data valida')
   })
 
-  const { register, handleSubmit, formState: { errors }, control } = useForm({
+  const { register, handleSubmit, formState: { errors }, control, setValue } = useForm({
     mode: 'onBlur',
     resetOptions: {keepValues: true},
     resolver: yupResolver(schema),
   });
   
-  const onSubmit = (data: any) => {
-    console.log('data', data)
-    console.log('error', errors)
-    stepForward();
+  const onSubmit = (data: any, event: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({...formData, ...data})
+    stepForward(event);
   };
 
   const cpfFormatter = (cpfNumber: string) => {
@@ -93,20 +113,6 @@ const SignupPageStepOne = ({stepForward, formData, setFormData} : any) => {
     return event.target.value = formattedValue
   }
 
-  function validateDob(date) {
-    const dob = new Date(date);
-    const now = new Date();
-    const ageDiffMs = now - dob.getTime();
-    const ageDate = new Date(ageDiffMs);
-    const age = Math.abs(ageDate.getUTCFullYear() - 1970);
-  
-    if (age < 18) {
-      return 'You must be at least 18 years old';
-    }
-  
-    return true;
-  }
-
   return (
     <>
     {modalController && <TermsAndServiceModal hideModal={hideModal} agreeToTermsAndService={agreeToTermsAndService}/>}
@@ -135,7 +141,7 @@ const SignupPageStepOne = ({stepForward, formData, setFormData} : any) => {
       </div>
       <div className={styles["forms-sections-containers"]}>
         <label className={styles["labels-styling"]} >Email</label>
-        <input {...register('email')} className={styles["inputs-style"]} placeholder="examplo@bankmail.com" />
+        <input {...register('email')} className={styles["inputs-style"]} placeholder="exemplo@bankmail.com" />
         <div className={styles['error-message-container']}>
             <ErrorMessage
           errors={errors}
@@ -169,47 +175,38 @@ const SignupPageStepOne = ({stepForward, formData, setFormData} : any) => {
         onChange={cellphoneOnChangeHandler}
         maxLength={16}
         />
+        <div className={styles['error-message-container']}>
+            <ErrorMessage
+          errors={errors}
+          name='cellphone'
+          render={({message}) => <p className={styles['error-message']}>{message}</p>}
+          />
+        </div>
       </div>
+      
       <div className={styles["forms-sections-containers"]}>
         <label className={styles["labels-styling"]}>
           Data de nascimento
         </label>
-        {/* <input {...register('birthday')} className={styles["inputs-style"]} id={styles["data-de-nascimento"]} placeholder=" DD/MM/AAAA" /> */}
-        {/* <Controller
-          name="dob"
-          control={control}
-          rules={{ validate: validateDob }} // add custom validation rule
-          render={({ field: { onChange, value } }) => (
-            <DatePicker
-              selected={null}
-              onChange={onChange}
-              showYearDropdown
-              dateFormat="dd/MM/yyyy"
-              maxDate={new Date()}
-              showMonthDropdown
-              scrollableYearDropdown
-              className={styles['datepicker-wrapper']}
-              // yearDropdownItemNumber={50}
-              // className={errors.dob ? 'is-invalid' : ''}
-            />
-          )}
-        /> */}
-        {/* // 2222 */}
-        {/* <Controller
+       <Controller
         control={control}
-        name={'userName'}
-        render={({ field }) => (
-          <DatePicker
-            value={field.value}
-            onChange={(date) => field.onChange(date)}
-            inputPlaceholder="Select a date"
-            shouldHighlightWeekends
-            calendarClassName={styles.calendar}
-            calendarTodayClassName={styles.calendarToday}
-            calendarSelectedDayClassName={styles.calendarSelectedDay}
+        name='birthday'
+        render={({ field:{onChange, ...fieldProps} }) => (
+          <Flatpickr
+            {...fieldProps}
+            className={styles["inputs-style"]} id={styles["data-de-nascimento"]}            
+            options={{ 
+              dateFormat: 'd/m/Y', 
+              minDate: minDate,
+              mode: 'single'
+            }}
+            onChange={(date, dateString ) => {
+              onChange(date)
+            }}
+            
           />
-        )}
-      /> */}
+          )}
+          />
         <div className={styles['error-message-container']}>
             <ErrorMessage
           errors={errors}
@@ -232,9 +229,7 @@ const SignupPageStepOne = ({stepForward, formData, setFormData} : any) => {
         <button 
           disabled= {Object.keys(errors).length !== 0} 
           title="Preencha todos os campos"
-          // id={styles["submit-button"]} 
           className={`${styles["submit-button-style"]} ${styles["no-button-style"]}`} 
-          type="submit"
           >
             PRÓXIMO
         </button>
