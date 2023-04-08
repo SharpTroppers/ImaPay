@@ -16,10 +16,8 @@ export function UserPage() {
   const openModal = () => {
     setIsModalOpen(true);
   };
-  const closeModal = () =>{
-      setIsModalOpen(false);
-
-    
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   useEffect(() => {
@@ -32,8 +30,6 @@ export function UserPage() {
     <div>
       <HeaderUserPage name={userName} />
       <Balance balance={balance} balanceAvailable={balanceAvailable} />
-      <button className="button-for-transfer" onClick={openModal}>Fazer Transferência</button>
-      <Transfer isOpen={isModalOpen} onClose={closeModal}/>
       <Historic users={userList} />
     </div>
   );

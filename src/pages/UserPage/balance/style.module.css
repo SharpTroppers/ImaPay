@@ -13,11 +13,30 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
+  padding-left: 1vw;
+  align-items: ;
   width: 90vw;
   height: 50vh;
   border-radius: 1vw;
   border: none;
+}
+.balance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 85vw;
+}
+.button-for-transfer {
+  border: none;
+  width: 14vw;
+  height: 7vh;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #184a55;
+  transition-duration: 0.1s;
+}
+.button-for-transfer:hover {
+  transform: scale(1.05);
 }
 .balance-title {
   width: 90%;
@@ -31,7 +50,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 90%;
+  width: 70vw;
   height: 22vh;
   border-radius: 1vw;
 }

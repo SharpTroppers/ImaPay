@@ -6,13 +6,20 @@ import EyeClose from "../../../assets/img/eye-slash-thin.svg";
 import Clockwise from "../../../assets/img/clock-counter-clockwise-thin.svg";
 import Saque from "../../../assets/img/hand-coins-thin.svg";
 import Historic from "../historic";
-
+import Transfer from "../Transfer";
 interface Props {
   balance: number;
   balanceAvailable: number;
 }
 export function Balance({ balance, balanceAvailable }: Props) {
   const [eye, setEye] = useState(EyeOpen);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   const ChanceClick = () => {
     if (eye === EyeOpen) setEye(EyeClose);
@@ -22,15 +29,21 @@ export function Balance({ balance, balanceAvailable }: Props) {
   return (
     <section className={styles["home-container"]}>
       <section className={styles["balance"]}>
-        <figure className={styles["balance-title"]}>
-          <h2 className={styles["balance-title-h2"]}>Meu Saldo</h2>
-          <img
-            src={eye}
-            alt="simbolo de um olho aberto que após o click muda para um olho fechado"
-            onClick={ChanceClick}
-            className={styles["balance-title-imagem"]}
-          />
-        </figure>
+        <div className={styles["balance-header"]}>
+          <figure className={styles["balance-title"]}>
+            <h2 className={styles["balance-title-h2"]}>Meu Saldo</h2>
+            <img
+              src={eye}
+              alt="simbolo de um olho aberto que após o click muda para um olho fechado"
+              onClick={ChanceClick}
+              className={styles["balance-title-imagem"]}
+            />
+          </figure>
+          <button className={styles["button-for-transfer"]} onClick={openModal}>
+            Transferir
+          </button>
+          <Transfer isOpen={isModalOpen} onClose={closeModal} />
+        </div>
         <div className={styles["balance-container"]}>
           <div className={styles["balance-container-box"]}>
             <div className={styles["balance-container-total"]}>
@@ -65,6 +78,5 @@ export function Balance({ balance, balanceAvailable }: Props) {
         </div>
       </section>
     </section>
-    
   );
 }
