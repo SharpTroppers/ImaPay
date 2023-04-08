@@ -20,11 +20,13 @@ const Transfer = ({ isOpen, onClose }: ModalProps) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    reset,
+    formState,
+    formState: { errors , isSubmitSuccessful },
   } = useForm<FormData>();
 
   const showToastMessage = () => {
-    toast.success("ola", {
+    toast.success("Transferido com sucesso!", {
       position: toast.POSITION.TOP_CENTER,
       className: styles["toast-message"],
       theme: "dark",
@@ -34,9 +36,23 @@ const Transfer = ({ isOpen, onClose }: ModalProps) => {
     }, 5500);
   };
   const onSubmit = (data: FormData) => {
+    data.type = "Transferência";
     // alert(JSON.stringify(data));
     showToastMessage();
   };
+
+  React.useEffect(() => {
+    if( formState.isSubmitSuccessful) {
+        reset({
+            id: 0,
+            valor: 0,
+            type:"",
+            message:""
+    });
+
+    }
+    },[formState, reset])
+
   if (!isOpen) return null;
   return (
     <div className={styles["modal-transfer"]} is-hidden="true">
@@ -48,8 +64,8 @@ const Transfer = ({ isOpen, onClose }: ModalProps) => {
         </div>
         <label>Conta de destino</label>
         <input
-          className={styles["input-account"]}
-          type="number"
+          className={styles["input-value"]}
+          type="string"
           placeholder="Número da conta ou documento"
           {...register("id", { required: true, minLength: 5 })}
         />
@@ -67,7 +83,7 @@ const Transfer = ({ isOpen, onClose }: ModalProps) => {
           <label>Valor a ser transferido</label>
           <input
             className={styles["input-value"]}
-            type="number"
+            type="string"
             min="0.1"
             step={"any"}
             placeholder="Conta ou documento"
@@ -99,29 +115,7 @@ const Transfer = ({ isOpen, onClose }: ModalProps) => {
       </div>
     </div>
   );
-  //className={errors.account && "input-error"}
-
-  //{errors?.account?.type === 'required' && <p className="error-message">Campo obrigatório</p>}
-  /*return(
-        
-        <form className = "form-transfer">
-        <label>Digite o número da conta ou documento do destinatário: </label>
-        <input type="number" id="account-num-or-doc-num"/>
-        <label>Valor a ser transferido: </label>
-        <input type="number"  id="currency-value" min="0.1" step={"any"}/>
-        <input type="text"  id="optional-message"/>
-        <button type="button"></button>
-        </form>
-    )*/
-  // <div className ={styles["modal-success"]}>
-  //     <h1>Transferência feita com sucesso!</h1>
-  //     <p>Detalhes da transferência:</p>
-  //     <p>`Destinatário: ${data.account}`</p>
-  //     <p>`Quantia transferida: ${data.value}`</p>
-
-  // </div>
-  // if(data.message !== null)
-  // <p>`Mensagem: ${data.message}`</p>
+  
 };
 
 export default Transfer;
