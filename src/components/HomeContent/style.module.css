@@ -1,0 +1,87 @@
+.home-container {
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+  width: 90vw;
+  height: 70vh;
+}
+
+.content-boxes {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  justify-items: center;
+  height: 100%;
+  width: 40%;
+}
+
+.image-container {
+  width: 40%;
+  background-image: url(../../assets/img/Star-Destroyer.png);
+  z-index: 1;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.first-box {
+  font-size: 1.5rem;
+}
+
+.second-box {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.publicity-text {
+  line-height: 2rem;
+}
+.signup-box {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-button {
+  background-color: black;
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: baseline;
+  width: 14vw;
+  height: 7vh;
+  border: solid 1px var(--color-secundary-200);
+  border-radius: 8px;
+  cursor: pointer;
+  transition-timing-function: ease;
+  transition-duration: 0.5s;
+  background: #fff
+    linear-gradient(90deg, black 50%, var(--color-secundary-500) 50%);
+  background-position: 0% center;
+  background-size: 200%;
+}
+
+.signup-button:hover {
+  border-color: var(--color-secundary-200);
+  transform: scale(1.05);
+  background-position: 100% center;
+  border: none;
+}
+
+/* .light-saber {
+  background-image: url(../../assets/img/light-saber.jpg);
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+} */
