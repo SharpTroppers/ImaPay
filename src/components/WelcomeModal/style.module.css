@@ -1,6 +1,7 @@
 body {
   position: relative;
   min-height: 100vh;
+  font-weight: 900;
 }
 
 .containerStar {
@@ -24,7 +25,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.9);
   z-index: -1;
 }
 
@@ -39,12 +40,12 @@ body {
 }
 
 .containerStar > .title {
-  font-size: 3rem;
+  font-size: 5rem;
   margin-bottom: 0;
 }
 
 .containerStar > .subtitle {
-  font-size: 2rem;
+  font-size: 3rem;
   margin-top: 0;
 }
 
