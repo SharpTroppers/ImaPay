@@ -24,8 +24,8 @@
   main .loginPage {
     display: flex;
     justify-content: center;
-    width: 450px;
-    height: 500px;
+    width: 27rem;
+    height: 30.60rem;
     background-color: #2e2e2e;
     color: #ffffff;
     border-radius: 10px;
@@ -44,7 +44,7 @@
   }
   
   .formPage form label {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   
   .formPage form label:nth-child(3) {
@@ -55,12 +55,19 @@
     width: 300px;
     height: 40px;
     padding: 0px 10px 0px 10px;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: #ffffff;
     border-radius: 5px;
     background: none;
     border: 1px solid #dadada;
     outline: 0;
+    margin-top: 0.2rem;
+  }
+
+  .formPage form p {
+    margin-top: 0.5rem;
+    color: rgb(240, 79, 79);
+    text-align: center;
   }
   
   .formPage form button {
@@ -73,7 +80,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition-timing-function: ease;
-      transition-duration: 0.5s;
+    transition-duration: 0.5s;
   }
   
   .formPage form button:hover {
