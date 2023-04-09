@@ -1,9 +1,12 @@
-import { NavLink } from "react-router-dom";
+import { NavLink,Link } from "react-router-dom";
 
 import styles from "./HomePage.module.css";
+import { LoginPage } from "../LoginPage/LoginPage";
+import { SignUpPage } from "../SignUpPage/SignUpPage";
 
 export function HomePage() {
   return (
+
     <div className={styles["home-container"]}>
       <div className={`${styles["card-container"]} ${styles["primary-box"]}`}>
         <h1>Inovando para simplificar a sua vida financeira.</h1>

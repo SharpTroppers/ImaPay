@@ -1,0 +1,28 @@
+.navbar{
+
+    align-items: flex-start;
+    background-color: #0d6073;
+    padding: 1.5em;
+
+}
+
+.list{
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+
+}
+
+.item{
+    margin-right: 5vh;
+}
+
+.item a{
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.item :hover{
+    color: #000000;
+
+}
