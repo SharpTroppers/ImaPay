@@ -8,6 +8,12 @@
     align-items: center;
 }
 
+#terms-and-services-error-container {
+    height: 10%;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+}
 
 #terms-and-services-container {
     display: flex;
@@ -16,7 +22,7 @@
     width: 70%;
     height: 14%;
     min-width: 20rem;
-    margin: 5% 0;
+    margin: 5% 0 0 0;
     border: solid #05C7F2;
     border-width: 1px;
     text-align: center;
@@ -177,9 +183,8 @@
 
 .error-message {
     color: red;
-    font-size: 0.75rem;
+    font-size: 1rem;
 }
-
 
 @media screen and (max-width: 1100px) {
     .main-container-style {

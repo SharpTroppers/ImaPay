@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './styles.module.css'
 import { termsAndServicesModel } from '../../models/signupForm'
 
-const TermsAndServiceModal = ({agreeToTermsAndService, hideModal} : termsAndServicesModel) => {
+const TermsAndServiceModal = ({agreeToTermsAndService, toogleModal} : termsAndServicesModel) => {
   return (
     <section id={styles["modal-for-terms-of-service"]}>
     <main id={styles["modal-text-container"]}>
@@ -22,7 +22,7 @@ const TermsAndServiceModal = ({agreeToTermsAndService, hideModal} : termsAndServ
         <button className={styles["modal-buttons-style"]} id={styles["agree-button"]} onClick={agreeToTermsAndService}>
           CONCORDO
         </button>
-        <button className={styles["modal-buttons-style"]} id={styles["disagree-button"]} onClick={hideModal}>
+        <button className={styles["modal-buttons-style"]} id={styles["disagree-button"]} onClick={() => toogleModal(false)}>
           CANCELAR
         </button>
       </footer>

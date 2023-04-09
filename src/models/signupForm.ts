@@ -22,5 +22,5 @@ interface userData {
 
 export interface termsAndServicesModel {
   agreeToTermsAndService: () => void, 
-  hideModal: () => void
+  toogleModal: (booleanValue: boolean) => void
 }

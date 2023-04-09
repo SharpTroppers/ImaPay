@@ -1,13 +1,16 @@
 import React from 'react'
 import styles from './styles.module.css'
+import { Link } from 'react-router-dom'
 
 const SignupFormCloseUp = () => {
   return (
-    <div id={styles["close-container"]} onClick={() => proceedToHomePage()}>
-        <div id={styles["left-right"]}/>
-        <div id={styles["right-left"]}/>
-        <label id={styles["close"]} className={styles["close-label-style"]}>FECHAR</label>
-    </div>
+      <Link to='/'>
+      <div id={styles["close-container"]}>
+          <div id={styles["left-right"]}/>
+          <div id={styles["right-left"]}/>
+          <label id={styles["close"]} className={styles["close-label-style"]}>FECHAR</label>
+      </div>
+      </Link>
   )
 }
 

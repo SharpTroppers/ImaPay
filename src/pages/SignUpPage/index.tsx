@@ -12,16 +12,23 @@ const [formData, setFormData] = useState({
   email:'',
   cpf:'',
   cellphone:'',
-  birthday:''
+  birthday:'',
+  baseAddress:'',
+  baseAddressNumber:'',
+  neighborhood:'',
+  cityName:'',
+  stateName:'',
 })
 
 const stepForward = (event: React.ChangeEvent<HTMLInputElement>) => {
   event.preventDefault();
-  if(step + 1 < 2) setStep(step + 1)
+  console.log('foward', step, step + 1 < 2)
+  if(step + 1 <= 2) setStep(step + 1)
 }
 
 const stepBackward = (event: React.ChangeEvent<HTMLInputElement>) => {
   event.preventDefault();
+  console.log('back')
   if(step - 1 >= 0) setStep(step - 1)
 }
 
@@ -32,39 +39,13 @@ const stepsArray = [
 ]
 
 const stepRender = (stepNumber: number) => {
-  return stepsArray[stepNumber]
+  return stepsArray[2] 
 }
 
   return (
     <div id={styles["signup-main-container"]}>
-  <section id={styles["modal-for-terms-of-service"]}>
-    <main id={styles["modal-text-container"]}>
-      <header id={styles["modal-header-container"]}>
-        <h1>Termos de Serviço</h1>
-      </header>
-      <article id={styles["modal-content-container"]}>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quidem debitis at est facere culpa praesentium
-          quos
-          necessitatibus distinctio cumque consectetur beatae quas, laborum delectus eligendi illum, magnam maxime
-          quibusdam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed dolores ipsum, sapiente reprehenderit
-          inventore modi eum.
-        </p>
-      </article>
-
-      <footer id={styles["modal-footer-container"]}>
-        <button className={styles["modal-buttons-style"]} id={styles["agree-button"]} onClick={() => agreeToTermsAndService()}>
-          CONCORDO
-        </button>
-        <button className={styles["modal-buttons-style"]} id={styles["disagree-button"]} onClick={() => hideModal()}>
-          CANCELAR
-        </button>
-      </footer>
-    </main>
-  </section>
-
-  <aside id={styles["side-image"]}>
-  </aside>
-  {stepRender(step)}
-</div>
+      <aside id={styles["side-image"]}/>
+      {stepRender(step)}
+    </div>
   );
 }
