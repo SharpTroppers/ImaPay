@@ -23,7 +23,10 @@ export function StarWarsOpening({ onClose }: any) {
     <>
       {showOpening && (
         <div className={styles.containerStar}>
-          <animated.h1 className='slide title' style={slide}>
+          <animated.h1
+            className={`${styles.slide} ${styles.title}`}
+            style={slide}
+          >
             Bem vindo a frota novo Trooper...
           </animated.h1>
           <animated.h2
