@@ -27,24 +27,29 @@ const SignupPageStepOne = ({stepForward, formData, setFormData} : any) => {
   const minDate = subYears(new Date(), 100);
 
   const schema = Yup.object({
-    userName: Yup.string()
+    userName: Yup
+      .string()
       .required(requiredMessage)
       .min(3, 'Insira um nome válido')
       .test('has-invalid-character', 'Não utilize caracteres especiais', (value: string) => /^[A-Za-zÀ-ÖØ-öø-ſ\-'. ]+$/.test(value))
       .default(formData.userName),
-    email: Yup.string()
+    email: Yup
+    .string()
       .email('Digite um email válido')
       .required(requiredMessage)
       .default(formData.email),
-    cpf: Yup.string()
+    cpf: Yup
+      .string()
       .required(requiredMessage)
       .test('cpf-valido', 'CPF inválido', (value: any) => cpf.isValid(value))
       .default(formData.cpf),
-    cellphone: Yup.string()
+    cellphone: Yup
+      .string()
       .required(requiredMessage)
       .min(16, 'Digite um telefone válido')
       .default(formData.cellphone),
-    birthday: Yup.date()
+    birthday: Yup
+      .date()
       .required()
       .nullable()
       .transform((dateValue: Date) => dateValue instanceof Date ? dateValue : null)

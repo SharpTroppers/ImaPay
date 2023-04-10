@@ -3,6 +3,7 @@ import SignupPageStepOne from "../../components/SignupPageSteps/SignupPageStepOn
 import SignupPageStepTwo from '../../components/SignupPageSteps/SignupPageStepTwo'
 import SignupPageStepThree from '../../components/SignupPageSteps/SignupPageStepThree'
 import styles from "./styles.module.css";
+import SuccessfullSignup from "../../components/SignupPageSteps/SuccessfullSignup";
 
 export function SignUpPage() {
 
@@ -18,12 +19,14 @@ const [formData, setFormData] = useState({
   neighborhood:'',
   cityName:'',
   stateName:'',
+  accountName: '',
+  password: ''
 })
 
 const stepForward = (event: React.ChangeEvent<HTMLInputElement>) => {
   event.preventDefault();
   console.log('foward', step, step + 1 < 2)
-  if(step + 1 <= 2) setStep(step + 1)
+  if(step + 1 <= 3) setStep(step + 1)
 }
 
 const stepBackward = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,11 +38,12 @@ const stepBackward = (event: React.ChangeEvent<HTMLInputElement>) => {
 const stepsArray = [
   <SignupPageStepOne stepForward={stepForward} formData={formData} setFormData={setFormData}/>, 
   <SignupPageStepTwo stepForward={stepForward} stepBackward={stepBackward} formData={formData} setFormData={setFormData}/>, 
-  <SignupPageStepThree stepForward={stepForward} stepBackward={stepBackward} formData={formData} setFormData={setFormData}/>
+  <SignupPageStepThree stepForward={stepForward} stepBackward={stepBackward} formData={formData} setFormData={setFormData}/>,
+  <SuccessfullSignup/>
 ]
 
 const stepRender = (stepNumber: number) => {
-  return stepsArray[2] 
+  return stepsArray[stepNumber] 
 }
 
   return (

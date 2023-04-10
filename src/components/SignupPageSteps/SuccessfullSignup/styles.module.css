@@ -1,0 +1,83 @@
+.main-container-style {
+    overflow-y: scroll;
+    height: 100%;
+    width: 40%;
+    min-height: 30rem;
+    min-width: 25rem;
+    background-color: #0D0D0D;
+    padding: 1% 1.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.forms-header-container {
+    height: 15%;
+    min-height: 4rem;
+    width: 100%;
+    align-items: center;
+}
+
+.no-button-style {
+    background: none;
+    font: inherit;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+#main-container-success-sign-up-style {
+    justify-content: center;
+    align-items: center;
+}
+
+#submit-button-style-back {
+    font-size: 0.8rem;
+    background-color: transparent;
+    border: 1px solid #E8EAED;
+}
+
+
+#sign-up-go-to-login-page-style {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+    width: 100%;
+}
+
+#sign-up-go-to-login-page-style button {
+    width: 40%;
+    height: 100%;
+    color: #E8EAED;
+    border-radius: 0.25rem;
+    border: 1px solid #E8EAED;
+    padding: 0.625 1.25;
+    font-size: 1rem;
+    background-color: transparent;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+#sign-up-go-to-login-page-style:hover {
+    transform: scale(1.15);
+}
+
+#success-welcome-message-style {
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header-title {
+    font-size: 1.5rem;
+    color: #E8EAED;
+    text-align: center;
+    line-height: 1.5;
+}
+
+#success-icon {
+    height: 40%;
+    margin-bottom: 2rem;
+}
