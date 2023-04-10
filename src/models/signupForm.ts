@@ -21,6 +21,7 @@ export interface userData {
   cpf: string;
   cellphone: string;
   birthday: any;
+  postalCode: string;
   baseAddress: string;
   baseAddressNumber: string;
   neighborhood: string;

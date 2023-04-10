@@ -1,64 +1,62 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import SignupFormCloseUp from '../SingupFormCloseButton';
 import styles from "./styles.module.css";
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import * as Yup from 'yup'
 import {yupResolver} from '@hookform/resolvers/yup'
 import { ErrorMessage } from '@hookform/error-message';
-import { subYears } from 'date-fns';
 import axios from 'axios';
+import { postalCodeFormatter } from '../../../controller/signupControllers/TextFormatterController';
+import SignupHeader from '../../SignupHeader';
+import { errorTagRender } from '../../../controller/signupControllers/ErrorMessageController';
+import { addressDataSchema } from '../../../controller/signupControllers/YupController';
 
 
 const SignupPageStepOne = ({formData, setFormData, stepForward, stepBackward} : any) => {
   const [isLoading, setIsLoading] = useState(false);
-  const requiredMessage = "Campo obrigatório"
+  const [stateNamesArray, setStateNamesArray] = useState([]);
 
-  const schema = Yup.object({
-    postalCode: Yup.string().required(requiredMessage),
-    baseAddress: Yup.string().required(requiredMessage),
-    baseAddressNumber: Yup.string().required(requiredMessage),
-    neighborhood:Yup.string().required(requiredMessage),
-    cityName:Yup.string().required(requiredMessage),
-    stateName:Yup.string().required(requiredMessage)
-  })
+  const getStateNames = async () => {
+    try {
+    const { data } = await axios.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome')
+    setStateNamesArray(data)
+    } catch (erro: any) {
+      console.log('Erro na obtenção dos nomes dos estados: ', erro)
+      setStateNamesArray([])
+    }
+  }
 
-  const errorTagRender = (message: string) =>  (<p className={styles['error-message']}>{message}</p>)
+  useEffect(() => {
+    getStateNames()
+  }, [])
 
-  const { register, handleSubmit, formState: { errors }, control, setValue, watch } = 
+  const { register, handleSubmit, formState: { errors }, setValue, watch } = 
     useForm({
       mode: 'onChange',
       resetOptions: {keepValues: true},
-      resolver: yupResolver(schema),
+      resolver: yupResolver(addressDataSchema(formData)),
     }
   );
 
-  const onSubmit = (data: any, event: React.ChangeEvent<HTMLInputElement>) => {
+  const onSubmit = (data: any) => {
     setFormData({...formData, ...data})
-    console.log(data)
-    stepForward(event);
+    stepForward();
   };
 
-  const postalCodeFormatter = (postalCodeCleanedValue: string) => {
-    const postalCodeBlocksArray = [postalCodeCleanedValue.slice(0,2), postalCodeCleanedValue.slice(2,5), postalCodeCleanedValue.slice(5)]
-    
-      if(postalCodeBlocksArray[1].length >= 1) postalCodeBlocksArray[1] = '.' + postalCodeBlocksArray[1] 
-      if(postalCodeBlocksArray[2].length >= 1) postalCodeBlocksArray[2] = '-' + postalCodeBlocksArray[2]
-    return postalCodeBlocksArray.join('');
- }
-
   const postalCodeNumber = watch('postalCode')
-  const getPostalCodeAddressData =async (postalCodeCleanValue: string) => {
+  const getPostalCodeAddressData = async (postalCodeCleanValue: string) => {
     try {
       const { data } = await axios.get(`https://viacep.com.br/ws/${postalCodeCleanValue}/json/`);
       setTimeout(() => {
-        console.log('data', data)
         const {
           logradouro, bairro, localidade, uf,
         } = data;
         setValue('baseAddress', logradouro || '', {shouldValidate: false})
-        setValue('neighborhood', bairro || '', {shouldValidate: false}),
-        setValue('cityName', localidade || ''), {shouldValidate: false},
-        setValue('stateName', uf || '', {shouldValidate: false});
+        setValue('neighborhood', bairro || '', {shouldValidate: false})
+        setValue('cityName', localidade || ''), {shouldValidate: false}
+        const stateName: any = stateNamesArray.find((state: any) =>  state.sigla === uf)
+
+        setValue('stateName', stateName?.nome || 'Error', {shouldValidate: false});
         setIsLoading(false)
       }, 500);
     } catch (error) {
@@ -66,9 +64,7 @@ const SignupPageStepOne = ({formData, setFormData, stepForward, stepBackward} : 
     }
   };
 
-  
- const postalCodeOnChangeHandler = useCallback(async (event: React.ChangeEvent<HTMLInputElement>) => {
-  console.log('lol3')
+ const postalCodeOnChangeHandler: any = useCallback(async (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     const postalCodeCleanValue = value.replace(/[^\d]/g, '');
     const formattedValue = postalCodeFormatter(postalCodeCleanValue);
@@ -85,9 +81,7 @@ const SignupPageStepOne = ({formData, setFormData, stepForward, stepBackward} : 
   return (
     <>
     <main className={styles["main-container-style"]}>
-      <header className={styles["forms-header-container"]}>
-        <h1 id={styles["header-title"]}>Registro Pessoa Física</h1>
-      </header>
+    <SignupHeader/>
     <SignupFormCloseUp/>
     <form 
       id={styles["form-container-style"]} 
@@ -106,7 +100,7 @@ const SignupPageStepOne = ({formData, setFormData, stepForward, stepBackward} : 
                 <ErrorMessage
                   errors={errors}
                   name='postalCode'
-                  render={({ message }) => errorTagRender(message)}
+                  render={({ message }) => errorTagRender(message, styles)}
                 />
               </div>
             </div>
@@ -123,7 +117,7 @@ const SignupPageStepOne = ({formData, setFormData, stepForward, stepBackward} : 
                   <ErrorMessage
                     errors={errors}
                     name='baseAddress'
-                    render={({ message }) => errorTagRender(message)}
+                    render={({ message }) => errorTagRender(message, styles)}
                   />
                 </div>
             </div>
@@ -138,7 +132,7 @@ const SignupPageStepOne = ({formData, setFormData, stepForward, stepBackward} : 
                   <ErrorMessage
                     errors={errors}
                     name='baseAddressNumber'
-                    render={({ message }) => errorTagRender(message)}
+                    render={({ message }) => errorTagRender(message, styles)}
                   />
                 </div>
             </div>
@@ -155,7 +149,7 @@ const SignupPageStepOne = ({formData, setFormData, stepForward, stepBackward} : 
                   <ErrorMessage
                     errors={errors}
                     name='neighborhood'
-                    render={({ message }) => errorTagRender(message)}
+                    render={({ message }) => errorTagRender(message, styles)}
                   />
                 </div>
             </div>
@@ -172,7 +166,7 @@ const SignupPageStepOne = ({formData, setFormData, stepForward, stepBackward} : 
                   <ErrorMessage
                     errors={errors}
                     name='cityName'
-                    render={({ message }) => errorTagRender(message)}
+                    render={({ message }) => errorTagRender(message, styles)}
                   />
                 </div>
             </div>
@@ -189,7 +183,7 @@ const SignupPageStepOne = ({formData, setFormData, stepForward, stepBackward} : 
                   <ErrorMessage
                     errors={errors}
                     name='stateName'
-                    render={({ message }) => errorTagRender(message)}
+                    render={({ message }) => errorTagRender(message, styles)}
                   />
                 </div>
             </div>

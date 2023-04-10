@@ -31,36 +31,29 @@
     align-items: center;
 }
 
-#submit-button-style-back {
-    font-size: 0.8rem;
-    background-color: transparent;
-    border: 1px solid #E8EAED;
-}
-
-
 #sign-up-go-to-login-page-style {
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10%;
+    height: 15%;
     width: 100%;
 }
 
 #sign-up-go-to-login-page-style button {
+    overflow: hidden;
     width: 40%;
-    height: 100%;
+    height: 70%;
     color: #E8EAED;
+    border-color: #05c7f2;
     border-radius: 0.25rem;
-    border: 1px solid #E8EAED;
-    padding: 0.625 1.25;
     font-size: 1rem;
     background-color: transparent;
-    margin-bottom: 2rem;
     transition: transform 0.3s ease-in-out;
 }
 
 #sign-up-go-to-login-page-style:hover {
-    transform: scale(1.15);
+    transform: scale(1.05);
 }
 
 #success-welcome-message-style {

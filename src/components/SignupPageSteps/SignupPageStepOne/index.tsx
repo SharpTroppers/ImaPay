@@ -9,6 +9,8 @@ import "flatpickr/dist/themes/dark.css";
 import Flatpickr from "react-flatpickr";
 import { cellphoneFormatter, cpfFormatter } from '../../../controller/signupControllers/TextFormatterController';
 import { userDataSchema } from '../../../controller/signupControllers/YupController';
+import SignupHeader from '../../SignupHeader';
+import { errorTagRender } from '../../../controller/signupControllers/ErrorMessageController';
 
 
 const SignupPageStepOne = ({stepForward, formData, setFormData} : any) => {
@@ -62,9 +64,7 @@ const SignupPageStepOne = ({stepForward, formData, setFormData} : any) => {
       </React.Suspense>
     )}
     <main className={styles["main-container-style"]}>
-      <header className={styles["forms-header-container"]}>
-        <h1 id={styles["header-title"]}>Registro Pessoa Física</h1>
-      </header>
+    <SignupHeader/>
     <SignupFormCloseUp/>
     <form id={styles["form-container-style"]} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles["forms-sections-containers"]}>
@@ -78,7 +78,7 @@ const SignupPageStepOne = ({stepForward, formData, setFormData} : any) => {
             <ErrorMessage
           errors={errors}
           name='userName'
-          render={({message}) => <p className={styles['error-message']}>{message}</p>}
+          render={({message}) => errorTagRender(message, styles)}
           />
         </div>
       </div>
@@ -89,7 +89,7 @@ const SignupPageStepOne = ({stepForward, formData, setFormData} : any) => {
             <ErrorMessage
           errors={errors}
           name='email'
-          render={({message}) => <p className={styles['error-message']}>{message}</p>}
+          render={({message}) => errorTagRender(message, styles)}
           />
         </div>
       </div>
@@ -106,7 +106,7 @@ const SignupPageStepOne = ({stepForward, formData, setFormData} : any) => {
             <ErrorMessage
           errors={errors}
           name='cpf'
-          render={({message}) => <p className={styles['error-message']}>{message}</p>}
+          render={({message}) => errorTagRender(message, styles)}
           />
         </div>
       </div>
@@ -122,7 +122,7 @@ const SignupPageStepOne = ({stepForward, formData, setFormData} : any) => {
             <ErrorMessage
           errors={errors}
           name='cellphone'
-          render={({message}) => <p className={styles['error-message']}>{message}</p>}
+          render={({message}) => errorTagRender(message, styles)}
           />
         </div>
       </div>
@@ -154,7 +154,7 @@ const SignupPageStepOne = ({stepForward, formData, setFormData} : any) => {
             <ErrorMessage
           errors={errors}
           name='birthday'
-          render={({message}) => <p className={styles['error-message']}>{message}</p>}
+          render={({message}) => errorTagRender(message, styles)}
           />
         </div>
       </div>
@@ -178,7 +178,7 @@ const SignupPageStepOne = ({stepForward, formData, setFormData} : any) => {
           <ErrorMessage
             errors={errors}
             name='termsAndServices'
-            render={({message}) => <p className={styles['error-message']}>{message}</p>}
+            render={({message}) => errorTagRender(message, styles)}
           />
         </div>
 

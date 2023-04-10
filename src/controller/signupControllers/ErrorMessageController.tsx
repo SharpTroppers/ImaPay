@@ -1,0 +1,1 @@
+export const errorTagRender = (message: string, styles: any) =>  (<p className={styles['error-message']}>{message}</p>)

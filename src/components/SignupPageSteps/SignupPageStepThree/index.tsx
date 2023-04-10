@@ -17,9 +17,8 @@ const SignupPageStepOne = ({formData, setFormData, stepForward, stepBackward, pr
     simbolError: false,
     numberError: false,
   }
-  const [errorListObj, setErrorListObj] = useState ({...errorListObjDefaultValues})
 
-  const requiredMessage = "Campo obrigatório"
+  const [errorListObj, setErrorListObj] = useState ({...errorListObjDefaultValues})
 
   const schema = Yup.object({
     accountName: Yup
@@ -31,7 +30,7 @@ const SignupPageStepOne = ({formData, setFormData, stepForward, stepBackward, pr
     .min(8, 'A senha precisa ter pelo menos 8 caracteres'),
     passwordConfirmation: Yup
     .string()
-    .oneOf([Yup.ref("password"), null], "A senha e confirmação precisam ser identicas")
+    .oneOf([Yup.ref("password")], "A senha e confirmação precisam ser identicas")
     .required("Repita a senha digitada acima"),
   })
 
@@ -44,18 +43,15 @@ const SignupPageStepOne = ({formData, setFormData, stepForward, stepBackward, pr
       resolver: yupResolver(schema, { abortEarly: false })
     }
   );
-  const onSubmit = (data: any, event: React.ChangeEvent<HTMLInputElement>) => {
+  const onSubmit = (data: any) => {
     setFormData({...formData, ...data})
-    console.log(data)
-    stepForward(event);
+    stepForward();
   };
 
   const passwordOnchangeVerificationHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const {value} = event.target
-    console.log('teste2: ', value, value === '')
     if(value === '') return setErrorListObj(errorListObjDefaultValues)
     let errorListObjCopy = {...errorListObj}
-    console.log('lol', value,  /^[^a-z]*$/.test(value))
     errorListObjCopy.capitalLetterError = /^[^A-Z]*$/.test(value)
     errorListObjCopy.lowercaseLetterError = /^[^a-z]*$/.test(value)
     errorListObjCopy.simbolError = /^[a-zA-Z0-9]*$/.test(value)
@@ -63,9 +59,6 @@ const SignupPageStepOne = ({formData, setFormData, stepForward, stepBackward, pr
 
     setErrorListObj(errorListObjCopy)
   }
-useEffect(() => {
-  console.log('erros', errorListObj)
-}, [errorListObj])
 
   return (
     <>

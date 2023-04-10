@@ -14,6 +14,7 @@ const [formData, setFormData] = useState({
   cpf:'',
   cellphone:'',
   birthday:'',
+  postalCode: '',
   baseAddress:'',
   baseAddressNumber:'',
   neighborhood:'',

@@ -44,3 +44,34 @@ export const userDataSchema = (formData: userData) => {
       .default(formData.birthday)
   })
 }
+
+export const addressDataSchema = (formData: userData) => {
+    return Yup.object({
+        postalCode: Yup
+          .string()
+          .required(requiredMessage)
+          .default(formData.postalCode),
+        baseAddress: Yup
+          .string()
+          .required(requiredMessage)
+          .default(formData.baseAddress),
+        baseAddressNumber: Yup
+          .string()
+          .required(requiredMessage)
+          .default(formData.baseAddressNumber),
+        neighborhood:Yup
+          .string()
+          .required(requiredMessage)
+          .default(formData.neighborhood),
+        cityName:Yup
+          .string()
+          .required(requiredMessage)
+          .default(formData.cityName),
+        stateName:Yup
+          .string()
+          .required(requiredMessage)
+          .default(formData.stateName)
+      })
+}
+
+export default {userDataSchema, addressDataSchema}
