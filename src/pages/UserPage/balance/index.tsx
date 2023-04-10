@@ -5,7 +5,7 @@ import EyeOpen from "../../../assets/img/eye-thin.svg";
 import EyeClose from "../../../assets/img/eye-slash-thin.svg";
 import Clockwise from "../../../assets/img/clock-counter-clockwise-thin.svg";
 import Saque from "../../../assets/img/hand-coins-thin.svg";
-import Historic from "../historic";
+import Historic from "../Historic";
 import Transfer from "../Transfer";
 interface Props {
   balance: number;
@@ -34,7 +34,7 @@ export function Balance({ balance, balanceAvailable }: Props) {
             <h2 className={styles["balance-title-h2"]}>Meu Saldo</h2>
             <img
               src={eye}
-              alt="simbolo de um olho aberto que após o click muda para um olho fechado"
+              alt='simbolo de um olho aberto que após o click muda para um olho fechado'
               onClick={ChanceClick}
               className={styles["balance-title-imagem"]}
             />
@@ -48,7 +48,7 @@ export function Balance({ balance, balanceAvailable }: Props) {
           <div className={styles["balance-container-box"]}>
             <div className={styles["balance-container-total"]}>
               <figure className={styles["balance-container-img"]}>
-                <img src={Money} alt="money" />
+                <img src={Money} alt='money' />
               </figure>
               <div className={styles["balance-value"]}>
                 <h2 className={styles["balance-value-title"]}>Saldo total</h2>
@@ -61,7 +61,7 @@ export function Balance({ balance, balanceAvailable }: Props) {
 
             <div className={styles["balance-container-available"]}>
               <figure className={styles["balance-container-img"]}>
-                <img src={Saque} alt="money" />
+                <img src={Saque} alt='money' />
               </figure>
               <div className={styles["balance-value"]}>
                 <h2 className={styles["balance-value-title"]}>

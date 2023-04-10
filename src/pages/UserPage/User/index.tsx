@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./style.module.css";
 import Money from "../../../assets/img/money-bold.svg";
-import { Balance } from "../balance";
+import { Balance } from "../Balance";
 import HeaderUserPage from "../HeaderUserPage";
-import Historic from "../historic";
+import Historic from "../Historic";
 import Transfer from "../Transfer";
 
 export function UserPage() {

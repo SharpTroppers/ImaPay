@@ -1,22 +1,20 @@
 .home-container {
   width: 100%;
-  height: 60vh;
+  height: 45vh;
   display: flex;
   padding-top: 2vw;
   padding-left: 2vw;
   flex-direction: column;
   background-color: #1c1d21;
 }
-
 .balance {
   background-color: var(--color-secundary-500);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   padding-left: 1vw;
-  align-items: ;
   width: 90vw;
-  height: 50vh;
+  height: 40vh;
   border-radius: 1vw;
   border: none;
 }

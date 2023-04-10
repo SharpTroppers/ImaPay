@@ -15,7 +15,7 @@ const Historic: React.FC<UserTableProps> = ({ users }) => {
   const timeElapsed = Date.now();
   const today = new Date(timeElapsed);
   return (
-    <section className={styles["historic-cont"]}>
+    <section className={styles["historic-container"]}>
       <h2 className={styles["historic-subtitle"]}>Histórico </h2>
       <table>
         <thead>
