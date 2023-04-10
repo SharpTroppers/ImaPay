@@ -17,12 +17,14 @@
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.0.6",
+    "react-spring": "^9.7.1",
+    "styled-components": "^5.3.9",
+    "@hookform/resolvers": "^3.0.1",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.10.0",
-    "react-spring": "^9.7.1",
-    "styled-components": "^5.3.9"
+    "react-hook-form": "^7.43.9",
+    "react-router-dom": "^6.10.0"
   },
   "husky": {
     "hooks": {

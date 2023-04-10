@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* body {
+    color: #646464;
+    font-family: "Roboto", sans-serif;
+  } */
+  
+  main {
+    padding: 30px;
+  }
+  main #logo-page img {
+    width: 60px;
+  }
+  
+  main .page {
+    display: flex;
+    justify-content: center;
+  }
+  
+  main .loginPage {
+    display: flex;
+    justify-content: center;
+    width: 27rem;
+    height: 30.60rem;
+    background-color: #2e2e2e;
+    color: #ffffff;
+    border-radius: 10px;
+  }
+  
+  .formPage h2 {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .formPage form {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  
+  .formPage form label {
+    font-size: 1.4rem;
+  }
+  
+  .formPage form label:nth-child(3) {
+    margin-top: 0.62rem;
+  }
+  
+  .formPage form input {
+    width: 300px;
+    height: 40px;
+    padding: 0px 10px 0px 10px;
+    font-size: 1.1rem;
+    color: #ffffff;
+    border-radius: 5px;
+    background: none;
+    border: 1px solid #dadada;
+    outline: 0;
+    margin-top: 0.2rem;
+  }
+
+  .formPage form p {
+    margin-top: 0.5rem;
+    color: rgb(240, 79, 79);
+    text-align: center;
+  }
+  
+  .formPage form button {
+    margin-top: 1.8rem;
+    height: 3.3rem;
+    font-size: 1.3rem;
+    background-color: #0d6073;
+    border: none;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition-timing-function: ease;
+    transition-duration: 0.5s;
+  }
+  
+  .formPage form button:hover {
+    transition: 400ms;
+    border: none;
+    transform: scale(1.02);
+  }
+  
+  .formPage form a {
+    text-align: center;
+    text-decoration: none;
+    color: #1fbee2;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    margin-top: 0.75rem;
+  }
+  
+  .formPage form a:hover {
+    color: #19a0be;
+  }
+  
+  .signupLink {
+    display: flex;
+    gap: 10px;
+    align-items: end;
+  }
+  
