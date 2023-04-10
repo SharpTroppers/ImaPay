@@ -1,6 +1,6 @@
 export interface signupFormStepHandler {
-  stepForward: (event: React.ChangeEvent<HTMLInputElement>) => void
-  stepBackward?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  stepForward: () => void
+  stepBackward?: () => void
 }
 export interface userData {
   formData: {
@@ -23,8 +23,6 @@ export interface userData {
 }
 
 export interface stepProps extends userData, signupFormStepHandler {}
-
-
 
 export interface termsAndServicesModel {
   agreeToTermsAndService: () => void, 
