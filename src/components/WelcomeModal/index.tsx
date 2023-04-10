@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSpring, animated } from "react-spring";
 import styles from "./style.module.css";
 
-export function StarWarsOpening({ onClose }) {
+export function StarWarsOpening({ onClose }: any) {
   const [showOpening, setShowOpening] = useState(true);
 
   const slide = useSpring({
@@ -23,8 +23,8 @@ export function StarWarsOpening({ onClose }) {
     <>
       {showOpening && (
         <div className={styles.containerStar}>
-          <animated.h1 className="slide title" style={slide}>
-            Bem vindo a Frota novo Trooper...
+          <animated.h1 className='slide title' style={slide}>
+            Bem vindo a frota novo Trooper...
           </animated.h1>
           <animated.h2
             className={`${styles["slide"]} ${styles["subtitle"]}`}
@@ -36,7 +36,7 @@ export function StarWarsOpening({ onClose }) {
             className={`${styles["slide"]} ${styles["subtitle"]}`}
             style={slide}
           >
-            Prossiga para uma esperiencia incrivel.
+            Prossiga para uma experiencia incrivel.
           </animated.h3>
           <button className={styles.closeButton} onClick={handleClose}>
             Prosseguir
