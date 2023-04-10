@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  margin: auto;
+  margin-top: 10vh;
+  height: 60vh;
+  width: 40%;
+  background-color: #2e2e2e;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  border-radius: 10px;
+}
+
+.confirm-button {
+  margin-top: 1.8rem;
+  height: 3rem;
+  width: 10rem;
+  font-size: 1.4rem;
+  background-color: #0d6073;
+  border: none;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.5s;
+}
+.confirm-button:hover {
+  transition: 400ms;
+  border: none;
+  transform: scale(1.1);
+}
+.message {
+  text-align: center;
+  font-size: 1.4rem;
+  padding: 40px 20px;
+}

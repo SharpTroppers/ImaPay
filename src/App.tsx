@@ -7,9 +7,7 @@ import { SignUpPage } from "./pages/SignUpPage/SignUpPage";
 import { RootLayout } from "./pages/Root";
 import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 
-
 import "./App.css";
-
 
 const router = createBrowserRouter([
   {
@@ -20,7 +18,7 @@ const router = createBrowserRouter([
       { path: "/", element: <HomePage /> },
       { path: "/user", element: <UserPage /> },
       { path: "/login", element: <LoginPage /> },
-      { path: "/password-recover", element: <PasswordRecoverPage /> },
+      { path: "/password-recovery", element: <PasswordRecoverPage /> },
     ],
   },
   {
