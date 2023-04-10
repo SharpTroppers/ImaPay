@@ -26,13 +26,10 @@
     "flatpickr": "^4.6.13",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
-    "react-datepicker": "^4.11.0",
     "react-dom": "^18.2.0",
     "react-flatpickr": "^3.10.13",
     "react-hook-form": "^7.43.9",
-    "react-modern-calendar-datepicker": "^3.1.6",
     "react-router-dom": "^6.10.0",
-    "styled-components": "^5.3.9",
     "yup": "^1.0.2"
   },
   "husky": {
@@ -44,7 +41,6 @@
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@types/react-flatpickr": "^3.8.8",
-    "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.57.0",
     "@typescript-eslint/parser": "^5.57.0",
     "@vitejs/plugin-react": "^3.1.0",
