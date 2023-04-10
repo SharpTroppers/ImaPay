@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./styles.module.css";
 import { useSpring, animated } from "react-spring";
 
-export function CoockiesNotification(props) {
+export function CookiesNotification(props: any) {
   const [showOpening, setShowOpening] = useState(true);
 
   const slide = useSpring({

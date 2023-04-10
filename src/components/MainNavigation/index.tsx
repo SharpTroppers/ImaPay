@@ -1,22 +1,50 @@
 import styles from "./style.module.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import Icon from "phosphor-react";
+
+import tropperLogo from "../../assets/img/trooper_logo.png";
+import loginImg from "../../assets/img/icone-connexion-grise.png";
 
 export function MainNavigation() {
   return (
-    <div className={styles.navbar}>
-      <ul className={styles.list}>
-        <li className={styles.item}>
-          <Link to='/'>Home</Link>
-        </li>
+    <header className={styles["header-container"]}>
+      <figure>
+        <NavLink className={styles["homepage-link"]} to='/'>
+          <img className={styles["logo-img"]} id='logo' src={tropperLogo} />
+          <span>Ima Pay</span>
+        </NavLink>
+      </figure>
+      <nav className={styles["nav-container"]}>
+        <ul className={styles["nav-options"]}>
+          <li className={styles["nav-option"]}>
+            <a className={styles["nav-link"]} href='#'>
+              Sobre nós
+            </a>
+          </li>
+          <li className={styles["nav-option"]}>
+            <a className={styles["nav-link"]} href='#'>
+              Serviços
+            </a>
+          </li>
+          <li className={styles["nav-option"]}>
+            <a className={styles["nav-link"]} href='#'>
+              Perguntas
+            </a>
+          </li>
+        </ul>
+      </nav>
 
-        <li className={styles.item}>
-          <Link to='/LoginPage'>Login</Link>
-        </li>
-
-        <li className={styles.item}>
-          <Link to='/SignUpPage'>Cadastre-se</Link>
-        </li>
-      </ul>
-    </div>
+      <div className={styles["login-signup-box"]}>
+        <NavLink className={styles["signup-btn"]} to='/signup'>
+          Cadastrar-se
+        </NavLink>
+        <figure className={styles["login-box"]}>
+          <NavLink className={styles["login-btn"]} to='/login'>
+            <span className={styles["login-text"]}>Login</span>
+            <img className={styles["login-img"]} src={loginImg} />
+          </NavLink>
+        </figure>
+      </div>
+    </header>
   );
 }

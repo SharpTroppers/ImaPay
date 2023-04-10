@@ -1,28 +1,99 @@
-.navbar {
-  align-items: flex-start;
-  background-color: #0d6073;
-  padding: 1.5em;
-}
-
-.list {
+.header-container {
+  margin: auto;
+  border-bottom: solid 0.1px;
   display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 10vh;
+  margin-bottom: 2vh;
+  gap: 15vw;
+}
+
+.homepage-link {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  gap: 0.5vw;
+}
+.logo-img {
+  width: 3vw;
+  height: 6vh;
+}
+
+.nav-container {
+  display: flex;
+  width: 40vw;
+}
+.nav-options {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.nav-option {
   list-style: none;
-  justify-content: flex-end;
 }
 
-.item {
-  margin-right: 5vh;
+.nav-link:hover {
+  color: var(--color-secundary-200);
 }
-
-.item a {
-  color: aliceblue;
+.nav-link {
   text-decoration: none;
 }
 
-.item :hover {
-  color: #000000;
-  .nav-box {
-    height: 10vh;
-    border-bottom: solid 1px;
-  }
+.login-signup-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-box {
+  width: 10vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  cursor: pointer;
+}
+.login-text {
+  color: inherit;
+}
+
+.login-box::after {
+  content: "";
+  width: 0px;
+  height: 1px;
+  display: block;
+  transition: 300ms;
+}
+
+.signup-btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.signup-btn:hover {
+  color: var(--color-secundary-200);
+}
+.login-box:hover::after {
+  border-bottom: solid 1px;
+  width: 80%;
+  color: var(--color-secundary-200);
+}
+
+.login-img {
+  width: 3vw;
+  height: 5vh;
+}
+
+.login-btn {
+  display: flex;
+  list-style: none;
+  text-decoration: none;
+  align-items: center;
+  gap: 10px;
+}
+
+.login-btn:hover {
+  color: var(--color-secundary-200);
 }
