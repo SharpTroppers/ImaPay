@@ -1,0 +1,56 @@
+#close {
+    position: absolute;
+    width: 100%;
+    margin: 100% auto 0 auto;
+    text-align: center;
+    color: var(--fbc-white);
+    font-size: .6em;
+    transition: all .3s ease-in;
+    opacity: 0;
+}
+
+/* Ids */
+#close-container {
+    position: absolute;
+    right: 1rem;
+    top: 2rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+#close-container:hover #right-left {
+    transform: rotate(45deg);
+    background-color: #05DBF2;
+}
+
+#close-container:hover #left-right {
+    transform: rotate(-45deg);
+    background-color: #05DBF2;
+}
+
+#close-container:hover label {
+    opacity: 1;
+}
+
+#right-left {
+    height: 8%;
+    width: 100%;
+    position: absolute;
+    margin-top: 50%;
+    background-color: lightgray;
+    border-radius: 2px;
+    transform: rotate(-45deg);
+    transition: all .3s ease-in;
+}
+
+#left-right {
+    height: 8%;
+    width: 100%;
+    position: absolute;
+    margin-top: 50%;
+    background-color: lightgray;
+    border-radius: 2px;
+    transform: rotate(45deg);
+    transition: all .3s ease-in;
+}

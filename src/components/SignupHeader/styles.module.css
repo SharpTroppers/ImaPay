@@ -1,0 +1,12 @@
+.forms-header-container {
+    height: 10%;
+    min-height: 4rem;
+    width: 100%;
+    align-items: center;
+}
+
+#header-title {
+    font-size: 1.5rem;
+    color: #E8EAED;
+    text-align: center;
+}

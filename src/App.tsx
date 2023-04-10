@@ -3,7 +3,7 @@ import { HomePage } from "./pages/HomePage/HomePage";
 import { UserPage } from "./pages/UserPage/User";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
 import { PasswordRecoverPage } from "./pages/PasswordRecoveryPage/PasswordRecoverPage";
-import { SignUpPage } from "./pages/SignUpPage/SignUpPage";
+import { SignUpPage } from "./pages/SignUpPage";
 import { RootLayout } from "./pages/Root";
 import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 
