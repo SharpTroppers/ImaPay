@@ -23,15 +23,11 @@ const [formData, setFormData] = useState({
   password: ''
 })
 
-const stepForward = (event: React.ChangeEvent<HTMLInputElement>) => {
-  event.preventDefault();
-  console.log('foward', step, step + 1 < 2)
+const stepForward = () => {
   if(step + 1 <= 3) setStep(step + 1)
 }
 
-const stepBackward = (event: React.ChangeEvent<HTMLInputElement>) => {
-  event.preventDefault();
-  console.log('back')
+const stepBackward = () => {
   if(step - 1 >= 0) setStep(step - 1)
 }
 

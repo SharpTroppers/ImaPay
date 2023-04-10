@@ -15,9 +15,19 @@ export interface signupFormStepHandler {
   stepBackward?: (event: React.ChangeEvent<HTMLInputElement>) => void
   signupData: signupData
 }
-interface userData {
-  formData: signupData;
-  setFormData: () => void
+export interface userData {
+  userName: string;
+  email: string;
+  cpf: string;
+  cellphone: string;
+  birthday: any;
+  baseAddress: string;
+  baseAddressNumber: string;
+  neighborhood: string;
+  cityName: string;
+  stateName: string;
+  accountName:  string;
+  password: string;
 }
 
 export interface termsAndServicesModel {

@@ -3,13 +3,12 @@ import SignupFormCloseUp from '../SingupFormCloseButton';
 import styles from "./styles.module.css";
 import { useForm, Controller } from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup'
-import * as Yup from 'yup'
-import {cpf} from 'cpf-cnpj-validator'
 import { ErrorMessage } from '@hookform/error-message';
 import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 import "flatpickr/dist/themes/dark.css";
 import Flatpickr from "react-flatpickr";
-import { format, subYears } from 'date-fns';
+import { cellphoneFormatter, cpfFormatter } from '../../../controller/signupControllers/TextFormatterController';
+import { userDataSchema } from '../../../controller/signupControllers/YupController';
 
 
 const SignupPageStepOne = ({stepForward, formData, setFormData} : any) => {
@@ -20,71 +19,19 @@ const SignupPageStepOne = ({stepForward, formData, setFormData} : any) => {
   useEffect(()=>{
     setValue('termsAndServices', checkboxStatusController)
   },[checkboxStatusController])
-  
-
-  const requiredMessage = "Campo obrigatório"
-  const maxDate = subYears(new Date(), 18);
-  const minDate = subYears(new Date(), 100);
-
-  const schema = Yup.object({
-    userName: Yup
-      .string()
-      .required(requiredMessage)
-      .min(3, 'Insira um nome válido')
-      .test('has-invalid-character', 'Não utilize caracteres especiais', (value: string) => /^[A-Za-zÀ-ÖØ-öø-ſ\-'. ]+$/.test(value))
-      .default(formData.userName),
-    email: Yup
-    .string()
-      .email('Digite um email válido')
-      .required(requiredMessage)
-      .default(formData.email),
-    cpf: Yup
-      .string()
-      .required(requiredMessage)
-      .test('cpf-valido', 'CPF inválido', (value: any) => cpf.isValid(value))
-      .default(formData.cpf),
-    cellphone: Yup
-      .string()
-      .required(requiredMessage)
-      .min(16, 'Digite um telefone válido')
-      .default(formData.cellphone),
-    birthday: Yup
-      .date()
-      .required()
-      .nullable()
-      .transform((dateValue: Date) => dateValue instanceof Date ? dateValue : null)
-      .min(minDate, 'Insira uma data válida')
-      .max(maxDate, 'Você precisa ter pelo menos 18 anos.')
-      .typeError('Insira uma data válida'),
-      termsAndServices: Yup.boolean()
-      .oneOf([true], 'Você precisa ler e aceitar os termos de serviços.')
-      .default(formData.birthday)
-  })
 
   const { register, handleSubmit, formState: { errors }, control, setValue, watch } = useForm({
-    mode: 'all',
+    mode: 'onChange',
     resetOptions: {keepValues: true},
-    resolver: yupResolver(schema),
+    resolver: yupResolver(userDataSchema(formData)),
     defaultValues: {...formData}
   });
 
   
-  const onSubmit = (data: any, event: React.ChangeEvent<HTMLInputElement>) => {
+  const onSubmit = (data: any) => {
     setFormData({...formData, ...data})
-    console.log(data)
-    stepForward(event);
+    stepForward();
   };
-
-  const cpfFormatter = (cpfNumber: string) => {
-     const cleanedValue = cpfNumber.replace(/[^\d]/g, '');
-     const cpfBlocksArray = [cleanedValue.slice(0,3), cleanedValue.slice(3,6), cleanedValue.slice(6,9), cleanedValue.slice(9)]
-     
-     for(let i = 1; i < 3; i++){
-       if(cpfBlocksArray[i].length >= 1) cpfBlocksArray[i] = '.' + cpfBlocksArray[i] 
-      }
-      if(cpfBlocksArray[3].length >= 1) cpfBlocksArray[3] = '-' + cpfBlocksArray[3]
-     return cpfBlocksArray.join('');
-  }
 
   const cpfOnChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
@@ -96,21 +43,10 @@ const SignupPageStepOne = ({stepForward, formData, setFormData} : any) => {
     toogleModal(false)
     setCheckboxStatusController(true)
   }
+
   const toogleModal = (booleanValue: boolean) =>{
     setModalController(booleanValue)
   }
-
-  const cellphoneFormatter = (cellphoneNumber: string) => {
-    const cleanedValue = cellphoneNumber.replace(/[^\d]/g, '');
-    const cellphoneBlocksArray = [cleanedValue.slice(0,2), cleanedValue.slice(2,3), cleanedValue.slice(3,7), cleanedValue.slice(7)]
-
-    if(cellphoneBlocksArray[0].length >= 1) cellphoneBlocksArray[0] = '(' + cellphoneBlocksArray[0]
-    if(cellphoneBlocksArray[1].length >= 1) cellphoneBlocksArray[1] =  ') ' + cellphoneBlocksArray[1]
-    if(cellphoneBlocksArray[2].length >= 1) cellphoneBlocksArray[2] =  ' ' + cellphoneBlocksArray[2]
-    if(cellphoneBlocksArray[3].length >= 1) cellphoneBlocksArray[3] =  '-' + cellphoneBlocksArray[3]
-
-    return cellphoneBlocksArray.join('');
- }
 
   const cellphoneOnChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) =>{
     const { value } = event.target;
