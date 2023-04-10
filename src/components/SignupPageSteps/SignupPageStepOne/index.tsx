@@ -11,9 +11,10 @@ import { cellphoneFormatter, cpfFormatter } from '../../../controller/signupCont
 import { userDataSchema } from '../../../controller/signupControllers/YupController';
 import SignupHeader from '../../SignupHeader';
 import { errorTagRender } from '../../../controller/signupControllers/ErrorMessageController';
+import { stepProps } from '../../../models/signupForm';
 
 
-const SignupPageStepOne = ({stepForward, formData, setFormData} : any) => {
+const SignupPageStepOne = ({stepForward, formData, setFormData} : stepProps) => {
   const TermsAndServiceModal = React.lazy(() => import('../../TermsAndServiceModal'));
   const [modalController, setModalController] = useState(false);
   const [checkboxStatusController, setCheckboxStatusController] = useState(false)

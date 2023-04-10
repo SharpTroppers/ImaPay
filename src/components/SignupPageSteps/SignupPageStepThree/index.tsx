@@ -1,48 +1,30 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import SignupFormCloseUp from '../SingupFormCloseButton';
 import styles from "./styles.module.css";
-import { useForm, Controller } from 'react-hook-form';
-import * as Yup from 'yup'
+import { useForm } from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup'
 import { ErrorMessage } from '@hookform/error-message';
+import { accountDataSchema } from '../../../controller/signupControllers/YupController';
+import { errorTagRender } from '../../../controller/signupControllers/ErrorMessageController';
+import SignupHeader from '../../SignupHeader';
 
-interface stepperHandler {
-    stepperHandler: () => void
-}
-
-const SignupPageStepOne = ({formData, setFormData, stepForward, stepBackward, proceedToHomePage} : any) => {
+const SignupPageStepThree = ({formData, setFormData, stepForward, stepBackward, proceedToHomePage} : stepProps) => {
   const errorListObjDefaultValues = {
     capitalLetterError: false,
     lowercaseLetterError: false,
     simbolError: false,
     numberError: false,
   }
-
   const [errorListObj, setErrorListObj] = useState ({...errorListObjDefaultValues})
 
-  const schema = Yup.object({
-    accountName: Yup
-    .string()
-    .min(3,'Digite um usuário válido'),
-    password: Yup
-    .string()
-    .required("Digite uma senha")
-    .min(8, 'A senha precisa ter pelo menos 8 caracteres'),
-    passwordConfirmation: Yup
-    .string()
-    .oneOf([Yup.ref("password")], "A senha e confirmação precisam ser identicas")
-    .required("Repita a senha digitada acima"),
-  })
-
-  const errorTagRender = (message: string) =>  (<p className={styles['error-message']}>{message}</p>)
-
-  const { register, handleSubmit, formState: { errors }, control, setValue, watch } = 
+  const { register, handleSubmit, formState: { errors } } = 
     useForm({
       mode: 'onChange',
       resetOptions: {keepValues: true},
-      resolver: yupResolver(schema, { abortEarly: false })
+      resolver: yupResolver(accountDataSchema())
     }
   );
+
   const onSubmit = (data: any) => {
     setFormData({...formData, ...data})
     stepForward();
@@ -64,9 +46,7 @@ const SignupPageStepOne = ({formData, setFormData, stepForward, stepBackward, pr
     <>
     <main className={styles["main-container-style"]}>
       <SignupFormCloseUp/>
-      <header className={styles["forms-header-container"]}>
-          <h1 id={styles["header-title"]}>Registro Pessoa Física</h1>
-      </header>
+      <SignupHeader/>
       <form 
       id={styles["form-container-style"]} 
       onSubmit={handleSubmit(onSubmit)}
@@ -83,7 +63,7 @@ const SignupPageStepOne = ({formData, setFormData, stepForward, stepBackward, pr
                 <ErrorMessage
                   errors={errors}
                   name='accountName'
-                  render={({ message }) => errorTagRender(message)}
+                  render={({ message }) => errorTagRender(message, styles)}
                 />
               </div>
           </section>
@@ -100,7 +80,7 @@ const SignupPageStepOne = ({formData, setFormData, stepForward, stepBackward, pr
                 <ErrorMessage
                     errors={errors}
                     name='password'
-                    render={({ message }) => errorTagRender(message)}
+                    render={({ message }) => errorTagRender(message, styles)}
                 />
               </div>
           </section>
@@ -116,7 +96,7 @@ const SignupPageStepOne = ({formData, setFormData, stepForward, stepBackward, pr
                 <ErrorMessage
                     errors={errors}
                     name='passwordConfirmation'
-                    render={({ message }) => errorTagRender(message)}
+                    render={({ message }) => errorTagRender(message, styles)}
                   />
               </div>
           </section>
@@ -151,4 +131,4 @@ const SignupPageStepOne = ({formData, setFormData, stepForward, stepBackward, pr
 )
 }
 
-export default SignupPageStepOne
+export default SignupPageStepThree

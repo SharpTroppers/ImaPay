@@ -1,4 +1,4 @@
-import React, {ReactComponentElement} from 'react'
+import React from 'react'
 import styles from './styles.module.css'
 import { Link } from 'react-router-dom'
 import SuccessIcon from '../../../assets/img/tropper_logo.png'

@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useState } from 'react'
 import SignupFormCloseUp from '../SingupFormCloseButton';
 import styles from "./styles.module.css";
 import { useForm } from 'react-hook-form';
-import * as Yup from 'yup'
 import {yupResolver} from '@hookform/resolvers/yup'
 import { ErrorMessage } from '@hookform/error-message';
 import axios from 'axios';
@@ -12,7 +11,7 @@ import { errorTagRender } from '../../../controller/signupControllers/ErrorMessa
 import { addressDataSchema } from '../../../controller/signupControllers/YupController';
 
 
-const SignupPageStepOne = ({formData, setFormData, stepForward, stepBackward} : any) => {
+const SignupPageStepTwo = ({formData, setFormData, stepForward, stepBackward} : stepProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [stateNamesArray, setStateNamesArray] = useState([]);
 
@@ -210,4 +209,4 @@ const SignupPageStepOne = ({formData, setFormData, stepForward, stepBackward} : 
   )
 }
 
-export default SignupPageStepOne
+export default SignupPageStepTwo

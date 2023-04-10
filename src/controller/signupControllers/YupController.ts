@@ -74,4 +74,20 @@ export const addressDataSchema = (formData: userData) => {
       })
 }
 
-export default {userDataSchema, addressDataSchema}
+export const accountDataSchema = () => {
+    
+    return Yup.object({
+    accountName: Yup
+    .string()
+    .min(3,'Digite um usuário válido'),
+    password: Yup
+    .string()
+    .required("Digite uma senha")
+    .min(8, 'A senha precisa ter pelo menos 8 caracteres'),
+    passwordConfirmation: Yup
+    .string()
+    .oneOf([Yup.ref("password")], "A senha e confirmação precisam ser identicas")
+    .required("Repita a senha digitada acima"),
+})}
+
+export default {userDataSchema, addressDataSchema, accountDataSchema}
