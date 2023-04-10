@@ -1,11 +1,13 @@
 import { useState } from "react";
 import styles from "./LoginPage.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export function LoginPage() {
   const [cpf, setCpf] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -18,6 +20,7 @@ export function LoginPage() {
 
     setCpf("");
     setPassword("");
+    navigate("/user");
   };
 
   return (
@@ -53,7 +56,7 @@ export function LoginPage() {
               </div>
               <button type='submit'>Entrar</button>
               <div className={styles.signupLink}>
-                <span>Nao possui uma conta?</span>{" "}
+                <span>Nao possui uma conta?</span>
                 <NavLink to='/signup'>Cadastre-se</NavLink>
               </div>
             </form>
