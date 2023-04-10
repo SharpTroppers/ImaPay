@@ -1,3 +1,4 @@
+/* Ids */
 #form-container-style {
     display: flex;
     flex-direction: column;
@@ -193,14 +194,6 @@
     font-size: 1rem;
 }
 
-/* Media Querys */
-@media screen and (max-width: 1100px) {
-    .main-container-style {
-        width: 100%;
-        min-height: auto;
-    }
-}
-
 .loading-spinner {
     position: absolute;
     width: 16px;
@@ -213,6 +206,14 @@
 
 .input-wrapper {
     position: relative;
+}
+
+/* Media Querys */
+@media screen and (max-width: 1100px) {
+    .main-container-style {
+        width: 100%;
+        min-height: auto;
+    }
 }
 
 @keyframes spin {

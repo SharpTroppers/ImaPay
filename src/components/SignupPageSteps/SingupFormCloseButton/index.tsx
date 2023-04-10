@@ -8,7 +8,7 @@ const SignupFormCloseUp = () => {
       <div id={styles["close-container"]}>
           <div id={styles["left-right"]}/>
           <div id={styles["right-left"]}/>
-          <label id={styles["close"]} className={styles["close-label-style"]}>FECHAR</label>
+          <label id={styles["close"]}>FECHAR</label>
       </div>
       </Link>
   )

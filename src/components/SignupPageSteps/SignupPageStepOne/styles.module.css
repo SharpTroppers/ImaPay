@@ -1,3 +1,4 @@
+/* Ids */
 #form-container-style {
     display: flex;
     flex-direction: column;
@@ -56,13 +57,6 @@
     height: 14%;
 }
 
-/* #submit-button:disabled {
-    background-color: transparent;
-    border: solid #E8EAED;
-    border-width: 1px;
-} */
-
-
 /* Classes */
 
 .submit-button-style {
@@ -120,7 +114,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    /* padding: 5% 0; */
 }
 
 .labels-styling {

@@ -1,3 +1,14 @@
+#close {
+    position: absolute;
+    width: 100%;
+    margin: 100% auto 0 auto;
+    text-align: center;
+    color: var(--fbc-white);
+    font-size: .6em;
+    transition: all .3s ease-in;
+    opacity: 0;
+}
+
 /* Ids */
 #close-container {
     position: absolute;
@@ -8,30 +19,21 @@
     cursor: pointer;
 }
 
-#close-container:hover .right-left {
+#close-container:hover #right-left {
     transform: rotate(45deg);
-    background-color: var(--fbc-blue-70);
+    background-color: #05DBF2;
 }
 
-#close-container:hover .left-right {
+#close-container:hover #left-right {
     transform: rotate(-45deg);
-    background-color: var(--fbc-blue-70);
-}
-
-#close {
-    position: absolute;
-    width: 100%;
-    margin: 100% auto 0 auto;
-    text-align: center;
+    background-color: #05DBF2;
 }
 
 #close-container:hover label {
     opacity: 1;
 }
 
-/* Classes  */
-
-.right-left {
+#right-left {
     height: 8%;
     width: 100%;
     position: absolute;
@@ -42,7 +44,7 @@
     transition: all .3s ease-in;
 }
 
-.left-right {
+#left-right {
     height: 8%;
     width: 100%;
     position: absolute;
@@ -51,11 +53,4 @@
     border-radius: 2px;
     transform: rotate(45deg);
     transition: all .3s ease-in;
-}
-
-.close-label-style {
-    color: var(--fbc-white);
-    font-size: .6em;
-    transition: all .3s ease-in;
-    opacity: 0;
 }

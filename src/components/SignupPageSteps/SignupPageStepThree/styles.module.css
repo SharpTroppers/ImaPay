@@ -1,3 +1,4 @@
+/* Ids */
 #form-container-style {
     display: flex;
     flex-direction: column;
@@ -117,8 +118,6 @@
     background-position: 100% center;
     transform: scale(1.05);
 }
-
-
 
 .no-button-style {
     background: none;

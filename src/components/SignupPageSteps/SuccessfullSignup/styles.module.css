@@ -1,31 +1,4 @@
-.main-container-style {
-    overflow-y: scroll;
-    height: 100%;
-    width: 40%;
-    min-height: 30rem;
-    min-width: 25rem;
-    background-color: #0D0D0D;
-    padding: 1% 1.5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.forms-header-container {
-    height: 15%;
-    min-height: 4rem;
-    width: 100%;
-    align-items: center;
-}
-
-.no-button-style {
-    background: none;
-    font: inherit;
-    cursor: pointer;
-    font-weight: 800;
-}
-
+/* Ids */
 #main-container-success-sign-up-style {
     justify-content: center;
     align-items: center;
@@ -73,4 +46,34 @@
 #success-icon {
     height: 40%;
     margin-bottom: 2rem;
+}
+
+/* Classes */
+
+.main-container-style {
+    overflow-y: scroll;
+    height: 100%;
+    width: 40%;
+    min-height: 30rem;
+    min-width: 25rem;
+    background-color: #0D0D0D;
+    padding: 1% 1.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.forms-header-container {
+    height: 15%;
+    min-height: 4rem;
+    width: 100%;
+    align-items: center;
+}
+
+.no-button-style {
+    background: none;
+    font: inherit;
+    cursor: pointer;
+    font-weight: 800;
 }
