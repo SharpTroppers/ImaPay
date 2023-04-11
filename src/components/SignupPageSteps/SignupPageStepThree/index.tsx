@@ -8,7 +8,7 @@ import { accountDataSchema } from '../../../controller/signupControllers/YupCont
 import { errorTagRender } from '../../../controller/signupControllers/ErrorMessageController';
 import SignupHeader from '../../SignupHeader';
 
-const SignupPageStepThree = ({formData, setFormData, stepForward, stepBackward, proceedToHomePage} : stepProps) => {
+const SignupPageStepThree = ({formData, setFormData, stepForward, stepBackward} : any) => {
   const errorListObjDefaultValues = {
     capitalLetterError: false,
     lowercaseLetterError: false,
