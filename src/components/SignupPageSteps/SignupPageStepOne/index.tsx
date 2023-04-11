@@ -13,23 +13,11 @@ import {
 import { userDataSchema } from "../../../controller/signupControllers/YupController";
 import SignupHeader from "../../SignupHeader";
 import { errorTagRender } from "../../../controller/signupControllers/ErrorMessageController";
-import { stepProps } from "../../../models/signupForm";
-import { cellphoneFormatter, cpfFormatter } from '../../../controller/signupControllers/TextFormatterController';
-import { userDataSchema } from '../../../controller/signupControllers/YupController';
-import SignupHeader from '../../SignupHeader';
-import { errorTagRender } from '../../../controller/signupControllers/ErrorMessageController';
 
-const SignupPageStepOne = ({
-  stepForward,
-  formData,
-  setFormData,
-}: stepProps) => {
+const SignupPageStepOne = ({ stepForward, formData, setFormData }: any) => {
   const TermsAndServiceModal = React.lazy(
     () => import("../../TermsAndServiceModal")
   );
-
-const SignupPageStepOne = ({stepForward, formData, setFormData} : any) => {
-  const TermsAndServiceModal = React.lazy(() => import('../../TermsAndServiceModal'));
   const [modalController, setModalController] = useState(false);
   const [checkboxStatusController, setCheckboxStatusController] =
     useState(false);
