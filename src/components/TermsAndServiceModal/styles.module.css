@@ -48,7 +48,7 @@
     width: 100%;
     border: solid #05C7F2;
     border-width: 0 0 1px 0;
-    padding: 2% 5%;
+    padding: 2% 0;
     text-align: center;
 }
 
@@ -56,15 +56,19 @@
     color: #0D0D0D;
 }
 
-#modal-content-container,
-#modal-content-container p {
+#modal-content-container {
     height: 70%;
     width: 100%;
     padding: 2% 5%;
-    font-size: 1.5rem;
-    color: #0D0D0D;
+    font-size: 1.25rem;
     text-align: justify;
     word-break: break-all;
+}
+
+#modal-content-container p {
+    height: 100%;
+    width: 100%;
+    color: #0D0D0D;
 }
 
 #agree-button {
