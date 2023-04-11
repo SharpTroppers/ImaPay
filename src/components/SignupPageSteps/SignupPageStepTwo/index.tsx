@@ -11,7 +11,7 @@ import { errorTagRender } from '../../../controller/signupControllers/ErrorMessa
 import { addressDataSchema } from '../../../controller/signupControllers/YupController';
 
 
-const SignupPageStepTwo = ({formData, setFormData, stepForward, stepBackward} : stepProps) => {
+const SignupPageStepTwo = ({formData, setFormData, stepForward, stepBackward} : any) => {
   const [isLoading, setIsLoading] = useState(false);
   const [stateNamesArray, setStateNamesArray] = useState([]);
 
