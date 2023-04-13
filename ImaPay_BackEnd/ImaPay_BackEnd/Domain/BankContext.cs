@@ -3,8 +3,8 @@
 using ImaPay_BackEnd.Domain.Model;
 using Microsoft.EntityFrameworkCore;
 
-    public class BankContext:DbContext
-    {
+public class BankContext : DbContext
+{
 
     public DbSet<User> Users { get; set; }
 
@@ -14,8 +14,9 @@ using Microsoft.EntityFrameworkCore;
 
     public DbSet<Transaction> Transactions { get; set; }
 
-    public BankContext(DbContextOptions options):base(options) {
+    public BankContext(DbContextOptions options) : base(options)
+    {
     }
 
-    }
+}
 

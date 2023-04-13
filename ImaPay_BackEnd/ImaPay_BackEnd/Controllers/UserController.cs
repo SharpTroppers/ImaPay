@@ -1,6 +1,6 @@
 ﻿namespace ImaPay_BackEnd.Controllers;
 
-    public class UserController
-    {
-    }
+public class UserController
+{
+}
 

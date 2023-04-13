@@ -1,10 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ImaPay_BackEnd.Domain.Model;
 
-    public class Address:Entity
-    {
-     public string? City { get; set; }
+public class Address : Entity
+{
+    public string? City { get; set; }
     public string? Neighborhood { get; set; }
     public string? Street { get; set; }
 
@@ -16,5 +17,5 @@ namespace ImaPay_BackEnd.Domain.Model;
     [ForeignKey("User")]
     public int UserId { get; set; }
     public virtual User User { get; set; }
-   
-    }
+
+}

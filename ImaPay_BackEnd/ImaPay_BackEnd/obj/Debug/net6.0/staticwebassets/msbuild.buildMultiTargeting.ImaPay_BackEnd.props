@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ImaPay_BackEnd.props" />
+</Project>
