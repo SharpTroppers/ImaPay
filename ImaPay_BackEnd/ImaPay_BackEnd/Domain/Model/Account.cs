@@ -1,6 +1,8 @@
-﻿namespace ImaPay_BackEnd.Domain.Model;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Account
+namespace ImaPay_BackEnd.Domain.Model;
+
+    public class Account:Entity
     {
     public int AccountName { get; set; }
     public long AccountNumber { get; private set; }
@@ -14,5 +16,10 @@
     public bool isLoggedIn { get; set; }
 
     public List<Transaction>? TransactionHistory{ get; set; }
-    }
+
+
+    [ForeignKey("User")]
+    public int UserId { get; set; }
+    public virtual User User { get; set; }
+}
 
