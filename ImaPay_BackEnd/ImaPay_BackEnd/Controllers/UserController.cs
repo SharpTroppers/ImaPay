@@ -14,6 +14,10 @@ public class UserController:ControllerBase
         _bank = context;
     }
 
+    /// <summary>
+    /// Pega todos Usuários
+    /// </summary>
+    /// <returns></returns>
     [HttpGet]
     public IActionResult GetAll()
     {
