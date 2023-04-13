@@ -7,8 +7,6 @@ import { SignUpPage } from "./pages/SignUpPage";
 import { RootLayout } from "./pages/Root";
 import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 
-import "./App.css";
-
 const router = createBrowserRouter([
   {
     path: "/",

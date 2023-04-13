@@ -1,4 +1,5 @@
 import styles from "./style.module.css";
+
 interface FormProps {
   firstLabel: string;
   firstField: string;
@@ -38,7 +39,9 @@ export function Form(props: FormProps) {
       <h2 className={styles["title"]}>{props.title}</h2>
       <form className={styles["forms"]}>
         {inputBox}
-        <button type="submit" onClick={props.clickHandler}>Enviar</button>
+        <button type='submit' onClick={props.clickHandler}>
+          Enviar
+        </button>
       </form>
     </div>
   );
