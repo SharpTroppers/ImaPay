@@ -5,7 +5,6 @@ namespace ImaPay_BackEnd.Domain.Model;
 
 public class Account : Entity
 {
-    [Key]
     public long AccountNumber { get; private set; }
     public int AccountName { get; set; }
 
