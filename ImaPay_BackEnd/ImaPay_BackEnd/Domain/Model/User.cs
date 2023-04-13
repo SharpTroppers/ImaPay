@@ -8,6 +8,10 @@
     public string Password { get; set; }=null!;
     public string Cpf{ get; set; }=null!;
 
+    public string? PhoneNumber { get; set; }
+
+    public string Birthday { get; set; } = null!;
+
     public  Address Address{ get; set; }=null!;
 
     }
