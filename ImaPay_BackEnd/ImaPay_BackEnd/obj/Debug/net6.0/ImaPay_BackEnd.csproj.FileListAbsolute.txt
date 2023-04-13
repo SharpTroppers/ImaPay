@@ -54,3 +54,4 @@ C:\ws-CSharp\ImaPay\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\obj\Debug\net6.0\refint
 C:\ws-CSharp\ImaPay\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\obj\Debug\net6.0\ImaPay_BackEnd.pdb
 C:\ws-CSharp\ImaPay\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\obj\Debug\net6.0\ImaPay_BackEnd.genruntimeconfig.cache
 C:\ws-CSharp\ImaPay\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\obj\Debug\net6.0\ref\ImaPay_BackEnd.dll
+C:\ws-CSharp\ImaPay\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\bin\Debug\net6.0\ImaPay_BackEnd.xml
