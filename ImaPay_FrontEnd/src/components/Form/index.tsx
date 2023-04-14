@@ -11,7 +11,6 @@ interface FormProps {
   clickHandler?: any;
 }
 
-console.log("Hello world");
 export function Form(props: FormProps) {
   let inputBox;
   if (props.numberofinputs == 1) {
