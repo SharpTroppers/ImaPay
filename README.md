@@ -1,36 +1,57 @@
 <h1 align="center">ImaPay SharpTroopers</h1>
 
-<p>O projeto Ima-Pay é um projeto feito durante o bootcamp da <a href="https://imatech.io/">Ima Tech</a> que consiste na criação de uma aplicação de um banco </p>
+<p>O projeto Ima-Pay é um projeto feito durante o bootcamp da <a href="https://imatech.io/">Ima Tech</a> no programa SharpCoders. Neste projeto em grupo fora desenvolvido uma aplicação de um banco, utilizando uma tematica de Star Wars. O projeto é uma aplicação web onde é possivel se cadastrar no site, acessar a sua conta e fazer transferencias ficticias entre contas. Também fora implmentado a funcionalidade de login e autenticação por token JWT</p>
 
-<h4>🚧  Backend 👨‍💻 em construção...  🚧</h4>
+<p>O projeto foi divido em 4 fases distintas, sendo desenvolvido em 4 sprints pelo nosso time</p>
 
-### Features
+- Fase 1: Estruturação dos times e planjamento inicial
+- Fase 2: Desenvolvimento das paginas estaticas apenas com Html, Css e Javascript
+- Fase 3: Migração do site para ReactJS e criação da pagina de usuario
+- Fase 4: Desenvolvimento da logica backend atraves de uma API Rest e conexão com banco de dados MySql
+
+### 🚧 Backend 👨‍💻 em construção... 🚧
+
+### ✨ Features
 
 - [x] Cadastro de usuário
-- [x] Operações Crud
+- [x] Operações CRUD
 - [x] Autenticação com JWT
 - [x] Transferencia entre contas
-- [] Recuperaçãp de senha
+- [x] Recuperaçãp de senha
 
-### 🛠 Tecnologias
+### 🛠️ Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-- [ReactJs](https://pt-br.reactjs.org/)
-- [.Net](https://nodejs.org/en/)
+- [ReactJS](https://pt-br.reactjs.org/)
+- [C#](https://learn.microsoft.com/pt-br/dotnet/core/introduction)
 - [TypeScript](https://www.typescriptlang.org/)
-- [MySql]
-- [Postman]
+- [MySql](https://www.mysql.com/)
+- [Postman](https://www.postman.com/)
+- [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 
-<h4>Integrantes grupo SharpTroopers</h4>
-<p>1 -  Gabriel de Araujo Santos <a>https://github.com/gabriel-josantos</a></p>
-<p>2 -  Felipe Augusto <a>https://github.com/ALCM-bit</a></p>
-<p>3 -  Daniel Da Silva De Carvalho <a>https://github.com/DanieelCarvalho</a></p>
-<p>4 -  Warley Afonso <a>https://github.com/Warleyaf</a></p>
-<p>5 -  Jonas Narvas Balbino <a>https://github.com/JonasNarvas</a></p>
-<p>6 -  Diego Mendes <a>https://github.com/directedby-Mendes</a></p>
-<p>7 -  Allan Gilber <a>https://github.com/allan-gilber</a></p>
-<p>8 - Zaida Catalina Cueto Abelino<a>https://github.com/ZaidaCueto</a></p>
-<p>9 - Alexandre Matos<a>https://github.com/Arodmat</a></p>
-##
-<p>Deploy : <a>https://imapay-troopers.netlify.app/</a></p>
+### 👨‍💻Integrantes grupo SharpTroopers
+
+1 - Gabriel de Araujo Santos - [Repositorio](https://github.com/gabriel-josantos)
+
+2 - Felipe Augusto [Repositorio](https://github.com/ALCM-bit)
+
+3 - Daniel Da Silva De Carvalho [Repositorio](https://github.com/DanieelCarvalho)
+
+4 - Warley Afonso [Repositorio](https://github.com/Warleyaf)
+
+5 - Jonas Narvas Balbino [Repositorio](https://github.com/JonasNarvas)
+
+6 - Diego Mendes [Repositorio](https://github.com/directedby-Mendes)
+
+7 - Allan Gilber [Repositorio](https://github.com/allan-gilber)
+
+8 - Zaida Catalina Cueto Abelino [Repositorio](https://github.com/ZaidaCueto)
+
+9 - Alexandre Matos [Repositorio](https://github.com/Arodmat)
+
+### 🚀 Deploy
+
+<p>O deploy do projeto foi feito no serviço Netlify</p>
+
+Deploy : <https://imapay-troopers.netlify.app>
