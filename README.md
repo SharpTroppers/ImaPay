@@ -34,21 +34,21 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 1 - Gabriel de Araujo Santos - [Repositorio](https://github.com/gabriel-josantos)
 
-2 - Felipe Augusto [Repositorio](https://github.com/ALCM-bit)
+2 - Felipe Augusto - [Repositorio](https://github.com/ALCM-bit)
 
-3 - Daniel Da Silva De Carvalho [Repositorio](https://github.com/DanieelCarvalho)
+3 - Daniel Da Silva De Carvalho - [Repositorio](https://github.com/DanieelCarvalho)
 
-4 - Warley Afonso [Repositorio](https://github.com/Warleyaf)
+4 - Warley Afonso - [Repositorio](https://github.com/Warleyaf)
 
-5 - Jonas Narvas Balbino [Repositorio](https://github.com/JonasNarvas)
+5 - Jonas Narvas Balbino - [Repositorio](https://github.com/JonasNarvas)
 
-6 - Diego Mendes [Repositorio](https://github.com/directedby-Mendes)
+6 - Diego Mendes - [Repositorio](https://github.com/directedby-Mendes)
 
-7 - Allan Gilber [Repositorio](https://github.com/allan-gilber)
+7 - Allan Gilber - [Repositorio](https://github.com/allan-gilber)
 
-8 - Zaida Catalina Cueto Abelino [Repositorio](https://github.com/ZaidaCueto)
+8 - Zaida Catalina Cueto Abelino - [Repositorio](https://github.com/ZaidaCueto)
 
-9 - Alexandre Matos [Repositorio](https://github.com/Arodmat)
+9 - Alexandre Matos - [Repositorio](https://github.com/Arodmat)
 
 ### 🚀 Deploy
 
