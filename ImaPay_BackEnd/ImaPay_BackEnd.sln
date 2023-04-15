@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImaPay_BackEnd", "ImaPay_BackEnd\ImaPay_BackEnd.csproj", "{7ABB0F18-ED00-43D1-979D-F45F2F255439}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7ABB0F18-ED00-43D1-979D-F45F2F255439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ABB0F18-ED00-43D1-979D-F45F2F255439}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ABB0F18-ED00-43D1-979D-F45F2F255439}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ABB0F18-ED00-43D1-979D-F45F2F255439}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {91CF9EC4-975B-4E12-9F43-AC6871497704}
+	EndGlobalSection
+EndGlobal
