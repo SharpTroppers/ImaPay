@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ImaPay_BackEnd.Migrations
 {
     [DbContext(typeof(BankContext))]
-    [Migration("20230413221203_Initial_Migration")]
+    [Migration("20230415004135_Initial_Migration")]
     partial class Initial_Migration
     {
         /// <inheritdoc />

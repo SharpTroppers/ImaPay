@@ -16,7 +16,7 @@ public class Transaction : Entity
 
     public string Receiver { get; set; }
 
-    public Account Account { get; set; }
+    public virtual Account Account { get; set; }
     [ForeignKey("Account")]
     public int AccountId { get; set; }
 
