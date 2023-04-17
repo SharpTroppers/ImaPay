@@ -10,16 +10,16 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:ImaPay_BackEnd.Migrations.Initial_Migration">
+        <member name="T:ImaPay_BackEnd.Migrations.CorreçãodetipagemmodelAccount">
             <inheritdoc />
         </member>
-        <member name="M:ImaPay_BackEnd.Migrations.Initial_Migration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:ImaPay_BackEnd.Migrations.CorreçãodetipagemmodelAccount.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:ImaPay_BackEnd.Migrations.Initial_Migration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:ImaPay_BackEnd.Migrations.CorreçãodetipagemmodelAccount.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:ImaPay_BackEnd.Migrations.Initial_Migration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:ImaPay_BackEnd.Migrations.CorreçãodetipagemmodelAccount.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

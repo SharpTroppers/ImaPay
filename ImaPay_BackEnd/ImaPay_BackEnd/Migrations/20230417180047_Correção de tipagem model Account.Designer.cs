@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ImaPay_BackEnd.Migrations
 {
     [DbContext(typeof(BankContext))]
-    [Migration("20230415004135_Initial_Migration")]
-    partial class Initial_Migration
+    [Migration("20230417180047_Correção de tipagem model Account")]
+    partial class CorreçãodetipagemmodelAccount
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,8 +28,9 @@ namespace ImaPay_BackEnd.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("AccountName")
-                        .HasColumnType("int");
+                    b.Property<string>("AccountName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<long>("AccountNumber")
                         .HasColumnType("bigint");

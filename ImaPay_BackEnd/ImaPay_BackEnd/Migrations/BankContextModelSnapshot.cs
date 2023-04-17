@@ -25,8 +25,9 @@ namespace ImaPay_BackEnd.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("AccountName")
-                        .HasColumnType("int");
+                    b.Property<string>("AccountName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<long>("AccountNumber")
                         .HasColumnType("bigint");
