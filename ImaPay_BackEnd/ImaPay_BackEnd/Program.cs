@@ -30,8 +30,33 @@ builder.Services.AddSwaggerGen(options =>
     options.IncludeXmlComments(xmlCommentsFullPath);
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAnyOrigin",
+        builder =>
+        {
+            builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+        });
+});
+
 
 var app = builder.Build();
+
+app.Use(async (context, next) =>
+{
+    if (context.Request.Method == "OPTIONS")
+    {
+        context.Response.Headers.Add("Access-Control-Allow-Origin", "*");
+        context.Response.Headers.Add("Access-Control-Allow-Headers", "*");
+        context.Response.Headers.Add("Access-Control-Allow-Methods", "*");
+        context.Response.StatusCode = 200;
+    }
+    else
+    {
+        await next();
+    }
+
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -43,6 +68,9 @@ if (app.Environment.IsDevelopment())
         options.RoutePrefix = "";
     });
 }
+
+
+app.UseCors("AllowAnyOrigin");
 
 app.UseHttpsRedirection();
 
