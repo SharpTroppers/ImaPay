@@ -1,8 +1,11 @@
-﻿using ImaPay_BackEnd.Domain;
+﻿using AutoMapper;
+using ImaPay_BackEnd.Domain;
 using ImaPay_BackEnd.Domain.Dtos;
+using ImaPay_BackEnd.Domain.Model;
 using ImaPay_BackEnd.Helpers;
 using ImaPay_BackEnd.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Win32;
 using System.Net;
 
 namespace ImaPay_BackEnd.Controllers;
@@ -12,10 +15,12 @@ namespace ImaPay_BackEnd.Controllers;
 public class UserController : ControllerBase
 {
     private BankContext _bank;
+    //private IMapper _mapper;
 
-    public UserController(BankContext context)
+    public UserController(BankContext context/*, IMapper mapper*/)
     {
         _bank = context;
+       // _mapper = mapper;
     }
 
     /// <summary>
@@ -63,6 +68,37 @@ public class UserController : ControllerBase
     public IActionResult CreateNewPassword([FromBody] ResetPasswordDto resetPasswordDto)
     {
         return Ok(resetPasswordDto);
+    }
+
+    [HttpPost]
+    [Route("login")]
+    public IActionResult UserLogin([FromBody] LoginDto login) {
+        var user = _bank.Users.FirstOrDefault(user => user.Cpf == login.Cpf);
+
+        var isNotCpfRegistered = (user == null);
+
+        var errorResponse = StatusCode(
+                statusCode: (int)HttpStatusCode.Unauthorized,
+                value: new { 
+                    Message = $"Cpf ou a Senha estão incorretos!",
+                    Moment = DateTime.Now
+                }
+            );
+
+        if (isNotCpfRegistered) return errorResponse;
+
+        var isNotAuthorized = !(login.Password == user.Password);
+        if (isNotAuthorized) return errorResponse;
+
+        //var userLogin = _mapper.Map<LoginDto>(user);
+
+        var userLogin = new User
+        {
+            Cpf = login.Cpf,
+            Password = login.Password,
+        };
+
+        return Ok("Deu certo");
     }
 
 
