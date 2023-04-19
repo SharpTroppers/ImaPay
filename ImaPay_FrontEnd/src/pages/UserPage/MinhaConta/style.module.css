@@ -1,0 +1,24 @@
+a {
+  text-decoration: none;
+}
+.container {
+  border: solid;
+  height: 100vh;
+  background-color: #1c1d21;
+}
+.form-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container-set {
+  border: solid;
+  display: flex;
+  height: 50vh;
+  width: 20vw;
+  justify-content: space-evenly;
+  flex-direction: column;
+  background-color: var(--color-secundary-500);
+}

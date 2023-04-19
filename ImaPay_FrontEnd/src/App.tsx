@@ -7,6 +7,7 @@ import { SignUpPage } from "./pages/SignUpPage";
 import { RootLayout } from "./pages/Root";
 import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 import { PasswordResetPage } from "./pages/PasswordResetPage/PasswordResetPage";
+import { MinhaConta } from "./pages/UserPage/MinhaConta";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/user",
     element: <UserPage />,
+  },
+  {
+    path: "/user/minhaconta",
+    element: <MinhaConta />,
   },
 ]);
 
