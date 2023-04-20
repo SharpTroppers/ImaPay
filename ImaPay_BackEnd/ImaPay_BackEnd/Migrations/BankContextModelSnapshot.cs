@@ -130,9 +130,8 @@ namespace ImaPay_BackEnd.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Birthday")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<DateTime>("Birthday")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Cpf")
                         .IsRequired()
