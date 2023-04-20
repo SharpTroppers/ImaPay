@@ -112,3 +112,10 @@ C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_Back
 C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\obj\Debug\net6.0\ImaPay_BackEnd.pdb
 C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\obj\Debug\net6.0\ImaPay_BackEnd.genruntimeconfig.cache
 C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\obj\Debug\net6.0\ref\ImaPay_BackEnd.dll
+C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll

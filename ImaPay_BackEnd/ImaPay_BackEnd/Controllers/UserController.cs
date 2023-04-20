@@ -1,7 +1,10 @@
-﻿using ImaPay_BackEnd.Domain;
+﻿using AutoMapper;
 using ImaPay_BackEnd.Domain.Dtos;
+using ImaPay_BackEnd.Domain.Model;
 using ImaPay_BackEnd.Helpers;
+using ImaPay_BackEnd.Repositories;
 using ImaPay_BackEnd.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -11,11 +14,13 @@ namespace ImaPay_BackEnd.Controllers;
 [Route("/users")]
 public class UserController : ControllerBase
 {
-    private BankContext _bank;
+    private readonly IRepository _userRepository;
+    private readonly IMapper _mapper;
 
-    public UserController(BankContext context)
+    public UserController(IRepository userRepository, IMapper mapper )
     {
-        _bank = context;
+        _mapper = mapper;
+        _userRepository = userRepository;
     }
 
     /// <summary>
@@ -25,7 +30,7 @@ public class UserController : ControllerBase
     [HttpGet]
     public IActionResult GetAll()
     {
-        var users = _bank.Users.ToList();
+        var users = _userRepository.GetAll();
 
         return Ok(users);
     }
@@ -39,17 +44,20 @@ public class UserController : ControllerBase
     [Route("recovery")]
     public IActionResult SendRecoveryEmail([FromBody] UserEmailDto userEmailDto)
     {
-        bool isEmailRegistered = _bank.Users.Any(user => user.Email == userEmailDto.userEmail);
+        var users = _userRepository.GetAll();
+        bool isEmailRegistered = AuthenticationService.isEmailRegistered(users, userEmailDto.Email);
+
+
         if (!isEmailRegistered)
             return StatusCode(statusCode: (int)HttpStatusCode.NotFound,
                 value: new {
-                    Message = $"O email {userEmailDto.userEmail} nao esta cadastrado em nosso sistema",
+                    Message = $"O email {userEmailDto.Email} nao esta cadastrado em nosso sistema",
                     Moment = DateTime.Now
                 });
 
         EmailService.SendEmail(EmailContent.emailSubject,EmailContent.htmlMarkup);
 
-        return Ok(userEmailDto.userEmail);
+        return Ok(userEmailDto.Email);
     }
 
     /// <summary>
@@ -64,6 +72,33 @@ public class UserController : ControllerBase
     {
         return Ok(resetPasswordDto);
     }
+
+    [HttpPost]
+    [Route("login")]
+
+    public IActionResult Login([FromBody] LoginDto loginDto)
+    {
+        var users = _userRepository.GetAll();
+
+        bool isEmailRegistered = AuthenticationService.isEmailRegistered(users, loginDto.Email);
+
+        if (!isEmailRegistered) return NotFound();
+
+        User user = _userRepository.GetByEmail(loginDto.Email);
+
+        bool doesPasswordMatch = AuthenticationService.CheckPasswordMatch(user, loginDto.Password);
+
+        if (!doesPasswordMatch) return StatusCode(403);
+
+        var token =JwtAuth.GenerateToken(user);
+
+        return Ok(new
+        {
+            Token = token,
+            User= user,
+        });
+    }
+
 
 
 }
