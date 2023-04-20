@@ -12,7 +12,12 @@ interface Props {
 function HeaderUserPage({ name }: Props) {
   const [open, setOpen] = useState(false);
   return (
-    <header className={styles["header-container"]}>
+    <header
+      className={styles["header-container"]}
+      onClick={() => {
+        setOpen(!open);
+      }}
+    >
       <h1>Olá, {name} </h1>
       <figure className={styles["header-imagem"]}>
         <img

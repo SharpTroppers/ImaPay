@@ -13,6 +13,11 @@ export function UserPage() {
   // const [userList, setUserList] = useState([]);
   const [balance, setBalance] = useState(50);
   const [balanceAvailable, setBalanceAvailable] = useState(25);
+  const [open, setOpen] = useState(false);
+  const handleClick = () => {
+    setOpen(!open);
+  };
+
   // const [isModalOpen, setIsModalOpen] = useState(false);
   // const openModal = () => {
   //   setIsModalOpen(true);
@@ -28,7 +33,7 @@ export function UserPage() {
   // }, []);
 
   return (
-    <div>
+    <div onClick={handleClick}>
       <HeaderUserPage name={userName} />
       <Balance balance={balance} balanceAvailable={balanceAvailable} />
       <Historic users={transferData} />
