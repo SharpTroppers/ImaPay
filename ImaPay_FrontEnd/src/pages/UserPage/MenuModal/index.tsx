@@ -1,9 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./style.module.css";
 import { MinhaConta } from "../MinhaConta";
-// interface Props {
-//   id: any;
-// }
+
 export const Modal = () => {
   // const hendaleOutsideClick = (e: any) => {
   //   if (e.target.id === id) onClose();

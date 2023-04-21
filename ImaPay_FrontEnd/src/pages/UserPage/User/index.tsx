@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { Balance } from "../Balance";
 import HeaderUserPage from "../HeaderUserPage";
 import Historic from "../Historic";
-
+import { Modal } from "../MenuModal";
 import transferData from "../../../helpers/transferData.json";
 
 export function UserPage() {
@@ -33,7 +33,7 @@ export function UserPage() {
   // }, []);
 
   return (
-    <div onClick={handleClick}>
+    <div>
       <HeaderUserPage name={userName} />
       <Balance balance={balance} balanceAvailable={balanceAvailable} />
       <Historic users={transferData} />
