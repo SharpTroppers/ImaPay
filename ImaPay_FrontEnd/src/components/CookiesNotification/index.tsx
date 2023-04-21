@@ -14,10 +14,10 @@ export function CookiesNotification(props: any) {
     },
   });
 
-  const handleClose = () => {
-    setShowOpening(false);
-    props.onCloseModal(); // chamando a função onCloseModal passada como prop
-  };
+  // const handleClose = () => {
+  //   setShowOpening(false);
+  //   props.onCloseModal(); // chamando a função onCloseModal passada como prop
+  // };
 
   const handleReject = () => {
     setShowOpening(false);
