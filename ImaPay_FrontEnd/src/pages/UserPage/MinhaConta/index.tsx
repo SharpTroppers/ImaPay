@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styles from "./style.module.css";
 import X from "../../../assets/img/x-thin.svg";
-import { string } from "yup";
+//import { string } from "yup";
 interface UserProfile {
   name: string;
   email: string;
