@@ -15,12 +15,12 @@ namespace ImaPay_BackEnd.Controllers;
 public class UserController : ControllerBase
 {
     private BankContext _bank;
-    //private IMapper _mapper;
+    private IMapper _mapper;
 
-    public UserController(BankContext context/*, IMapper mapper*/)
+    public UserController(BankContext context, IMapper mapper)
     {
         _bank = context;
-       // _mapper = mapper;
+        _mapper = mapper;
     }
 
     /// <summary>
@@ -90,13 +90,7 @@ public class UserController : ControllerBase
         var isNotAuthorized = !(login.Password == user.Password);
         if (isNotAuthorized) return errorResponse;
 
-        //var userLogin = _mapper.Map<LoginDto>(user);
-
-        var userLogin = new User
-        {
-            Cpf = login.Cpf,
-            Password = login.Password,
-        };
+        var userLogin = _mapper.Map<LoginDto>(user);
 
         return Ok("Deu certo");
     }
