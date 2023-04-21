@@ -4,6 +4,7 @@ namespace ImaPay_BackEnd.Domain.Model;
 
 public class User : Entity
 {
+    [Required]
     public string Name { get; set; } = null!;
     public string Email { get; set; } = null!;
     public string Password { get; set; } = null!;
@@ -11,11 +12,11 @@ public class User : Entity
 
     public string? PhoneNumber { get; set; }
 
-    public string Birthday { get; set; } = null!;
+    public DateTime Birthday { get; set; }
 
-    public Account Account { get; set; } = null!;
+    public virtual Account Account { get; set; } = null!;
 
-    public Address Address { get; set; } = null!;
+    public virtual Address Address { get; set; } = null!;
 
 }
 

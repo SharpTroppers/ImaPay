@@ -1,6 +1,8 @@
 import { useState } from "react";
 import styles from "./LoginPage.module.css";
 import { NavLink, useNavigate } from "react-router-dom";
+import axios from "axios";
+import jwt_decode from "jwt-decode";
 
 export function LoginPage() {
   const [cpf, setCpf] = useState("");
@@ -9,19 +11,35 @@ export function LoginPage() {
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e: any) => {
+  async function handleSubmit(e: any) {
     e.preventDefault();
 
-    if (cpf === "admin" && password === "admin") {
-      location.href = "/";
-    } else {
+    try {
+      const headers = {
+        "Content-Type": "application/json",
+      };
+      const loginDto = {
+        Cpf: cpf,
+        Password: password,
+      };
+      const response = await axios.post(
+        "https://localhost:7274/users/login",
+        JSON.stringify(loginDto),
+        { headers }
+      );
+      const token = response.data.token;
+
+      localStorage.setItem("Token", token);
+      console.log(jwt_decode(token));
+
+      setCpf("");
+      setPassword("");
+      navigate("/user");
+    } catch (err: any) {
+      console.log(err.response.data.message);
       setError(true);
     }
-
-    setCpf("");
-    setPassword("");
-    navigate("/user");
-  };
+  }
 
   return (
     <main>

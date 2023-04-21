@@ -2,6 +2,7 @@
 {
     public class Constants
     {
+        public static string JWT_SECRET_KEY = "WeAreTheSharpTroopersTeam";
        public static string MAILTRAP_USERNAME = "39538d86f3c87d";
         public static string MAILTRAP_PASSWORD = "f275c0c18c75c7";
         public static string TROOPERS_EMAIL = "troopers@imapay.com";

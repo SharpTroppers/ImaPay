@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ImaPay_BackEnd.Migrations
 {
     [DbContext(typeof(BankContext))]
-    [Migration("20230417180047_Correção de tipagem model Account")]
-    partial class CorreçãodetipagemmodelAccount
+    [Migration("20230421012017_virtual property test 3")]
+    partial class virtualpropertytest3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,9 @@ namespace ImaPay_BackEnd.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.5")
+                .HasAnnotation("Proxies:ChangeTracking", false)
+                .HasAnnotation("Proxies:CheckEquality", false)
+                .HasAnnotation("Proxies:LazyLoading", true)
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("ImaPay_BackEnd.Domain.Model.Account", b =>
@@ -133,9 +136,8 @@ namespace ImaPay_BackEnd.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Birthday")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<DateTime>("Birthday")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Cpf")
                         .IsRequired()

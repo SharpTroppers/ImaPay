@@ -1,19 +1,64 @@
+using ImaPay_BackEnd.Config;
 using ImaPay_BackEnd.Domain;
+using ImaPay_BackEnd.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Proxies;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using System.Reflection;
+using System.Text;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("TroopersConnection");
+
 builder.Services.AddDbContext<BankContext>(options =>
-options.UseMySql(
+options
+.UseLazyLoadingProxies()
+.UseMySql(
     connectionString: connectionString,
         serverVersion: ServerVersion.AutoDetect(connectionString))
 
 );
-builder.Services.AddControllers();
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+{
+    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+    options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+});
+
+
+var jwtSecretKey = Constants.JWT_SECRET_KEY;
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.RequireHttpsMetadata = false;
+    options.SaveToken = true;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtSecretKey)),
+        ValidateIssuer = false,
+        ValidateAudience = false,
+
+
+    };
+
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -41,6 +86,9 @@ builder.Services.AddCors(options =>
 
 
 var app = builder.Build();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.Use(async (context, next) =>
 {
