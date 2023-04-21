@@ -16,7 +16,7 @@ public class Account : Entity
 
     public bool isLoggedIn { get; set; }
 
-    public List<Transaction>? TransactionHistory { get; set; }
+   public virtual ICollection<Transaction> TransactionHistory { get; set; }
 
 
     [ForeignKey("User")]

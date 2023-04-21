@@ -2,11 +2,11 @@
 
 namespace ImaPay_BackEnd.Repositories;
 
-    public interface IRepository
+    public interface IUserRepository
     {
     public List<User> GetAll();
     public User GetById(int id);
 
-    public User GetByEmail(string email);
+    public User GetByCpf(string email);
     }
 

@@ -14,10 +14,10 @@ namespace ImaPay_BackEnd.Controllers;
 [Route("/users")]
 public class UserController : ControllerBase
 {
-    private readonly IRepository _userRepository;
+    private readonly IUserRepository _userRepository;
     private readonly IMapper _mapper;
 
-    public UserController(IRepository userRepository, IMapper mapper )
+    public UserController(IUserRepository userRepository, IMapper mapper )
     {
         _mapper = mapper;
         _userRepository = userRepository;
@@ -80,22 +80,26 @@ public class UserController : ControllerBase
     {
         var users = _userRepository.GetAll();
 
-        bool isEmailRegistered = AuthenticationService.isEmailRegistered(users, loginDto.Email);
+        bool isCpfRegistered = AuthenticationService.isCpfRegistered(users, loginDto.Cpf);
 
-        if (!isEmailRegistered) return NotFound();
+        if (!isCpfRegistered) return StatusCode(statusCode: (int)HttpStatusCode.NotFound,
+                value: new
+                {
+                    Message = $"O Cpf {loginDto.Cpf} nao esta cadastrado em nosso sistema",
+                    Moment = DateTime.Now
+                }); ;
 
-        User user = _userRepository.GetByEmail(loginDto.Email);
+        User user = _userRepository.GetByCpf(loginDto.Cpf);
 
         bool doesPasswordMatch = AuthenticationService.CheckPasswordMatch(user, loginDto.Password);
 
         if (!doesPasswordMatch) return StatusCode(403);
 
-        var token =JwtAuth.GenerateToken(user);
+        string token =JwtAuth.GenerateToken(user);
 
         return Ok(new
         {
-            Token = token,
-            User= user,
+            Token= token,
         });
     }
 

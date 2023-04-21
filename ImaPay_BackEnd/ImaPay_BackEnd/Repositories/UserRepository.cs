@@ -1,9 +1,10 @@
 ﻿using ImaPay_BackEnd.Domain;
 using ImaPay_BackEnd.Domain.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace ImaPay_BackEnd.Repositories;
 
-public class UserRepository : IRepository
+public class UserRepository : IUserRepository
 {
     private readonly BankContext _bank;
 
@@ -21,9 +22,9 @@ public class UserRepository : IRepository
         return GetAll().Find(user => user.Id == id);
     }
 
-    public User GetByEmail(string email)
+    public User GetByCpf(string cpf)
     {
-        return GetAll().Find(user => user.Email.Equals(email));
+        return GetAll().Find(user => user.Cpf.Equals(cpf));
     }
 
 }

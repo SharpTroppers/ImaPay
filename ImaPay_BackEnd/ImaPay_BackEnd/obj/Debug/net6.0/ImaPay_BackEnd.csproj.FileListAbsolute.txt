@@ -119,3 +119,9 @@ C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_Back
 C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\bin\Debug\net6.0\Castle.Core.dll
+C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Proxies.dll
+C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

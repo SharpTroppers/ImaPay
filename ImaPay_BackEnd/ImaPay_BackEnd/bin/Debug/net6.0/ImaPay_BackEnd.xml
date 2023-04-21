@@ -22,16 +22,16 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:ImaPay_BackEnd.Migrations.Correçãodetipagem">
+        <member name="T:ImaPay_BackEnd.Migrations.virtualpropertytest3">
             <inheritdoc />
         </member>
-        <member name="M:ImaPay_BackEnd.Migrations.Correçãodetipagem.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:ImaPay_BackEnd.Migrations.virtualpropertytest3.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:ImaPay_BackEnd.Migrations.Correçãodetipagem.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:ImaPay_BackEnd.Migrations.virtualpropertytest3.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:ImaPay_BackEnd.Migrations.Correçãodetipagem.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:ImaPay_BackEnd.Migrations.virtualpropertytest3.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>
