@@ -30,7 +30,6 @@ export function LoginPage() {
       const token = response.data.token;
 
       localStorage.setItem("Token", token);
-      console.log(jwt_decode(token));
 
       setCpf("");
       setPassword("");
