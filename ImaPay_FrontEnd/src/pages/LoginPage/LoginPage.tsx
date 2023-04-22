@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./LoginPage.module.css";
 import { NavLink, useNavigate } from "react-router-dom";
+import { cpfMask } from "./CpfMask";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 
@@ -48,13 +49,14 @@ export function LoginPage() {
             <h2>Faça seu login</h2>
             <form onSubmit={handleSubmit}>
               <label htmlFor='cpf'>CPF</label>
+
               <input
                 type='string'
                 id='cpf'
-                maxLength={11}
+                maxLength={14}
                 value={cpf}
-                placeholder='CPF'
-                onChange={(e) => setCpf(e.target.value)}
+                placeholder='000.000.000-00'
+                onChange={(e) => setCpf(cpfMask(e.target.value))}
                 className={error ? "error" : ""}
               />
 

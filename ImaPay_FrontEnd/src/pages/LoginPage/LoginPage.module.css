@@ -34,6 +34,7 @@
   .formPage h2 {
     margin-top: 30px;
     text-align: center;
+    letter-spacing: 0.15rem;
   }
   
   .formPage form {
@@ -45,6 +46,7 @@
   
   .formPage form label {
     font-size: 1.4rem;
+    letter-spacing: 0.15rem;
   }
   
   .formPage form label:nth-child(3) {
