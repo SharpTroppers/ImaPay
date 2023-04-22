@@ -8,6 +8,7 @@ import { RootLayout } from "./pages/Root";
 import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 import { PasswordResetPage } from "./pages/PasswordResetPage/PasswordResetPage";
 import { MinhaConta } from "./pages/UserPage/MinhaConta";
+import { RequireAuth } from "./components/RequiredAuth";
 
 const router = createBrowserRouter([
   {
@@ -27,11 +28,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/user",
-    element: <UserPage />,
+    element: (
+      <RequireAuth>
+        <UserPage />
+      </RequireAuth>
+    ),
   },
   {
-    path: "/user/minhaconta",
-    element: <MinhaConta />,
+    path: "/user/minha-conta",
+    element: (
+      <RequireAuth>
+        <MinhaConta />
+      </RequireAuth>
+    ),
   },
 ]);
 

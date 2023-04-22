@@ -9,6 +9,7 @@ export const Modal = () => {
   // };
   const navigate = useNavigate();
   const handleHome = () => {
+    localStorage.removeItem("Token");
     return navigate("/");
   };
 
@@ -16,7 +17,7 @@ export const Modal = () => {
     <div className={styles["navigation-user"]}>
       <ul>
         <li>
-          <Link to={"/user/minhaconta"}>Minha conta</Link>
+          <Link to={"/user/minha-conta"}>Minha conta</Link>
         </li>
         <li onClick={handleHome}>Sair</li>
       </ul>

@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styles from "./style.module.css";
 import X from "../../../assets/img/x-thin.svg";
+import jwt_decode from "jwt-decode";
+
 //import { string } from "yup";
 interface UserProfile {
   name: string;
@@ -21,9 +23,35 @@ export function MinhaConta() {
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [account, setAccount] = useState<Account | null>(null);
 
+  const instance = axios.create({
+    baseURL: "https://localhost:7274",
+    headers: {
+      "Content-Type": "application",
+    },
+  });
+
+  instance.interceptors.request.use((config) => {
+    const token = localStorage.getItem("Token")!;
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  });
+  // instance
+  //   .get("/endpoint")
+  //   .then((response) => {
+  //     console.log(response);
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
+  const token = localStorage.getItem("Token")!;
+
+  const payload = jwt_decode(token) as { Id: string };
+  console.log(payload);
   useEffect(() => {
-    axios
-      .get("https://localhost:7274/users/1")
+    instance
+      .get(`/users/${payload.Id}`)
       .then((response) => {
         setUserProfile(response.data.userProfile);
         setAccount(response.data.account);
