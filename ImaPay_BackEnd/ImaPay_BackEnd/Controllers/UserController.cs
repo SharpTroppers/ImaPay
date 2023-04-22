@@ -7,7 +7,11 @@ using ImaPay_BackEnd.Repositories;
 using ImaPay_BackEnd.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+<<<<<<< HEAD
 using Microsoft.EntityFrameworkCore;
+=======
+using Microsoft.Win32;
+>>>>>>> f401d69c85ab11ae609717f4dc942b233ab0bcdc
 using System.Net;
 
 namespace ImaPay_BackEnd.Controllers;
