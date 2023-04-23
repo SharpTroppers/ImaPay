@@ -10,7 +10,7 @@ public class Account : Entity
 
     public string UserName { get; set; }
     
-    public int Agency { get; set; }
+    public string Agency { get; set; }
 
     public double Balance { get; set; } = 0;
 

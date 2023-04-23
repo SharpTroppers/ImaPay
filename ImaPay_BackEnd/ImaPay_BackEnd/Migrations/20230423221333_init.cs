@@ -48,7 +48,8 @@ namespace ImaPay_BackEnd.Migrations
                     AccountNumber = table.Column<long>(type: "bigint", nullable: false),
                     UserName = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Agency = table.Column<int>(type: "int", nullable: false),
+                    Agency = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     Balance = table.Column<double>(type: "double", nullable: false),
                     isBlocked = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false)

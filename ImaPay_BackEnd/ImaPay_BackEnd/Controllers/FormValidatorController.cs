@@ -1,98 +1,85 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json.Linq;
 using System.Text.RegularExpressions;
 using DocsBr;
-using Microsoft.AspNetCore.Components.Forms;
-using NodaTime;
 using ImaPay_BackEnd.Domain.Dtos;
-using ImaPay_BackEnd.Domain.Models;
-using ImaPay_BackEnd.Migrations;
 
 namespace ImaPay_BackEnd.Controllers
 {
     public class FormValidatorController : Controller
     {
-        List<String> Results = new List<String>();
+        private List<string> Results = new List<string>();
 
-        public List<String> ValidateSignupForm(SignupDto formData)
-        {
-            // User Data
-            ValidateName(formData.UserName);
-            ValidateEmail(formData.Email);
-            ValidateCpf(formData.Cpf);
-            ValidateBirthday(formData.Birthday);
-            // Address
-            ValidatePostalCode(formData.PostalCode);
-            ValidateCommonText(formData.BaseAddress, "baseAddress");
-            ValidateAddressNumber(formData.BaseAddressNumber);
-            ValidateCommonText(formData.Neighborhood, "neighborhood");
-            ValidateCommonText(formData.CityName, "cityName");
-            ValidateCommonText(formData.StateName, "StateName");
-            Console.WriteLine("Total de erros: " + Results.Count);
-            return Results;
-        }
-
-        public void ValidateName(String value)
-        {
-            Regex regex = new Regex(@"^[A-Za-zÀ-ÖØ-öø-ſ\-'. ]+$");
-
-            if(!regex.IsMatch(value)) Results.Add("nameError");
-        }
-
-        public void ValidateEmail(String value) 
-        {
-            Regex regex = new Regex(@"^[a - zA - Z0 - 9] +@[a-zA - Z0 - 9]+\.[a-zA - Z]{");
-            if(!regex.IsMatch(value)) Results.Add("emailError");
-        }
-
-        public void ValidateCpf(String value)
-        {
-            var cpfValidator = new CPF(value);
-            if(cpfValidator.IsValid()) Results.Add("cpfError");
-        }
-
-        public void ValidatePhoneNumber(String value)
-        {
-            Regex regex = new Regex(@"^[A-Za-zÀ-ÖØ-öø-ſ\-'. ]+$");
-            if(regex.IsMatch(value)) Results.Add("phoneNumberError");
-        }
-
-        public void ValidateBirthday(DateTime value)
+        public List<string> ValidateSignupForm(SignupDto formData)
         {
             try
             {
+                // User Data
+                ValidateCommonText(formData.UserName, "userName");
+                ValidateEmail(formData.Email);
+                ValidateCpf(formData.Cpf);
+                ValidateBirthday(formData.Birthday);
+                ValidatePhoneNumber(formData.PhoneNumber);
+                // Address Data
+                ValidatePostalCode(formData.PostalCode);
+                ValidateCommonText(formData.BaseAddress, "baseAddress");
+                ValidateAddressNumber(formData.BaseAddressNumber);
+                ValidateCommonText(formData.Neighborhood, "neighborhood");
+                ValidateCommonText(formData.CityName, "cityName");
+                ValidateCommonText(formData.StateName, "stateName");
+            }
+            catch (Exception ex) {
+                throw ex;
+            }
+            return Results;
+        }
+
+        private void ValidateEmail(string value) 
+        {
+            Regex regex = new Regex(@"^(?!.*@.*@)[^@]*$");
+            if (!regex.IsMatch(value)) Results.Add("emailError");
+        }
+
+        private void ValidateCpf(string value)
+        {
+            var cpfValidator = new CPF(value);
+            if (!cpfValidator.IsValid()) Results.Add("cpfError");
+        }
+
+        private void ValidatePhoneNumber(string value)
+        {
+            Regex regex = new Regex(@"\D+$");
+            if (value.Length == 11) ValidateOnlyNumbers(value, "phoneNumber");
+        }
+
+        private void ValidateBirthday(DateTime value)
+        {
                 DateTime today = DateTime.Today;
                 int userAge = today.Year - value.Year;
-                if(userAge < 18) Results.Add("birthdayError");
-            } catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                Results.Add("birthdayError");
-            }
+                if (userAge < 18) Results.Add("birthdayError");
         }
 
-        public void ValidateAddressNumber(String value)
+        private void ValidateAddressNumber(string value)
         {
-            Regex regex = new Regex(@"^[^0-9A-Za-zÀ-ÖØ-öø-ſ]+$");
-            if (!regex.IsMatch(value)) Results.Add("addressNumberError"); ;
+            Regex regex = new Regex(@"^[a-zA-ZÀ-ÿ0-9\s]*[^a-zA-ZÀ-ÿ0-9\s-][a-zA-ZÀ-ÿ0-9\s]*");
+            if (regex.IsMatch(value)) Results.Add("addressNumberError");
         }
 
-        public void ValidatePostalCode(String value)
+        private void ValidatePostalCode(string value)
         {
             Regex regex = new Regex(@"^\d+$");
-            if (!regex.IsMatch(value) && value.Length == 8) Results.Add("postalCodeError"); ;
+            if (!regex.IsMatch(value) && value.Length == 8) Results.Add("postalCodeError");
         }
 
-        public void ValidateCommonText(String value, String baseNameError)
+        private void ValidateCommonText(string value, string baseNameError)
         {
-            Regex regex = new Regex(@"^[A-Za-zÀ-ÖØ-öø-ſ\\-'. ]+$");
-            if(!regex.IsMatch(value)) Results.Add($"{baseNameError}Error"); ;
+            Regex regex = new Regex(@"[^A-Za-zÀ-ÖØ-öø-ſ\-'. ]");
+            if (regex.IsMatch(value)) Results.Add($"{baseNameError}Error");
         }
 
-        public void ValidateOnlyNumbers(String value, String baseNameError)
+        private void ValidateOnlyNumbers(string value, string baseNameError)
         {
-            Regex regex = new Regex(@"^\d+$");
-            if (!regex.IsMatch(value)) Results.Add($"{baseNameError}Error"); ;
+            Regex regex = new Regex(@"\d$");
+            if (regex.IsMatch(value)) Results.Add($"{baseNameError}Error");
         }
     }
 }

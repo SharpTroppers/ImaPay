@@ -5,19 +5,9 @@ namespace ImaPay_BackEnd.Services;
 
     public class AuthenticationService
     {
-    public static bool isCpfRegistered(List<User> users, string cpf)
-    {
-        return users.Any(user =>user.Cpf.Equals(cpf));
-    }
-    public static bool isEmailRegistered(List<User> users, string email)
-    {
-        return users.Any(user => user.Email.Equals(email));
-    }
-
-    public static bool CheckPasswordMatch(User user, string password)
-    {
-        return user.Password.Equals(password);
-    }
-
+        public static bool CheckPasswordMatch(User user, string password)
+        {
+            return user.Password.Equals(password);
+        }
     }
 

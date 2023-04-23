@@ -2,12 +2,9 @@
 using ImaPay_BackEnd.Domain;
 using ImaPay_BackEnd.Domain.Dtos;
 using ImaPay_BackEnd.Domain.Model;
-using ImaPay_BackEnd.Domain.Profiles;
+using ImaPay_BackEnd.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Principal;
-using System.Text.Json;
-using System.Text.Json.Nodes;
 
 namespace ImaPay_BackEnd.Controllers;
 
@@ -20,11 +17,15 @@ public class SignupController : ControllerBase
 {
     private readonly BankContext _bank;
     private readonly IMapper _mapper;
+    private readonly IUserRepository _userRepository;
+    private readonly IAccountRepository _accountRepository;
 
-    public SignupController(IMapper mapper, BankContext context)
+    public SignupController(IAccountRepository accountRepository, IUserRepository userRepository, IMapper mapper, BankContext context)
     {
         _bank = context;
         _mapper = mapper;
+        _userRepository = userRepository;
+        _accountRepository = accountRepository;
     }
 
     /// <summary>
@@ -37,19 +38,31 @@ public class SignupController : ControllerBase
         var transaction = await _bank.Database.BeginTransactionAsync();
         try
         {
-            Console.WriteLine("lol", bodyData.Cpf);
+            FormValidatorController validator = new FormValidatorController();
+
+
+            List<string> formValidation = validator.ValidateSignupForm(bodyData);
+            if (formValidation.Any()) throw new Exception(string.Join(',', formValidation));
+            
+            List<User> userData = _userRepository.GetAll();
+            if (_userRepository.IsCpfRegistered(userData, bodyData.Cpf)) throw new Exception("cpfAlreadyRegistered");
+            if(_userRepository.IsEmailRegistered(userData, bodyData.Email)) throw new Exception("emailAlreadyRegistered"); ;
+
             var newUser = _mapper.Map<User>(bodyData);
             await _bank.Users.AddAsync(newUser);
-            _bank.SaveChanges();
+            await _bank.SaveChangesAsync();
 
-            Console.WriteLine(newUser.Id);
             var newAddress = _mapper.Map<Address>(bodyData, opts =>
             {
                 opts.AfterMap((src, dest) => dest.UserId = newUser.Id);
             });
             var newAccount = _mapper.Map<Account>(bodyData, opts =>
             {
-                opts.AfterMap((src, dest) => dest.UserId = newUser.Id);
+                opts.AfterMap((src, dest) => {
+                    dest.UserId = newUser.Id;
+                    dest.Agency = "001";
+                    dest.AccountNumber = GenerateRandomAccountNumber();
+                    });
             });
             await _bank.Addresses.AddAsync(newAddress);
             await _bank.Accounts.AddAsync(newAccount);
@@ -62,12 +75,45 @@ public class SignupController : ControllerBase
                 CreatedAt = DateTime.UtcNow
             }; 
             return CreatedAtAction(nameof(Get), responseText);
-            //return Ok(responseText);
         }
-        catch (JsonException ex)
+        catch (DbUpdateException ex)
         {
             transaction.Rollback();
-            return BadRequest("Invalid request body: " + ex.Message);
+            var response = new
+            {
+                Message2 = "Invalid request body",
+                ErrorCode = ex.Message,
+                Time = DateTime.Now
+            };
+            return BadRequest(response);
         }
+        catch (Exception ex)
+        {
+            transaction.Rollback();
+            Console.WriteLine($"Error: {ex.Message}");
+            var response = new
+            {
+                Message = "Invalid request body",
+                ErrorCode = ex.Message,
+                Time = DateTime.Now
+            };
+            return BadRequest(response);
+        }
+    }
+
+    //private async Task<bool> CheckIfUserExists(string userCpf, string userEmail)
+    //{
+    //    List<User> userData = _userRepository.GetAll();
+    //    return _userRepository.IsCpfRegistered(userData, userCpf) && _userRepository.IsEmailRegistered(userData, userEmail);
+    //}
+
+    private int GenerateRandomAccountNumber()
+    {
+        Random random = new Random();
+        int randomNubmer = random.Next(1, 999999);
+        List<Account> userAccounts = _accountRepository.GetAll();
+        bool doesAccountExist = _accountRepository.CheckIfAccountExists(userAccounts, randomNubmer.ToString());
+        if (doesAccountExist) GenerateRandomAccountNumber();
+        return randomNubmer;
     }
 }

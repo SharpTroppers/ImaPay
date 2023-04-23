@@ -11,9 +11,9 @@
         </member>
         <member name="M:ImaPay_BackEnd.Controllers.SignupController.Get(ImaPay_BackEnd.Domain.Dtos.SignupDto)">
             <summary>
-            Returns a hello message.
+            Creates a new account for the user.
             </summary>
-            <returns>The hello message.</returns>
+            <returns>a object with the message "successfull" and the moment of creation.</returns>
         </member>
         <member name="M:ImaPay_BackEnd.Controllers.UserController.GetAll">
             <summary>

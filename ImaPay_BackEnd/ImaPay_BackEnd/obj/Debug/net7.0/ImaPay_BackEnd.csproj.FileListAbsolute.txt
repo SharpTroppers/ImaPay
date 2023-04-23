@@ -56,3 +56,6 @@ E:\FullStack_Developer\impay2\imapay3\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\obj\D
 E:\FullStack_Developer\impay2\imapay3\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\obj\Debug\net7.0\ImaPay_BackEnd.pdb
 E:\FullStack_Developer\impay2\imapay3\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\obj\Debug\net7.0\ImaPay_BackEnd.genruntimeconfig.cache
 E:\FullStack_Developer\impay2\imapay3\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\obj\Debug\net7.0\ref\ImaPay_BackEnd.dll
+E:\FullStack_Developer\impay2\imapay3\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\bin\Debug\net7.0\BCrypt.Net-Next.dll
+E:\FullStack_Developer\impay2\imapay3\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\bin\Debug\net7.0\DocsBr.dll
+E:\FullStack_Developer\impay2\imapay3\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\bin\Debug\net7.0\NodaTime.dll

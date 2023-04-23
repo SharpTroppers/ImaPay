@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ImaPay_BackEnd.Migrations
 {
     [DbContext(typeof(BankContext))]
-    [Migration("20230423164500_init")]
+    [Migration("20230423221333_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -34,8 +34,9 @@ namespace ImaPay_BackEnd.Migrations
                     b.Property<long>("AccountNumber")
                         .HasColumnType("bigint");
 
-                    b.Property<int>("Agency")
-                        .HasColumnType("int");
+                    b.Property<string>("Agency")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<double>("Balance")
                         .HasColumnType("double");

@@ -27,5 +27,14 @@ public class UserRepository : IUserRepository
         return GetAll().Find(user => user.Cpf.Equals(cpf));
     }
 
+    public bool IsCpfRegistered(List<User> users, string cpf)
+    {
+        return users.Any(user => user.Cpf.Equals(cpf));
+    }
+    public bool IsEmailRegistered(List<User> users, string email)
+    {
+        return users.Any(user => user.Email.Equals(email));
+    }
+
 }
 

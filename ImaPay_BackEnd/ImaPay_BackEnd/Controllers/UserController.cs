@@ -4,9 +4,7 @@ using ImaPay_BackEnd.Domain.Model;
 using ImaPay_BackEnd.Helpers;
 using ImaPay_BackEnd.Repositories;
 using ImaPay_BackEnd.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Win32;
 using System.Net;
 
 namespace ImaPay_BackEnd.Controllers;
@@ -46,7 +44,7 @@ public class UserController : ControllerBase
     public IActionResult SendRecoveryEmail([FromBody] UserEmailDto userEmailDto)
     {
         var users = _userRepository.GetAll();
-        bool isEmailRegistered = AuthenticationService.isEmailRegistered(users, userEmailDto.Email);
+        bool isEmailRegistered = _userRepository.IsEmailRegistered(users, userEmailDto.Email);
 
 
         if (!isEmailRegistered)
@@ -81,7 +79,7 @@ public class UserController : ControllerBase
     {
         var users = _userRepository.GetAll();
 
-        bool isCpfRegistered = AuthenticationService.isCpfRegistered(users, loginDto.Cpf);
+        bool isCpfRegistered = _userRepository.IsCpfRegistered(users, loginDto.Cpf);
 
         if (!isCpfRegistered) return StatusCode(statusCode: (int)HttpStatusCode.NotFound,
                 value: new
