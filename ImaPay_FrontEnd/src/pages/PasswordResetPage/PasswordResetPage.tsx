@@ -18,9 +18,13 @@ export function PasswordResetPage() {
       )}
       {!isMessageShown && (
         <Form
-          labels={["Digite sua nova senha", "Confirme a senha"]}
-          ids={["password", "password"]}
-          placeholders={["********", "********"]}
+          labels={[
+            "Digite seu cpf",
+            "Digite sua nova senha",
+            "Confirme a senha",
+          ]}
+          ids={["cpf", "password", "password"]}
+          placeholders={["000", "********", "********"]}
           title={"Cadastro de nova senha"}
           messageHandler={messageHandler}
         />
