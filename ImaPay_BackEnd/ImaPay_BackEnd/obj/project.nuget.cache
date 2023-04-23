@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "II3AuDCXBa1dMibDB8RfYSoldRd1+TwdlfuuvmpOfxCI5Ry8USgAHhG+mZqtlanQsnpgpdQliXLxIhC6APK7xA==",
+  "dgSpecHash": "QQWH8Xw8mhqPtvGQFP0iAm2VenAIkIJGrFraHWX/RsBmrPTpurXN7pkoRJA0YpwNjAKWbFQSTvoErFmJZkSf1A==",
   "success": true,
   "projectFilePath": "E:\\FullStack_Developer\\impay2\\imapay3\\ImaPay\\ImaPay_BackEnd\\ImaPay_BackEnd\\ImaPay_BackEnd.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\allan\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\allan\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "C:\\Users\\allan\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\allan\\.nuget\\packages\\castle.core\\5.1.0\\castle.core.5.1.0.nupkg.sha512",
     "C:\\Users\\allan\\.nuget\\packages\\docsbr\\1.3.1\\docsbr.1.3.1.nupkg.sha512",
     "C:\\Users\\allan\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
