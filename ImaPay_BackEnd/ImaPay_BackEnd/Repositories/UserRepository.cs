@@ -17,6 +17,13 @@ public class UserRepository : IUserRepository
     {
         return _bank.Users.ToList();
     }
+
+    public void ChangePassword(User user, string newPassword) { 
+
+        user.Password = newPassword;
+        _bank.SaveChanges();
+    
+    }
     public User GetById(int id)
     {
         return GetAll().Find(user => user.Id == id);

@@ -10,5 +10,7 @@ namespace ImaPay_BackEnd.Repositories;
     public User GetByCpf(string cpf);
 
     public User GetByEmail(string email);
+
+    public void ChangePassword(User user, string newPassword);
 }
 

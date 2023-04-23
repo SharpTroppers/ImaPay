@@ -79,6 +79,8 @@ public class UserController : ControllerBase
             return StatusCode(400);
 
         User user = _userRepository.GetByCpf(resetPasswordDto.Cpf);
+
+        _userRepository.ChangePassword(user, resetPasswordDto.NewPassword);
         return Ok("Success");
     }
 

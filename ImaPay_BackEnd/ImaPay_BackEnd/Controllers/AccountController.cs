@@ -35,7 +35,6 @@ public class AccountController : ControllerBase
         int receiverAccNumber = transactionDto.ReceiverAccNumber;
 
         Account receiver = _accountRepository.GetByAccountNumber(receiverAccNumber);
-        Console.WriteLine(receiver);
         Account sender = _accountRepository.GetByAccountNumber(senderAccNumber);
 
         _accountRepository.Transfer(transactionDto.Amount, receiver, sender);
