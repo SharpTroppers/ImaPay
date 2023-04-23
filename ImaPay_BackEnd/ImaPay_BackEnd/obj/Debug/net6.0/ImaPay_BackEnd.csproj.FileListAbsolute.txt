@@ -125,3 +125,4 @@ C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_Back
 C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\gabri\OneDrive\Área de Trabalho\SharpCoders\Hackdev\ImaPay\ImaPay_BackEnd\ImaPay_BackEnd\bin\Debug\net6.0\BCrypt.Net-Next.dll

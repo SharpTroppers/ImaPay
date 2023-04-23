@@ -18,7 +18,7 @@ public class UserController : ControllerBase
     private readonly IUserRepository _userRepository;
     private readonly IMapper _mapper;
 
-    public UserController(IUserRepository userRepository, IMapper mapper )
+    public UserController(IUserRepository userRepository, IMapper mapper)
     {
         _mapper = mapper;
         _userRepository = userRepository;
@@ -51,12 +51,16 @@ public class UserController : ControllerBase
 
         if (!isEmailRegistered)
             return StatusCode(statusCode: (int)HttpStatusCode.NotFound,
-                value: new {
+                value: new
+                {
                     Message = $"O email {userEmailDto.Email} nao esta cadastrado em nosso sistema",
                     Moment = DateTime.Now
                 });
 
-        EmailService.SendEmail(EmailContent.emailSubject,EmailContent.htmlMarkup);
+        User user = _userRepository.GetByEmail(userEmailDto.Email);
+
+        EmailService.SendEmail(EmailContent.emailSubject, EmailContent.htmlMarkup);
+
 
         return Ok(userEmailDto.Email);
     }
@@ -71,7 +75,11 @@ public class UserController : ControllerBase
     [Route("reset-password")]
     public IActionResult CreateNewPassword([FromBody] ResetPasswordDto resetPasswordDto)
     {
-        return Ok(resetPasswordDto);
+        if (!AuthenticationService.PasswordResetMatch(resetPasswordDto))
+            return StatusCode(400);
+
+        User user = _userRepository.GetByCpf(resetPasswordDto.Cpf);
+        return Ok("Success");
     }
 
     [HttpPost]
@@ -92,15 +100,17 @@ public class UserController : ControllerBase
 
         User user = _userRepository.GetByCpf(loginDto.Cpf);
 
-        bool doesPasswordMatch = AuthenticationService.CheckPasswordMatch(user, loginDto.Password);
+        string passwordHash = AuthenticationService.HashPassword(loginDto.Password);
+
+        bool doesPasswordMatch = AuthenticationService.CheckPasswordMatch(user, passwordHash);
 
         if (!doesPasswordMatch) return StatusCode(403);
 
-        string token =JwtAuth.GenerateToken(user);
+        string token = JwtAuth.GenerateToken(user);
 
         return Ok(new
         {
-            Token= token,
+            Token = token,
         });
     }
 
