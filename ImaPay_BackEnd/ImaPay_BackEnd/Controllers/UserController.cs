@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ImaPay_BackEnd.Domain;
 using ImaPay_BackEnd.Domain.Dtos;
 using ImaPay_BackEnd.Domain.Model;
 using ImaPay_BackEnd.Helpers;
@@ -6,7 +7,11 @@ using ImaPay_BackEnd.Repositories;
 using ImaPay_BackEnd.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+
+using Microsoft.EntityFrameworkCore;
+
 using Microsoft.Win32;
+
 using System.Net;
 
 namespace ImaPay_BackEnd.Controllers;
@@ -17,6 +22,7 @@ public class UserController : ControllerBase
 {
     private readonly IUserRepository _userRepository;
     private readonly IMapper _mapper;
+    private  readonly BankContext _context;
 
     public UserController(IUserRepository userRepository, IMapper mapper)
     {
@@ -84,6 +90,11 @@ public class UserController : ControllerBase
         return Ok("Success");
     }
 
+    /// <summary>
+    /// Faz o login do usuario
+    /// </summary>
+    /// <returns></returns>
+
     [HttpPost]
     [Route("login")]
 
@@ -116,6 +127,35 @@ public class UserController : ControllerBase
         });
     }
 
+    /// <summary>
+    /// Pega as informações do usuario baseado em seu id
+    /// </summary>
+    /// <returns></returns>
+
+    [HttpGet]
+    [Route("{id}")]
+    public IActionResult GetAccountData(int id)
+    {
+        var user = _userRepository.GetById(id);
+
+
+        if (user == null) return NotFound(new
+        {
+            Moment = DateTime.Now,
+            Message = $"Cannot find user with id= {id}"
+        });
+
+        var userProfile = _mapper.Map<UserProfileDto>(user);
+        var conta = _mapper.Map<UserAccountDto>(user.Account);
+
+        var UserProfileWithAccountDto = new UserProfileWithAccountDto
+        {
+            UserProfile = userProfile,
+            Account = conta
+        };
+
+        return Ok(UserProfileWithAccountDto);
+    }
 
 
 }

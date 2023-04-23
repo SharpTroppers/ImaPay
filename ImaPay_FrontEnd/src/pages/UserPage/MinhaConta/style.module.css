@@ -2,9 +2,7 @@ a {
   text-decoration: none;
 }
 .container {
-  border: solid;
   height: 100vh;
-  background-color: #1c1d21;
 }
 .form-container {
   width: 100%;
@@ -14,11 +12,28 @@ a {
 }
 
 .form-container-set {
-  border: solid;
+  border-radius: 5px;
+  padding-left: 1vw;
   display: flex;
   height: 50vh;
-  width: 20vw;
+  width: 30vw;
   justify-content: space-evenly;
   flex-direction: column;
   background-color: var(--color-secundary-500);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.05),
+    0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05);
+}
+
+.form-container-set input {
+  background-color: var(--color-secundary-500);
+  padding-left: 0.3vw;
+  border-radius: 5px;
+}
+
+.container-figure {
+}
+.container-figure img {
+  cursor: pointer;
+  margin-left: 1vw;
+  margin-top: 1vw;
 }

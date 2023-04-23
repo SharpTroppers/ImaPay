@@ -5,7 +5,7 @@
 }
 .navigation-user ul {
   width: 20vw;
-  height: 12vh;
+  height: 15vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -38,7 +38,4 @@
 .navigation-user a {
   width: 100%;
   text-align: center;
-}
-.navigation-user li:hover {
-  transform: scale(1.05);
 }

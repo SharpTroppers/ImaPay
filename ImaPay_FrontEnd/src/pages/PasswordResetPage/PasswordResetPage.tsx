@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Form } from "../../components/Form";
 import { Message } from "../../components/Message";
-import { useNavigate } from "react-router";
-import axios from "axios";
 
 export function PasswordResetPage() {
   const [isMessageShown, setIsMessageShown] = useState(false);
