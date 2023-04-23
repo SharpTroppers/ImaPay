@@ -5,14 +5,13 @@ namespace ImaPay_BackEnd.Domain.Model;
 
 public class Address : Entity
 {
-    public string? City { get; set; }
-    public string? Neighborhood { get; set; }
-    public string? Street { get; set; }
+    public string PostalCode { get; set; }
+    public string BaseAddress { get; set; }
+    public string BaseAddressNumber { get; set; } = "S/N";
+    public string Neighborhood { get; set; }
+    public string CityName { get; set; }
+    public string StateName { get; set; }
 
-    public string? State { get; set; }
-
-    public int HouseNumber { get; set; }
-    public string? PostalCode { get; set; }
 
     [ForeignKey("User")]
     public int UserId { get; set; }

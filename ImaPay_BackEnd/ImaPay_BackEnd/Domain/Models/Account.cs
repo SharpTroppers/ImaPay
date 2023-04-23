@@ -5,8 +5,9 @@ namespace ImaPay_BackEnd.Domain.Model;
 
 public class Account : Entity
 {
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public long AccountNumber { get; private set; }
-    public string AccountName { get; set; }
+    public string UserName { get; set; }
 
     public int Agency { get; set; }
 
@@ -14,9 +15,7 @@ public class Account : Entity
 
     public bool isBlocked { get; set; }
 
-    public bool isLoggedIn { get; set; }
-
-   public virtual ICollection<Transaction> TransactionHistory { get; set; }
+    public virtual ICollection<Transaction> TransactionHistory { get; set; }
 
 
     [ForeignKey("User")]

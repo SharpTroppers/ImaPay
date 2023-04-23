@@ -19,7 +19,7 @@ public static class JwtAuth
 
         var claims = new List<Claim> {
       new Claim("Id", user.Id.ToString()),
-      new Claim("UserName", user.Name),
+      new Claim("UserName", user.UserName),
       new Claim("AccountId",user.Account.Id.ToString()),
                 };
 

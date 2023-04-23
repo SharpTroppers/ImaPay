@@ -10,7 +10,7 @@ namespace ImaPay_BackEnd.Domain.Profiles
         {
             CreateMap<LoginDto, User>();
             CreateMap<User, LoginDto>();
-
+            CreateMap<SignupDto, User>();
         }
     }
 }
