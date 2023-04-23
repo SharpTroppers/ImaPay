@@ -21,15 +21,13 @@ namespace ImaPay_BackEnd.Controllers;
 public class UserController : ControllerBase
 {
     private readonly IUserRepository _userRepository;
-    private readonly IAccountRepository _accountRepository;
     private readonly IMapper _mapper;
     private  readonly BankContext _context;
 
-    public UserController(IUserRepository userRepository,IAccountRepository accountRepository, IMapper mapper)
+    public UserController(IUserRepository userRepository, IMapper mapper)
     {
         _mapper = mapper;
         _userRepository = userRepository;
-        _accountRepository = accountRepository;
     }
 
     /// <summary>
@@ -92,6 +90,11 @@ public class UserController : ControllerBase
         return Ok("Success");
     }
 
+    /// <summary>
+    /// Faz o login do usuario
+    /// </summary>
+    /// <returns></returns>
+
     [HttpPost]
     [Route("login")]
 
@@ -124,13 +127,17 @@ public class UserController : ControllerBase
         });
     }
 
+    /// <summary>
+    /// Pega as informações do usuario baseado em seu id
+    /// </summary>
+    /// <returns></returns>
+
     [HttpGet]
     [Route("{id}")]
-    public IActionResult GetById(int id)
+    public IActionResult GetAccountData(int id)
     {
         var user = _userRepository.GetById(id);
 
-        //var account = user.Account;
 
         if (user == null) return NotFound(new
         {
