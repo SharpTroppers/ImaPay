@@ -21,14 +21,15 @@ namespace ImaPay_BackEnd.Controllers;
 public class UserController : ControllerBase
 {
     private readonly IUserRepository _userRepository;
+    private readonly IAccountRepository _accountRepository;
     private readonly IMapper _mapper;
     private  readonly BankContext _context;
 
-    public UserController(IUserRepository userRepository, IMapper mapper)
+    public UserController(IUserRepository userRepository,IAccountRepository accountRepository, IMapper mapper)
     {
-        _context = context;
         _mapper = mapper;
         _userRepository = userRepository;
+        _accountRepository = accountRepository;
     }
 
     /// <summary>
@@ -127,18 +128,18 @@ public class UserController : ControllerBase
     [Route("{id}")]
     public IActionResult GetById(int id)
     {
-        var user = _context.Users.FirstOrDefault(u => u.Id == id);
+        var user = _userRepository.GetById(id);
 
-        var teste = _context.Accounts.FirstOrDefault(u => u.UserId == id);
+        //var account = user.Account;
 
         if (user == null) return NotFound(new
         {
             Moment = DateTime.Now,
-            Message = $"TCannor find user with id= {id}"
+            Message = $"Cannot find user with id= {id}"
         });
 
         var userProfile = _mapper.Map<UserProfileDto>(user);
-        var conta = _mapper.Map<UserAccountDto>(teste);
+        var conta = _mapper.Map<UserAccountDto>(user.Account);
 
         var UserProfileWithAccountDto = new UserProfileWithAccountDto
         {

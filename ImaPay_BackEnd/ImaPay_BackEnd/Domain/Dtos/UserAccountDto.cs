@@ -7,6 +7,8 @@ public class UserAccountDto
 {
     public long AccountNumber { get; private set; }
     public int Agency { get; set; }
+
+    public double Balance { get; set; }
   
 
 }
