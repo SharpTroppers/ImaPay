@@ -18,10 +18,9 @@ public static class JwtAuth
         var key = Encoding.ASCII.GetBytes(Constants.JWT_SECRET_KEY);
 
         var claims = new List<Claim> {
-      new Claim("Id", user.Id.ToString()),
-      new Claim("UserName", user.UserName),
-      new Claim("AccountId",user.Account.Id.ToString()),
-                };
+        new Claim("Id", user.Id.ToString()),
+        new Claim("UserName", user.UserName),
+        new Claim("AccountId",user.Account.AccountNumber.ToString())};
 
         var tokenDescriptor = new SecurityTokenDescriptor
         {

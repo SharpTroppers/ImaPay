@@ -5,10 +5,11 @@ namespace ImaPay_BackEnd.Domain.Model;
 
 public class Account : Entity
 {
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public long AccountNumber { get; private set; }
-    public string UserName { get; set; }
 
+    public long AccountNumber { get; set; }
+
+    public string UserName { get; set; }
+    
     public int Agency { get; set; }
 
     public double Balance { get; set; } = 0;

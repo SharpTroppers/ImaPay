@@ -28,31 +28,45 @@ public class SignupController : ControllerBase
     }
 
     /// <summary>
-    /// Returns a hello message.
+    /// Creates a new account for the user.
     /// </summary>
-    /// <returns>The hello message.</returns>
+    /// <returns>a object with the message "successfull" and the moment of creation.</returns>
     [HttpPost]
     public async Task<IActionResult> Get([FromBody] SignupDto bodyData)
     {
+        var transaction = await _bank.Database.BeginTransactionAsync();
         try
         {
             Console.WriteLine("lol", bodyData.Cpf);
-
             var newUser = _mapper.Map<User>(bodyData);
-            var newAddress = _mapper.Map<Address>(bodyData);
-            var newAccount = _mapper.Map<Account>(bodyData);
-
-            var responseText = new { message = "ok" };
-
-            await _bank.Accounts.AddAsync(newAccount);
             await _bank.Users.AddAsync(newUser);
-            await _bank.Addresses.AddAsync(newAddress);
-            await _bank.SaveChangesAsync();
+            _bank.SaveChanges();
 
-            return Ok(responseText);
+            Console.WriteLine(newUser.Id);
+            var newAddress = _mapper.Map<Address>(bodyData, opts =>
+            {
+                opts.AfterMap((src, dest) => dest.UserId = newUser.Id);
+            });
+            var newAccount = _mapper.Map<Account>(bodyData, opts =>
+            {
+                opts.AfterMap((src, dest) => dest.UserId = newUser.Id);
+            });
+            await _bank.Addresses.AddAsync(newAddress);
+            await _bank.Accounts.AddAsync(newAccount);
+            await _bank.SaveChangesAsync();
+            await transaction.CommitAsync();
+            
+            var responseText = new
+            {
+                Message = "Successful",
+                CreatedAt = DateTime.UtcNow
+            }; 
+            return CreatedAtAction(nameof(Get), responseText);
+            //return Ok(responseText);
         }
         catch (JsonException ex)
         {
+            transaction.Rollback();
             return BadRequest("Invalid request body: " + ex.Message);
         }
     }

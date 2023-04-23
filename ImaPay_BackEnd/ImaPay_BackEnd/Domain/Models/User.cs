@@ -1,7 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace ImaPay_BackEnd.Domain.Model;
 
+[Index(nameof(Email), IsUnique = true)]
+[Index(nameof(Cpf), IsUnique = true)]
+[Index(nameof(PhoneNumber), IsUnique = true)]
 public class User : Entity
 {
     [Required]
