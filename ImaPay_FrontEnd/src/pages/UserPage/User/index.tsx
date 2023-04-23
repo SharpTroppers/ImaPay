@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { Balance } from "../Balance";
 import HeaderUserPage from "../HeaderUserPage";
 import Historic from "../Historic";
-
+import { Modal } from "../MenuModal";
 import transferData from "../../../helpers/transferData.json";
 
 export function UserPage() {
@@ -13,6 +13,11 @@ export function UserPage() {
   // const [userList, setUserList] = useState([]);
   const [balance, setBalance] = useState(50);
   const [balanceAvailable, setBalanceAvailable] = useState(25);
+  const [open, setOpen] = useState(false);
+  const handleClick = () => {
+    setOpen(!open);
+  };
+
   // const [isModalOpen, setIsModalOpen] = useState(false);
   // const openModal = () => {
   //   setIsModalOpen(true);

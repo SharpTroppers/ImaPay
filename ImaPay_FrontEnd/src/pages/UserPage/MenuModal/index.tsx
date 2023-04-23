@@ -1,9 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./style.module.css";
 import { MinhaConta } from "../MinhaConta";
-// interface Props {
-//   id: any;
-// }
+
 export const Modal = () => {
   // const hendaleOutsideClick = (e: any) => {
   //   if (e.target.id === id) onClose();
@@ -11,6 +9,7 @@ export const Modal = () => {
   // };
   const navigate = useNavigate();
   const handleHome = () => {
+    localStorage.removeItem("Token");
     return navigate("/");
   };
 
@@ -18,7 +17,7 @@ export const Modal = () => {
     <div className={styles["navigation-user"]}>
       <ul>
         <li>
-          <Link to={"/user/minhaconta"}>Minha conta</Link>
+          <Link to={"/user/minha-conta"}>Minha conta</Link>
         </li>
         <li onClick={handleHome}>Sair</li>
       </ul>

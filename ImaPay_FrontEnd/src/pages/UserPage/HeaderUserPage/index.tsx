@@ -11,17 +11,18 @@ interface Props {
 }
 function HeaderUserPage({ name }: Props) {
   const [open, setOpen] = useState(false);
+  const Modals = "Modals";
+
+  const handleModal = (e: any) => {
+    if (e.target.id === Modals) setOpen(!open);
+    if (e.target.id !== Modals) setOpen(false);
+  };
+
   return (
-    <header className={styles["header-container"]}>
+    <header className={styles["header-container"]} onClick={handleModal}>
       <h1>Olá, {name} </h1>
       <figure className={styles["header-imagem"]}>
-        <img
-          src={User}
-          alt=""
-          onClick={() => {
-            setOpen(!open);
-          }}
-        />
+        <img src={User} alt="" onClick={handleModal} id={Modals} />
         {open && <Modal />}
       </figure>
     </header>
