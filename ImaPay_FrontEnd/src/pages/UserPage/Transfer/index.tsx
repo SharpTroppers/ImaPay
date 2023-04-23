@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import styles from "./style.module.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 interface ModalProps {
   isOpen: boolean;
@@ -36,9 +37,16 @@ const Transfer = ({ isOpen, onClose }: ModalProps) => {
     }, 5500);
   };
   const onSubmit = (data: FormData) => {
-    data.type = "Transferência";
+    axios.post('https://localhost:7274/accounts/transfer', data)
+    .then((response) => {
+      //console.log(response.data);
+    })
+    .catch((error) =>{
+      console.error(error);
+    });
+    //data.type = "Transferência";
     // alert(JSON.stringify(data));
-    showToastMessage();
+    //showToastMessage();
   };
 
   React.useEffect(() => {
