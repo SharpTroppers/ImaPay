@@ -5,6 +5,7 @@
     height: 85%;
     min-height: 30rem;
     width: 100%;
+    padding-top: 10%;
     justify-content: flex-start;
     align-items: center;
 }
@@ -36,19 +37,6 @@
     transform: scale(1.15);
 }
 
-#terms-and-services-checkbox {
-    width: 15%;
-    height: 40%;
-}
-
-#terms-and-services-text {
-    font-size: 1rem;
-}
-
-#terms-and-services-text a {
-    text-decoration: underline;
-}
-
 #nav-button-container {
     display: flex;
     justify-content: space-around;
@@ -75,13 +63,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 20%;
+    height: 30%;
     padding: 0 1rem;
 }
 
 #forms-sections-container-for-password-checkup p {
     width: 60%;
     min-width: 14rem;
+    font-size: 1.2rem;
 }
 
 #main-container-success-sign-up-style {
