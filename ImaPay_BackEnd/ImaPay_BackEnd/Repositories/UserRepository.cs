@@ -17,6 +17,13 @@ public class UserRepository : IUserRepository
     {
         return _bank.Users.ToList();
     }
+
+    public void ChangePassword(User user, string newPassword) { 
+
+        user.Password = newPassword;
+        _bank.SaveChanges();
+    
+    }
     public User GetById(int id)
     {
         return GetAll().Find(user => user.Id == id);
@@ -25,6 +32,11 @@ public class UserRepository : IUserRepository
     public User GetByCpf(string cpf)
     {
         return GetAll().Find(user => user.Cpf.Equals(cpf));
+    }
+
+    public User GetByEmail(string email) {
+
+        return GetAll().Find(user => user.Email.Equals(email));
     }
 
     public bool IsCpfRegistered(List<User> users, string cpf)

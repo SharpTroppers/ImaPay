@@ -9,6 +9,7 @@ export function LoginPage() {
   const [cpf, setCpf] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -23,6 +24,7 @@ export function LoginPage() {
         Cpf: cpf,
         Password: password,
       };
+      setIsLoading(true);
       const response = await axios.post(
         "https://localhost:7274/users/login",
         JSON.stringify(loginDto),
@@ -31,7 +33,7 @@ export function LoginPage() {
       const token = response.data.token;
 
       localStorage.setItem("Token", token);
-
+      setIsLoading(false);
       setCpf("");
       setPassword("");
       navigate("/user");
@@ -73,7 +75,9 @@ export function LoginPage() {
               <div className='forgot-password'>
                 <NavLink to='/password-recovery'>Esqueceu a senha?</NavLink>
               </div>
-              <button type='submit'>Entrar</button>
+              <button type='submit'>
+                {isLoading ? "...Carregando" : "Entrar"}
+              </button>
               <div className={styles.signupLink}>
                 <span>Nao possui uma conta?</span>
                 <NavLink to='/signup'>Cadastre-se</NavLink>

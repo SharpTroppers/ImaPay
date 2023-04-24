@@ -17,6 +17,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("TroopersConnection");
 
+// //DataBase - Production String
+// var mySqlUrl = Environment.GetEnvironmentVariable("MYSQL_URL");
+// var mySqlDatabase = Environment.GetEnvironmentVariable("MYSQLDATABASE");
+// var mySqlHost = Environment.GetEnvironmentVariable("MYSQLHOST");
+// var mySqlPassword = Environment.GetEnvironmentVariable("MYSQLPASSWORD");
+// var mySqlPort = Environment.GetEnvironmentVariable("MYSQLPORT");
+// var mySqlUser = Environment.GetEnvironmentVariable("MYSQLUSER");
+
+// // Construir a string de conexão
+// var connectionString = $"Server={mySqlHost};Port={mySqlPort};Database={mySqlDatabase};User Id={mySqlUser};Password={mySqlPassword};";
+
 builder.Services.AddDbContext<BankContext>(options =>
 options
 .UseLazyLoadingProxies()
@@ -29,6 +40,7 @@ options
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+
 
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
 {
@@ -129,5 +141,12 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+// using (var scope = app.Services.CreateScope())
+// {
+//     var services = scope.ServiceProvider;
+//     var context = services.GetRequiredService<BankContext>();
+//     context.Database.Migrate();
+
+// }
 
 app.Run();

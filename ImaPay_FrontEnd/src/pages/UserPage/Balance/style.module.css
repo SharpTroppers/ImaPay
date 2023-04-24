@@ -32,6 +32,7 @@
   cursor: pointer;
   background-color: #184a55;
   transition-duration: 0.1s;
+  border: solid;
 }
 .button-for-transfer:hover {
   transform: scale(1.05);

@@ -7,6 +7,12 @@ namespace ImaPay_BackEnd.Repositories
         public List<User> GetAll();
         public User GetById(int id);
 
+    public User GetByCpf(string cpf);
+
+    public User GetByEmail(string email);
+
+    public void ChangePassword(User user, string newPassword);
+}
         public User GetByCpf(string email);
         public bool IsCpfRegistered(List<User> users, string cpf);
         public bool IsEmailRegistered(List<User> users, string email);

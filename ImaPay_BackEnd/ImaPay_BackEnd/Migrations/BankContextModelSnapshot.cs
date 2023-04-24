@@ -102,8 +102,8 @@ namespace ImaPay_BackEnd.Migrations
                     b.Property<int>("AccountId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
+                    b.Property<double>("Amount")
+                        .HasColumnType("double");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime(6)");
