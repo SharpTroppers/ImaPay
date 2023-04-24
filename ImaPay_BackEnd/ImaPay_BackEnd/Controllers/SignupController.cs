@@ -73,10 +73,8 @@ public class SignupController : ControllerBase
                     });
             });
 
-            var passwordHash = PasswordVerificationService.HashPassword(newUser.Password);
-            var teste = PasswordVerificationService.CheckPassword(newUser.Password, passwordHash); 
-            newUser.Password = passwordHash;
-            Console.WriteLine("asdas " + teste);
+            //var passwordHash = PasswordVerificationService.HashPassword(newUser.Password);
+            //newUser.Password = passwordHash;
 
             await _bank.Addresses.AddAsync(newAddress);
             await _bank.Accounts.AddAsync(newAccount);

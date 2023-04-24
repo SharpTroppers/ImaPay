@@ -108,9 +108,9 @@ public class UserController : ControllerBase
 
         User user = _userRepository.GetByCpf(loginDto.Cpf);
 
-        string passwordHash = AuthenticationService.HashPassword(loginDto.Password);
+        //string passwordHash = PasswordVerificationService.HashPassword(loginDto.Password);
 
-        bool doesPasswordMatch = AuthenticationService.CheckPasswordMatch(user, passwordHash);
+        bool doesPasswordMatch = PasswordVerificationService.CheckPassword(user.Password, loginDto.Password);
 
         if (!doesPasswordMatch) return StatusCode(403);
 

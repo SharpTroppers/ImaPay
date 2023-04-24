@@ -4,8 +4,9 @@
     {
         public static bool CheckPassword(string hashedPassword, string dbHashedPassword)
         {
-            bool isPasswordCorrect = BCrypt.Net.BCrypt.Verify(hashedPassword, dbHashedPassword);
-            return isPasswordCorrect;
+            //bool isPasswordCorrect = BCrypt.Net.BCrypt.Verify(hashedPassword, dbHashedPassword);
+
+            return hashedPassword.Equals(dbHashedPassword);
         }
 
         public static string HashPassword(string password)
