@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./style.module.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import jwtDecode from "jwt-decode";
 
 interface ModalProps {
   isOpen: boolean;
@@ -18,12 +19,15 @@ interface FormData {
 }
 
 const Transfer = ({ isOpen, onClose }: ModalProps) => {
+  const amountRef = useRef<HTMLInputElement>(null);
+  const receiverAccRef = useRef<HTMLInputElement>(null);
+
   const {
     register,
     handleSubmit,
     reset,
     formState,
-    formState: { errors , isSubmitSuccessful },
+    formState: { errors, isSubmitSuccessful },
   } = useForm<FormData>();
 
   const showToastMessage = () => {
@@ -36,34 +40,53 @@ const Transfer = ({ isOpen, onClose }: ModalProps) => {
       onClose();
     }, 5500);
   };
-  const onSubmit = (data: FormData) => {
-    axios.post('https://localhost:7274/accounts/transfer', data)
-    .then((response) => {
-      //console.log(response.data);
-    })
-    .catch((error) =>{
-      console.error(error);
-    });
+
+  const token = localStorage.getItem("Token")!;
+  const payload = jwtDecode(token) as { AccountId: string };
+
+  console.log(payload);
+
+  const tranferDto = {
+    Amount: amountRef.current?.value,
+    ReceiverAccNumber: receiverAccRef.current?.value,
+    SenderAccountId: payload.AccountId,
+  };
+
+  const headers = { "Content-Type": "application/json" };
+  const onSubmit = () => {
+    axios
+      .post(
+        "https://localhost:7274/accounts/transfer",
+        JSON.stringify(tranferDto),
+        {
+          headers,
+        }
+      )
+      .then((response) => {
+        //console.log(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
     //data.type = "Transferência";
     // alert(JSON.stringify(data));
     //showToastMessage();
   };
 
   React.useEffect(() => {
-    if( formState.isSubmitSuccessful) {
-        reset({
-            id: 0,
-            valor: 0,
-            type:"",
-            message:""
-    });
-
+    if (formState.isSubmitSuccessful) {
+      reset({
+        id: 0,
+        valor: 0,
+        type: "",
+        message: "",
+      });
     }
-    },[formState, reset])
+  }, [formState, reset]);
 
   if (!isOpen) return null;
   return (
-    <div className={styles["modal-transfer"]} is-hidden="true">
+    <div className={styles["modal-transfer"]} is-hidden='true'>
       <div className={styles["modal-transfer-content"]}>
         <div>
           <span className={styles["Close"]} onClick={onClose}>
@@ -73,9 +96,10 @@ const Transfer = ({ isOpen, onClose }: ModalProps) => {
         <label>Conta de destino</label>
         <input
           className={styles["input-value"]}
-          type="string"
-          placeholder="Número da conta ou documento"
-          {...register("id", { required: true, minLength: 5 })}
+          type='string'
+          placeholder='Número da conta ou documento'
+          // {...register("id", { required: true })}
+          ref={receiverAccRef}
         />
         {errors?.id?.type === "required" && (
           <p className={styles["error-message"]}>
@@ -91,11 +115,12 @@ const Transfer = ({ isOpen, onClose }: ModalProps) => {
           <label>Valor a ser transferido</label>
           <input
             className={styles["input-value"]}
-            type="string"
-            min="0.1"
+            type='string'
+            min='0.1'
             step={"any"}
-            placeholder="Conta ou documento"
-            {...register("valor", { required: true })}
+            placeholder='Conta ou documento'
+            // {...register("valor", { required: true })}
+            ref={amountRef}
           />
           {errors?.valor?.type === "required" && (
             <p className={styles["error-message"]}>
@@ -107,7 +132,7 @@ const Transfer = ({ isOpen, onClose }: ModalProps) => {
           <label>Mensagem (opcional)</label>
           <input
             className={styles["input-optMessage"]}
-            type="text"
+            type='text'
             {...register("message")}
           />
         </div>
@@ -123,7 +148,6 @@ const Transfer = ({ isOpen, onClose }: ModalProps) => {
       </div>
     </div>
   );
-  
 };
 
 export default Transfer;
