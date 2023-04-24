@@ -55,7 +55,7 @@ const Transfer = ({ isOpen, onClose }: ModalProps) => {
     };
 
     const response = await axios.post(
-      "https://localhost:7274/accounts/transfer",
+      "https://imapaybackendfinal.up.railway.app/accounts/transfer",
       JSON.stringify(transferDto),
       { headers }
     );

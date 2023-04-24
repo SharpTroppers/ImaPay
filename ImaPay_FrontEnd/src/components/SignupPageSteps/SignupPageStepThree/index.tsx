@@ -13,7 +13,7 @@ const SignupPageStepThree = ({
   formData,
   setFormData,
   stepForward,
-  stepBackward
+  stepBackward,
 }: any) => {
   const [isLoading, setIsLoading] = useState(false);
 
@@ -47,14 +47,14 @@ const SignupPageStepThree = ({
     setIsLoading(true);
     try {
       const request = await axios.post(
-        "https://localhost:7274/signups",
+        "https://imapaybackendfinal.up.railway.app/signups",
         formData
       );
-      console.log("success")
+      console.log("success");
       stepForward();
     } catch (erro: any) {
       console.log("Erro na criação da conta: ", erro?.data?.message);
-    } finally{
+    } finally {
       setIsLoading(false);
     }
   };

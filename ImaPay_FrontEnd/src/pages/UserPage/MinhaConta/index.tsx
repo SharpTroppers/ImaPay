@@ -24,7 +24,7 @@ export function MinhaConta() {
   const [account, setAccount] = useState<Account | null>(null);
 
   const instance = axios.create({
-    baseURL: "https://localhost:7274",
+    baseURL: "https://imapaybackendfinal.up.railway.app",
     headers: {
       "Content-Type": "application",
     },
@@ -65,7 +65,7 @@ export function MinhaConta() {
   return (
     <div className={styles["container"]}>
       <figure className={styles["container-figure"]}>
-        <img src={X} onClick={handleHome} alt="um X indicando retorno" />
+        <img src={X} onClick={handleHome} alt='um X indicando retorno' />
       </figure>
       <form className={styles["form-container"]}>
         <fieldset className={styles["form-container-set"]}>
