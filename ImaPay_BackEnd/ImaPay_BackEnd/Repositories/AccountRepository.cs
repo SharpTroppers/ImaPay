@@ -32,6 +32,11 @@ public class AccountRepository : IAccountRepository
         return accounts.Any((account) => account.AccountNumber == accountNumber);
     }
 
+    public Account GetAccountById(int id) {
+        return GetAllAccounts().Find(acc => acc.Id == id);
+    
+    }
+
     public void Transfer(double amount, Account receiver, Account sender)
     {
 
@@ -48,8 +53,7 @@ public class AccountRepository : IAccountRepository
             Receiver = receiver.AccountName,
             AccountId = sender.Id,
         };
-
-        _bank.Add(transactionToSave);
+        _bank.Transactions.Add(transactionToSave);
         _bank.SaveChanges();
 
     }

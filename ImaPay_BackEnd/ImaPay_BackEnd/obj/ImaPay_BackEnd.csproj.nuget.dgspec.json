@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\FullStack_Developer\\impay2\\imapay3\\ImaPay\\ImaPay_BackEnd\\ImaPay_BackEnd\\ImaPay_BackEnd.csproj": {}
+    "C:\\Users\\gabri\\OneDrive\\Área de Trabalho\\SharpCoders\\Hackdev\\ImaPay\\ImaPay_BackEnd\\ImaPay_BackEnd\\ImaPay_BackEnd.csproj": {}
   },
   "projects": {
-    "E:\\FullStack_Developer\\impay2\\imapay3\\ImaPay\\ImaPay_BackEnd\\ImaPay_BackEnd\\ImaPay_BackEnd.csproj": {
+    "C:\\Users\\gabri\\OneDrive\\Área de Trabalho\\SharpCoders\\Hackdev\\ImaPay\\ImaPay_BackEnd\\ImaPay_BackEnd\\ImaPay_BackEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\FullStack_Developer\\impay2\\imapay3\\ImaPay\\ImaPay_BackEnd\\ImaPay_BackEnd\\ImaPay_BackEnd.csproj",
+        "projectUniqueName": "C:\\Users\\gabri\\OneDrive\\Área de Trabalho\\SharpCoders\\Hackdev\\ImaPay\\ImaPay_BackEnd\\ImaPay_BackEnd\\ImaPay_BackEnd.csproj",
         "projectName": "ImaPay_BackEnd",
-        "projectPath": "E:\\FullStack_Developer\\impay2\\imapay3\\ImaPay\\ImaPay_BackEnd\\ImaPay_BackEnd\\ImaPay_BackEnd.csproj",
-        "packagesPath": "C:\\Users\\allan\\.nuget\\packages\\",
-        "outputPath": "E:\\FullStack_Developer\\impay2\\imapay3\\ImaPay\\ImaPay_BackEnd\\ImaPay_BackEnd\\obj\\",
+        "projectPath": "C:\\Users\\gabri\\OneDrive\\Área de Trabalho\\SharpCoders\\Hackdev\\ImaPay\\ImaPay_BackEnd\\ImaPay_BackEnd\\ImaPay_BackEnd.csproj",
+        "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gabri\\OneDrive\\Área de Trabalho\\SharpCoders\\Hackdev\\ImaPay\\ImaPay_BackEnd\\ImaPay_BackEnd\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "G:\\Programação\\shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\allan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -25,6 +25,8 @@
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -117,7 +119,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

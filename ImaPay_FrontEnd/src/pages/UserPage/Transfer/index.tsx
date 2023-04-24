@@ -4,6 +4,7 @@ import styles from "./style.module.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import jwtDecode from "jwt-decode";
 
 interface ModalProps {
   isOpen: boolean;
@@ -37,16 +38,20 @@ const Transfer = ({ isOpen, onClose }: ModalProps) => {
     });
     setTimeout(() => {
       onClose();
-    }, 4000);
+    }, 3000);
   };
 
   const headers = { "Content-Type": "application/json" };
+
+  const token = localStorage.getItem("Token")!;
+
+  const payload = jwtDecode(token) as { AccountId: string };
 
   async function onSubmit() {
     const transferDto: any = {
       Amount: amountRef.current?.value,
       ReceiverAccNumber: receiverAccNumberRef.current?.value,
-      SenderId: 1,
+      SenderId: payload.AccountId,
     };
 
     const response = await axios.post(

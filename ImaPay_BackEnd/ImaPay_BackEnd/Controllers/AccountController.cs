@@ -31,11 +31,15 @@ public class AccountController : ControllerBase
     [Route("transfer")]
     public IActionResult Transfer([FromBody] TransactionDto transactionDto)
     {
-        int senderAccNumber = transactionDto.SenderAccNumber;
+        int senderID = transactionDto.SenderID;
         int receiverAccNumber = transactionDto.ReceiverAccNumber;
 
+        Console.WriteLine(transactionDto.Amount);
+
+        Console.WriteLine(receiverAccNumber);
+
         Account receiver = _accountRepository.GetByAccountNumber(receiverAccNumber);
-        Account sender = _accountRepository.GetByAccountNumber(senderAccNumber);
+        Account sender = _accountRepository.GetAccountById(senderID);
 
         _accountRepository.Transfer(transactionDto.Amount, receiver, sender);
 

@@ -6,7 +6,7 @@
 
     public int ReceiverAccNumber { get; set; }
 
-    public int SenderAccNumber { get; set; }
+    public int SenderID { get; set; }
 
     }
 
