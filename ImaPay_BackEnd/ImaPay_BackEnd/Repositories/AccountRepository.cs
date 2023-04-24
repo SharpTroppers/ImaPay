@@ -43,19 +43,26 @@ public class AccountRepository : IAccountRepository
         receiver.Balance += amount;
         sender.Balance -=amount;
         _bank.SaveChanges();
-        
+
         Transaction transactionToSave = new Transaction
         {
             Amount = amount,
             Date = DateTime.Now,
             TypeOfTransacation = "Transferência",
-            Sender = sender.AccountName,
-            Receiver = receiver.AccountName,
+            Sender = sender.User.UserName,
+            Receiver = receiver.User.UserName,
             AccountId = sender.Id,
         };
         _bank.Transactions.Add(transactionToSave);
         _bank.SaveChanges();
 
+    }
+
+
+    public void Deposit(double amount, Account account)
+    {
+        account.Balance += amount;
+        _bank.SaveChanges();
     }
 
 

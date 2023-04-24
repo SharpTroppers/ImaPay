@@ -13,6 +13,8 @@ namespace ImaPay_BackEnd.Repositories;
 
     public void Transfer(double amount, Account receiver, Account sender);
 
+    public void Deposit(double amount, Account account);
+
     public bool CheckIfAccountExists(List<Account> accounts, int accountNumber);
     }
 
