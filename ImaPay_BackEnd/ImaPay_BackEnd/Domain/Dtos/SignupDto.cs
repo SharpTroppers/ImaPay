@@ -11,7 +11,7 @@
         public string PhoneNumber { get; set; }
 
         public DateTime Birthday { get; set; }
-        public string Password { get; set; }
+
         public string PostalCode { get; set; }
 
         public string BaseAddress { get; set; }
@@ -23,5 +23,7 @@
         public string CityName { get; set; }
 
         public string StateName { get; set; }
+
+        public string Password { get; set; }
     }
 }

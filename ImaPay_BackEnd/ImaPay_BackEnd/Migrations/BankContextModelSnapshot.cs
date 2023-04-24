@@ -41,10 +41,6 @@ namespace ImaPay_BackEnd.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<bool>("isBlocked")
                         .HasColumnType("tinyint(1)");
 

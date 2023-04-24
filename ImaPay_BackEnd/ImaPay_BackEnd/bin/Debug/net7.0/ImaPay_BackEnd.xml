@@ -6,14 +6,26 @@
     <members>
         <member name="T:ImaPay_BackEnd.Controllers.SignupController">
             <summary>
-            Controller for the signup form.
+            Controlador para o formulário de cadastro.
             </summary>
         </member>
-        <member name="M:ImaPay_BackEnd.Controllers.SignupController.Get(ImaPay_BackEnd.Domain.Dtos.SignupDto)">
+        <member name="M:ImaPay_BackEnd.Controllers.SignupController.CreateAccount(ImaPay_BackEnd.Domain.Dtos.SignupDto)">
             <summary>
-            Creates a new account for the user.
+            Cria uma nova conta para o usuário.
             </summary>
-            <returns>a object with the message "successfull" and the moment of creation.</returns>
+            <remarks>
+            Aqui você pode fornecer detalhes adicionais sobre a ação.
+            </remarks>
+            <param name="bodyData">Dados do formulário de cadastro.</param>
+            <returns>Um objeto com a mensagem "successful" e o momento da criação.</returns>
+            <response code="201">Retorna a resposta com sucesso.</response>
+            <response code="400">Retorna a resposta com erro.</response>
+        </member>
+        <member name="M:ImaPay_BackEnd.Controllers.SignupController.GenerateRandomAccountNumber">
+            <summary>
+            Gera um número de conta aleatório e verifica se já existe na base de dados.
+            </summary>
+            <returns>O número da conta gerada.</returns>
         </member>
         <member name="M:ImaPay_BackEnd.Controllers.UserController.GetAll">
             <summary>

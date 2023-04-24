@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ImaPay_BackEnd.Migrations
 {
     [DbContext(typeof(BankContext))]
-    [Migration("20230423221333_init")]
+    [Migration("20230424002029_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -43,10 +43,6 @@ namespace ImaPay_BackEnd.Migrations
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
-
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("longtext");
 
                     b.Property<bool>("isBlocked")
                         .HasColumnType("tinyint(1)");

@@ -35,7 +35,7 @@ namespace ImaPay_BackEnd.Controllers
 
         private void ValidateEmail(string value) 
         {
-            Regex regex = new Regex(@"^(?!.*@.*@)[^@]*$");
+            Regex regex = new Regex(@"[^@]*@[^@]*");
             if (!regex.IsMatch(value)) Results.Add("emailError");
         }
 

@@ -2,15 +2,17 @@
 {
     public class PasswordVerificationService
     {
-        public bool CheckPassword(string hashedPassword, string dbHashedPassword)
+        public static bool CheckPassword(string hashedPassword, string dbHashedPassword)
         {
             bool isPasswordCorrect = BCrypt.Net.BCrypt.Verify(hashedPassword, dbHashedPassword);
             return isPasswordCorrect;
         }
 
-        public string HashPassword(string password)
+        public static string HashPassword(string password)
         {
-            return BCrypt.Net.BCrypt.HashPassword(password);
+            Console.WriteLine("asdas "+ password);
+            var salt = BCrypt.Net.BCrypt.GenerateSalt(16);
+            return BCrypt.Net.BCrypt.HashPassword(password, salt);
         }
     }
 }

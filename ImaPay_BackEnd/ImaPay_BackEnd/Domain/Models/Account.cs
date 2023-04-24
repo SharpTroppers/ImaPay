@@ -8,8 +8,6 @@ public class Account : Entity
 
     public long AccountNumber { get; set; }
 
-    public string UserName { get; set; }
-    
     public string Agency { get; set; }
 
     public double Balance { get; set; } = 0;

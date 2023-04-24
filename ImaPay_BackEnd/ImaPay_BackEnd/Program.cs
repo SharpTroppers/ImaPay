@@ -107,6 +107,9 @@ app.Use(async (context, next) =>
 
 });
 
+app.UseCors("AllowAnyOrigin");
+
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
