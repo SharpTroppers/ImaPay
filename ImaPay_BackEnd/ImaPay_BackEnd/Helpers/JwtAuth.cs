@@ -20,7 +20,7 @@ public static class JwtAuth
         var claims = new List<Claim> {
         new Claim("Id", user.Id.ToString()),
         new Claim("UserName", user.UserName),
-        new Claim("AccountId",user.Account.AccountNumber.ToString())};
+        new Claim("AccountId",user.Account.Id.ToString())};
 
         var tokenDescriptor = new SecurityTokenDescriptor
         {
