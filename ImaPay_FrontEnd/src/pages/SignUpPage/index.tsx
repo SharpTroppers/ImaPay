@@ -12,7 +12,7 @@ const [formData, setFormData] = useState({
   userName:'',
   email:'',
   cpf:'',
-  cellphone:'',
+  phoneNumber:'',
   birthday:'',
   postalCode: '',
   baseAddress:'',
@@ -20,7 +20,6 @@ const [formData, setFormData] = useState({
   neighborhood:'',
   cityName:'',
   stateName:'',
-  accountName: '',
   password: ''
 })
 

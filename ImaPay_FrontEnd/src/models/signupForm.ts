@@ -6,7 +6,7 @@ export interface userData {
   userName: string;
   email: string;
   cpf: string;
-  cellphone: string;
+  phoneNumber: string;
   birthday: any;
   postalCode: string;
   baseAddress: string;
