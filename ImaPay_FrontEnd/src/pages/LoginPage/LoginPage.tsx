@@ -15,13 +15,14 @@ export function LoginPage() {
 
   async function handleSubmit(e: any) {
     e.preventDefault();
-
+    const cleanedValue = cpf.replace(/[^\d]/g, '');
+    console.log(cleanedValue)
     try {
       const headers = {
         "Content-Type": "application/json",
       };
       const loginDto = {
-        Cpf: cpf,
+        Cpf: cleanedValue,
         Password: password,
       };
       setIsLoading(true);

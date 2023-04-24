@@ -49,7 +49,7 @@ export function UserPage() {
     instance
       .get(`/users/${payload.Id}`)
       .then((response) => {
-        setUserName(response.data.userProfile.name);
+        setUserName(response.data.userProfile.userName);
         setBalance(response.data.account.balance);
       })
       .catch((error) => console.error(error));
@@ -57,7 +57,7 @@ export function UserPage() {
 
   return (
     <div>
-      <HeaderUserPage name={userName} />
+      <HeaderUserPage userName={userName} />
       <Balance balance={balance} balanceAvailable={balance} />
       <Historic users={transferData} />
     </div>

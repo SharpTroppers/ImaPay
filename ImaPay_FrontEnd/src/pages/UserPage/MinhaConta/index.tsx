@@ -7,7 +7,7 @@ import jwt_decode from "jwt-decode";
 
 //import { string } from "yup";
 interface UserProfile {
-  name: string;
+  userName: string;
   email: string;
 }
 
@@ -72,7 +72,7 @@ export function MinhaConta() {
           <legend>Dados pessoais</legend>
           <label>
             Nome:
-            <input value={userProfile.name} disabled />
+            <input value={userProfile.userName} disabled />
           </label>
           <label>
             Email:

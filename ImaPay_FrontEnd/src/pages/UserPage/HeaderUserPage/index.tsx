@@ -7,9 +7,9 @@ import { Modal } from "../MenuModal";
 import User from "../../../assets/img/user-circle-thin (1).svg";
 
 interface Props {
-  name: string;
+  userName: string;
 }
-function HeaderUserPage({ name }: Props) {
+function HeaderUserPage({ userName }: Props) {
   const [open, setOpen] = useState(false);
   const Modals = "Modals";
 
@@ -20,7 +20,7 @@ function HeaderUserPage({ name }: Props) {
 
   return (
     <header className={styles["header-container"]} onClick={handleModal}>
-      <h1>Olá, {name} </h1>
+      <h1>Olá, {userName} </h1>
       <figure className={styles["header-imagem"]}>
         <img src={User} alt="" onClick={handleModal} id={Modals} />
         {open && <Modal />}
