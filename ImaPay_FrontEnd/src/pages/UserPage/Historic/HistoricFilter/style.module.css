@@ -1,0 +1,29 @@
+.container-select {
+  margin: 1.5rem 0 0rem 3rem;
+  display: flex;
+}
+.container-select label {
+  background-color: var(--color-secundary-500);
+  align-items: center;
+  justify-content: space-between;
+  margin: 0rem 0rem 1rem 1rem;
+}
+.container-select label input {
+  background-color: var(--color-secundary-500);
+  margin: 1.5rem;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+label {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked + label {
+  background-color: var(--color-secundary-200);
+}
