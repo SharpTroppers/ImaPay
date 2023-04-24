@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ImaPay_BackEnd.Migrations
 {
     [DbContext(typeof(BankContext))]
-    [Migration("20230421012017_virtual property test 3")]
-    partial class virtualpropertytest3
+    [Migration("20230423202723_Amount type correction")]
+    partial class Amounttypecorrection
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -105,8 +105,8 @@ namespace ImaPay_BackEnd.Migrations
                     b.Property<int>("AccountId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
+                    b.Property<double>("Amount")
+                        .HasColumnType("double");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime(6)");

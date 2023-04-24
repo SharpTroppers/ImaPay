@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "BIgkd33xgpsF+XTtHsmjm1gg76S1UmgkJoarLwzNKrNQJBq1acOd4u0sfZnVrr8jFGipDlSZ3+7qZMzPWIJkGA==",
+  "dgSpecHash": "DJjZUWG4t24XTp1w7fzfwNq0hoN5wljSmZ+Wix9NZxVx6znh9RqLN1ucj8yAAMO6pHkTDJ9Fly4vkgTmUqp7Sw==",
   "success": true,
   "projectFilePath": "C:\\Users\\gabri\\OneDrive\\Área de Trabalho\\SharpCoders\\Hackdev\\ImaPay\\ImaPay_BackEnd\\ImaPay_BackEnd\\ImaPay_BackEnd.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gabri\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\gabri\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\gabri\\.nuget\\packages\\castle.core\\5.1.0\\castle.core.5.1.0.nupkg.sha512",
     "C:\\Users\\gabri\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\gabri\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.16\\microsoft.aspnetcore.authentication.jwtbearer.6.0.16.nupkg.sha512",

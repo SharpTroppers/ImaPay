@@ -6,7 +6,7 @@ namespace ImaPay_BackEnd.Domain.Model;
 public class Transaction : Entity
 {
     
-    public int Amount { get; set; }
+    public double Amount { get; set; }
 
     public DateTime Date { get; set; }
 

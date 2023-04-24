@@ -8,8 +8,15 @@ namespace ImaPay_BackEnd.Domain.Profiles
     {
         public UserProfile()
         {
+
+            
+            CreateMap<User, UserProfileDto>();
+            CreateMap<Account, UserAccountDto>();
+
+
             CreateMap<LoginDto, User>();
             CreateMap<User, LoginDto>();
+
 
         }
     }

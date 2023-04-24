@@ -14,21 +14,45 @@ interface FormProps {
 export function Form(props: FormProps) {
   const firstInputRef = useRef<HTMLInputElement>(null);
   const secondInputRef = useRef<HTMLInputElement>(null);
+  const thirdInputRef = useRef<HTMLInputElement>(null);
 
-  const inputRefs = [firstInputRef, secondInputRef];
+  const [isLoading, setIsLoading] = useState(false);
+
+  const inputRefs = [firstInputRef, secondInputRef, thirdInputRef];
 
   async function sendEmail(e: any) {
     e.preventDefault();
     inputRefs[0].current?.focus();
-    const data = { userEmail: inputRefs[0].current?.value };
+    const data = { Email: inputRefs[0].current?.value };
     const headers = { "Content-Type": "application/json" };
+
+    setIsLoading(true);
 
     const response = await axios.post(
       "https://localhost:7274/users/recovery",
       JSON.stringify(data),
       { headers }
     );
-    console.log(response);
+    setIsLoading(false);
+    props.messageHandler();
+  }
+
+  async function changePassword(e: any) {
+    e.preventDefault();
+    const resetPasswordDto = {
+      Cpf: inputRefs[0].current?.value,
+      NewPassword: inputRefs[1].current?.value,
+      PasswordConfirm: inputRefs[2].current?.value,
+    };
+    const headers = { "Content-Type": "application/json" };
+    setIsLoading(true);
+
+    const response = await axios.post(
+      "https://localhost:7274/users/reset-password",
+      JSON.stringify(resetPasswordDto),
+      { headers }
+    );
+    setIsLoading(false);
     props.messageHandler();
   }
 
@@ -49,11 +73,11 @@ export function Form(props: FormProps) {
     <div className={styles["container"]}>
       <h2 className={styles["title"]}>{props.title}</h2>
       <form
-        onSubmit={props.ids[0] == "email" ? sendEmail : props.clickHandler}
+        onSubmit={props.ids[0] == "email" ? sendEmail : changePassword}
         className={styles["forms"]}
       >
         {formContent}
-        <button type='submit'>Enviar</button>
+        <button type='submit'>{isLoading ? "Carregando..." : "Enviar"}</button>
       </form>
     </div>
   );
