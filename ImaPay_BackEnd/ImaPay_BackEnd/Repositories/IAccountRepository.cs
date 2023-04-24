@@ -10,6 +10,7 @@ namespace ImaPay_BackEnd.Repositories;
     public Account GetByAccountNumber(int accountNumber);
 
     public void Transfer(double amount, Account receiver, Account sender);
-        
+
+    public bool CheckIfAccountExists(List<Account> accounts, int accountNumber);
     }
 

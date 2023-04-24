@@ -18,7 +18,6 @@ public class UserController : ControllerBase
 {
     private readonly IUserRepository _userRepository;
     private readonly IMapper _mapper;
-    private  readonly BankContext _context;
 
     public UserController(IUserRepository userRepository, IMapper mapper)
     {

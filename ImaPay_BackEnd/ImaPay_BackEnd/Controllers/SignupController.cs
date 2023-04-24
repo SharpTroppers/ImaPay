@@ -123,8 +123,8 @@ public class SignupController : ControllerBase
     {
         Random random = new Random();
         int randomNubmer = random.Next(1, 999999);
-        List<Account> userAccounts = _accountRepository.GetAll();
-        bool doesAccountExist = _accountRepository.CheckIfAccountExists(userAccounts, randomNubmer.ToString());
+        List<Account> userAccounts = _accountRepository.GetAllAccounts();
+        bool doesAccountExist = _accountRepository.CheckIfAccountExists(userAccounts, randomNubmer);
         if (doesAccountExist) GenerateRandomAccountNumber();
         return randomNubmer;
     }

@@ -27,6 +27,11 @@ public class AccountRepository : IAccountRepository
       return GetAllAccounts().Find(account => account.AccountNumber == accountNumber);
     }
 
+    public bool CheckIfAccountExists(List<Account> accounts, int accountNumber)
+    {
+        return accounts.Any((account) => account.AccountNumber == accountNumber);
+    }
+
     public void Transfer(double amount, Account receiver, Account sender)
     {
 

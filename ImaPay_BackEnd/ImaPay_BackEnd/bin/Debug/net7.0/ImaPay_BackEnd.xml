@@ -45,17 +45,17 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:ImaPay_BackEnd.Migrations.init">
-            <inheritdoc />
+        <member name="M:ImaPay_BackEnd.Controllers.UserController.Login(ImaPay_BackEnd.Domain.Dtos.LoginDto)">
+            <summary>
+            Faz o login do usuario
+            </summary>
+            <returns></returns>
         </member>
-        <member name="M:ImaPay_BackEnd.Migrations.init.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:ImaPay_BackEnd.Migrations.init.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:ImaPay_BackEnd.Migrations.init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
+        <member name="M:ImaPay_BackEnd.Controllers.UserController.GetAccountData(System.Int32)">
+            <summary>
+            Pega as informações do usuario baseado em seu id
+            </summary>
+            <returns></returns>
         </member>
     </members>
 </doc>
