@@ -15,8 +15,7 @@ export function LoginPage() {
 
   async function handleSubmit(e: any) {
     e.preventDefault();
-    const cleanedValue = cpf.replace(/[^\d]/g, '');
-    console.log(cleanedValue)
+    const cleanedValue = cpf.replace(/[^\d]/g, "");
     try {
       const headers = {
         "Content-Type": "application/json",
