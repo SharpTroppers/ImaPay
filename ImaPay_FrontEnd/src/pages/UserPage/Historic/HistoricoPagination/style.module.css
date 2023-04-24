@@ -1,0 +1,27 @@
+button {
+  background-color: var(--color-secundary-200);
+  border: none; 
+  color: white;
+  padding: 10px 20px;
+  text-align: center; 
+  text-decoration: none; 
+  display: inline-block; 
+  font-size: 16px;
+  margin: 4px 2px; 
+  cursor: pointer; 
+  border-radius: 5px; 
+  transition: background-color 0.5s ease;
+}
+
+/* Estilo quando o botão é clicado */
+.pagination button:active {
+  background-color: var(--color-secundary-500);
+}
+
+.pagination{
+  margin:0.5rem;
+}
+
+button:disabled {
+  background-color: var(--color-secundary-500);
+}
