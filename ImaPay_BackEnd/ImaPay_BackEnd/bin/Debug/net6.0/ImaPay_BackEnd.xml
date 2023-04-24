@@ -10,16 +10,28 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:ImaPay_BackEnd.Migrations.Initial_Migration">
+        <member name="M:ImaPay_BackEnd.Controllers.UserController.SendRecoveryEmail(ImaPay_BackEnd.Domain.Dtos.UserEmailDto)">
+            <summary>
+            Envia um email para  serviço mailTrap com o link para redefinir a senha do usuario
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ImaPay_BackEnd.Controllers.UserController.CreateNewPassword(ImaPay_BackEnd.Domain.Dtos.ResetPasswordDto)">
+            <summary>
+            Redefine a senha do usuario
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ImaPay_BackEnd.Migrations.Amounttypecorrection">
             <inheritdoc />
         </member>
-        <member name="M:ImaPay_BackEnd.Migrations.Initial_Migration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:ImaPay_BackEnd.Migrations.Amounttypecorrection.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:ImaPay_BackEnd.Migrations.Initial_Migration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:ImaPay_BackEnd.Migrations.Amounttypecorrection.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:ImaPay_BackEnd.Migrations.Initial_Migration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:ImaPay_BackEnd.Migrations.Amounttypecorrection.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

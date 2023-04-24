@@ -6,7 +6,7 @@ namespace ImaPay_BackEnd.Domain.Model;
 public class Transaction : Entity
 {
     
-    public int Amount { get; set; }
+    public double Amount { get; set; }
 
     public DateTime Date { get; set; }
 
@@ -16,9 +16,10 @@ public class Transaction : Entity
 
     public string Receiver { get; set; }
 
-    public virtual Account Account { get; set; }
+
     [ForeignKey("Account")]
     public int AccountId { get; set; }
+    public virtual Account Account { get; set; }
 
 
 }

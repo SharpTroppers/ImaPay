@@ -26,10 +26,10 @@ export const userDataSchema = (formData: userData) => {
       .required(requiredMessage)
       .test("cpf-valido", "CPF inválido", (value: any) => cpf.isValid(value))
       .default(formData.cpf),
-    cellphone: Yup.string()
+    phoneNumber: Yup.string()
       .required(requiredMessage)
       .min(16, "Digite um telefone válido")
-      .default(formData.cellphone),
+      .default(formData.phoneNumber),
     birthday: Yup.date()
       .required()
       .nullable()

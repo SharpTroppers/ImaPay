@@ -7,19 +7,23 @@ import { ErrorMessage } from "@hookform/error-message";
 import { accountDataSchema } from "../../../controller/signupControllers/YupController";
 import { errorTagRender } from "../../../controller/signupControllers/ErrorMessageController";
 import SignupHeader from "../../SignupHeader";
+import axios from "axios";
 
 const SignupPageStepThree = ({
   formData,
   setFormData,
   stepForward,
-  stepBackward,
+  stepBackward
 }: any) => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const errorListObjDefaultValues = {
     capitalLetterError: false,
     lowercaseLetterError: false,
     simbolError: false,
     numberError: false,
   };
+
   const [errorListObj, setErrorListObj] = useState({
     ...errorListObjDefaultValues,
   });
@@ -34,9 +38,25 @@ const SignupPageStepThree = ({
     resolver: yupResolver(accountDataSchema()),
   });
 
-  const onSubmit = (data: any) => {
+  const onSubmit = async (data: any) => {
     setFormData({ ...formData, ...data });
-    stepForward();
+    await finishSignupt();
+  };
+
+  const finishSignupt = async () => {
+    setIsLoading(true);
+    try {
+      const request = await axios.post(
+        "https://localhost:7274/signups",
+        formData
+      );
+      console.log("success")
+      stepForward();
+    } catch (erro: any) {
+      console.log("Erro na criação da conta: ", erro?.data?.message);
+    } finally{
+      setIsLoading(false);
+    }
   };
 
   const passwordOnchangeVerificationHandler = (
@@ -62,24 +82,6 @@ const SignupPageStepThree = ({
           id={styles["form-container-style"]}
           onSubmit={handleSubmit(onSubmit)}
         >
-          <section className={styles["forms-sections-containers"]}>
-            <label className={styles["labels-styling"]} htmlFor='accountName'>
-              Nome da Conta
-            </label>
-            <input
-              {...register("accountName")}
-              className={styles["inputs-style"]}
-              id={styles["account-name"]}
-              placeholder='Nome da Conta'
-            />
-            <div className={styles["error-message-container"]}>
-              <ErrorMessage
-                errors={errors}
-                name='accountName'
-                render={({ message }) => errorTagRender(message, styles)}
-              />
-            </div>
-          </section>
           <section className={styles["forms-sections-containers"]}>
             <label className={styles["labels-styling"]} htmlFor='password'>
               Senha
@@ -167,8 +169,10 @@ const SignupPageStepThree = ({
               VOLTAR
             </button>
             <button
+              disabled={isLoading}
               className={`${styles["submit-button-style"]} ${styles["no-button-style"]}`}
               id={styles["finalizing-form-button"]}
+              placeholder={`Endereço base${isLoading ? "..." : ""}`}
             >
               FINALIZAR CADASTRO
             </button>

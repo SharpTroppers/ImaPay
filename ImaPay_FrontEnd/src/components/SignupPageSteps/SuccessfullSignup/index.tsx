@@ -16,7 +16,7 @@ const SuccessfullSignup = () => {
         <h1 id={styles["header-title"]}>Seja Bem-Vindo à Familia, Trooper</h1>
       </header>
       <img id={styles["success-icon"]} src={SuccessIcon} />
-      <NavLink id={styles["sign-up-go-to-login-page-style"]} to='/'>
+      <NavLink id={styles["sign-up-go-to-login-page-style"]} to='/login'>
         <button className={styles["no-button-style"]}>Login</button>
       </NavLink>
     </main>

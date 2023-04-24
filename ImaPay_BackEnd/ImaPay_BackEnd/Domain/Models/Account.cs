@@ -5,18 +5,16 @@ namespace ImaPay_BackEnd.Domain.Model;
 
 public class Account : Entity
 {
-    public long AccountNumber { get; private set; }
-    public int AccountName { get; set; }
 
-    public int Agency { get; set; }
+    public long AccountNumber { get; set; }
+
+    public string Agency { get; set; }
 
     public double Balance { get; set; } = 0;
 
     public bool isBlocked { get; set; }
 
-    public bool isLoggedIn { get; set; }
-
-    public List<Transaction>? TransactionHistory { get; set; }
+    public virtual ICollection<Transaction> TransactionHistory { get; set; }
 
 
     [ForeignKey("User")]

@@ -135,7 +135,7 @@ const SignupPageStepOne = ({ stepForward, formData, setFormData }: any) => {
           <div className={styles["forms-sections-containers"]}>
             <label className={styles["labels-styling"]}>Celular</label>
             <input
-              {...register("cellphone")}
+              {...register("phoneNumber")}
               className={styles["inputs-style"]}
               placeholder='(99) 9 9999-9999'
               onChange={cellphoneOnChangeHandler}
@@ -144,7 +144,7 @@ const SignupPageStepOne = ({ stepForward, formData, setFormData }: any) => {
             <div className={styles["error-message-container"]}>
               <ErrorMessage
                 errors={errors}
-                name='cellphone'
+                name='phoneNumber'
                 render={({ message }) => errorTagRender(message, styles)}
               />
             </div>
