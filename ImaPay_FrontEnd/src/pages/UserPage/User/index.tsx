@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 // import Money from "../../../assets/img/money-bold.svg";
 import { Balance } from "../Balance";
 import HeaderUserPage from "../HeaderUserPage";
-import Historic from "../Historic";
+import Historic from "../Historic/index";
 
 import transferData from "../../../helpers/transferData.json";
 

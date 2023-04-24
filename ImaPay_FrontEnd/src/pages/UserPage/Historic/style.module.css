@@ -1,8 +1,17 @@
-.historic-container {
+.historic-container-items{
   background-color: #1c1d21;
-  height: 45vh;
   padding-bottom: 20px;
   padding-left: 2vw;
+}
+.historic-container{ 
+  text-align: center;
+  background-color: #1c1d21;
+  padding-bottom: 20px;
+  padding-left: 2vw;
+}
+
+.historic-subtitle-conateiner{
+  display:flex;
 }
 
 .historic-subtitle {
@@ -12,7 +21,6 @@
 }
 table {
   width: 90vw;
-  height: 30vh;
   border-radius: 1rem;
   border-collapse: collapse;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.05),
@@ -45,3 +53,40 @@ table th {
 table th.last {
   border-right: none;
 }
+._showHistoric_11961_47 {
+  right: 40%;
+  background-color: #1c1d21;
+  padding: 1rem;
+}
+
+.divfiter{
+  justify-content: center;
+}
+
+.historic-subtitle{
+  background-color: var(--color-secundary-200);
+  color: white;
+  padding: 10px 20px;
+  text-align: center; 
+  font-size: 16px;
+  margin: 4px 2px; 
+  cursor: pointer; 
+  border-radius: 5px; 
+  transition: background-color 0.5s ease;
+}
+.historic-subtitle:hover{
+  background-color: var(--color-secundary-500);
+  text-align: center; 
+  font-size: 16px;
+  margin: 4px 2px; 
+  cursor: pointer; 
+  border-radius: 5px; 
+  transition: background-color 0.5s ease;
+}
+
+.footer-pagination{
+  display:flex;
+}
+
+
+
