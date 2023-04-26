@@ -13,7 +13,7 @@ const SignupPageStepThree = ({
   formData,
   setFormData,
   stepForward,
-  stepBackward
+  stepBackward,
 }: any) => {
   const [isLoading, setIsLoading] = useState(false);
 
@@ -39,22 +39,24 @@ const SignupPageStepThree = ({
   });
 
   const onSubmit = async (data: any) => {
-    setFormData({ ...formData, ...data });
-    await finishSignupt();
+    formData.password = data.password;
+    setFormData({ ...formData });
+    await finishSignup();
   };
 
-  const finishSignupt = async () => {
+  const finishSignup = async () => {
     setIsLoading(true);
+    console.log(formData);
     try {
       const request = await axios.post(
         "https://localhost:7274/signups",
         formData
       );
-      console.log("success")
+      console.log("success");
       stepForward();
     } catch (erro: any) {
       console.log("Erro na criação da conta: ", erro?.data?.message);
-    } finally{
+    } finally {
       setIsLoading(false);
     }
   };
