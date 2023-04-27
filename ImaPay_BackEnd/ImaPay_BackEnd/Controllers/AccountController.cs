@@ -39,8 +39,17 @@ public class AccountController : ControllerBase
         int senderID = transactionDto.SenderID;
         int receiverAccNumber = transactionDto.ReceiverAccNumber;
 
-        Account receiver = await _accountRepository.GetByAccountNumber(receiverAccNumber);
         Account sender = await _accountRepository.GetById(senderID);
+
+
+        bool isBalanceEnough = sender.Balance > transactionDto.Amount;
+
+        if (!isBalanceEnough)
+            return BadRequest();
+
+
+        Account receiver = await _accountRepository.GetByAccountNumber(receiverAccNumber);
+ 
 
         await _accountRepository.Transfer(transactionDto.Amount, receiver, sender);
 
