@@ -20,3 +20,7 @@
   position: relative;
   cursor: pointer;
 }
+@media (max-width: 500px) {
+  .header-container {
+  }
+}

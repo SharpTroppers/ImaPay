@@ -1,0 +1,6 @@
+.container {
+  background-image: url(../../assets/img/stars.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}

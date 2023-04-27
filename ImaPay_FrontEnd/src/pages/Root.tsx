@@ -3,9 +3,9 @@ import { MainNavigation } from "../components/MainNavigation";
 
 export function RootLayout() {
   return (
-    <>
-      <MainNavigation />
+    <div>
+      {/* <MainNavigation /> */}
       <Outlet />
-    </>
+    </div>
   );
 }

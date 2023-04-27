@@ -50,37 +50,37 @@ export function LoginPage() {
           <div className={styles.formPage}>
             <h2>Faça seu login</h2>
             <form onSubmit={handleSubmit}>
-              <label htmlFor='cpf'>CPF</label>
+              <label htmlFor="cpf">CPF</label>
 
               <input
-                type='string'
-                id='cpf'
+                type="string"
+                id="cpf"
                 maxLength={14}
                 value={cpf}
-                placeholder='000.000.000-00'
+                placeholder="000.000.000-00"
                 onChange={(e) => setCpf(cpfMask(e.target.value))}
                 className={error ? "error" : ""}
               />
 
-              <label htmlFor='password'>Senha</label>
+              <label htmlFor="password">Senha</label>
               <input
-                type='password'
-                id='password'
+                type="password"
+                id="password"
                 value={password}
-                placeholder='Insira sua senha'
+                placeholder="Insira sua senha"
                 onChange={(e) => setPassword(e.target.value)}
               />
               {error && <p>Usuário ou senha incorretos.</p>}
 
-              <div className='forgot-password'>
-                <NavLink to='/password-recovery'>Esqueceu a senha?</NavLink>
+              <div className="forgot-password">
+                <NavLink to="/password-recovery">Esqueceu a senha?</NavLink>
               </div>
-              <button type='submit'>
+              <button type="submit">
                 {isLoading ? "...Carregando" : "Entrar"}
               </button>
               <div className={styles.signupLink}>
                 <span>Nao possui uma conta?</span>
-                <NavLink to='/signup'>Cadastre-se</NavLink>
+                <NavLink to="/signup">Cadastre-se</NavLink>
               </div>
             </form>
           </div>
