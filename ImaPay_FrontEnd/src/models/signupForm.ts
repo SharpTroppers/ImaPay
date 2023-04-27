@@ -1,6 +1,6 @@
 export interface signupFormStepHandler {
-  stepForward: () => void
-  stepBackward?: () => void
+  stepForward: () => void;
+  stepBackward?: () => void;
 }
 export interface userData {
   userName: string;
@@ -14,14 +14,14 @@ export interface userData {
   neighborhood: string;
   cityName: string;
   stateName: string;
-  accountName:  string;
+  accountName: string;
   password: string;
-  setFormData: () => void
+  setFormData: () => void;
 }
 
 export interface stepProps extends userData, signupFormStepHandler {}
 
 export interface termsAndServicesModel {
-  agreeToTermsAndService: () => void, 
-  toogleModal: (booleanValue: boolean) => void
+  agreeToTermsAndService: () => void;
+  toogleModal: (booleanValue: boolean) => void;
 }

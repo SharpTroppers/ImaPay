@@ -41,6 +41,7 @@ const SignupPageStepOne = ({ stepForward, formData, setFormData }: any) => {
   });
 
   const onSubmit = (data: any) => {
+    data.cpf = cleanCpf(data.cpf);
     setFormData({ ...formData, ...data });
     stepForward();
   };
@@ -55,6 +56,11 @@ const SignupPageStepOne = ({ stepForward, formData, setFormData }: any) => {
     toogleModal(false);
     setCheckboxStatusController(true);
   };
+
+  function cleanCpf(cpf: string) {
+    const cleanCpf = cpf.replaceAll(".", "").replace("-", "");
+    return cleanCpf;
+  }
 
   const toogleModal = (booleanValue: boolean) => {
     setModalController(booleanValue);

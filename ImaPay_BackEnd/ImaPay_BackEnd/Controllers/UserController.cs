@@ -3,7 +3,7 @@ using ImaPay_BackEnd.Domain;
 using ImaPay_BackEnd.Domain.Dtos;
 using ImaPay_BackEnd.Domain.Model;
 using ImaPay_BackEnd.Helpers;
-using ImaPay_BackEnd.Repositories;
+using ImaPay_BackEnd.Repositories.Interfaces;
 using ImaPay_BackEnd.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -26,13 +26,13 @@ public class UserController : ControllerBase
     }
 
     /// <summary>
-    /// Pega todos Usuários
+    /// Retorna todos usuários cadastrados no banco de dados
     /// </summary>
     /// <returns></returns>
     [HttpGet]
-    public IActionResult GetAll()
+    public async Task<IActionResult> GetAll()
     {
-        var users = _userRepository.GetAll();
+        var users = await _userRepository.GetAll();
 
         return Ok(users);
     }
@@ -44,21 +44,18 @@ public class UserController : ControllerBase
 
     [HttpPost]
     [Route("recovery")]
-    public IActionResult SendRecoveryEmail([FromBody] UserEmailDto userEmailDto)
+    public async Task<IActionResult> SendRecoveryEmail([FromBody] UserEmailDto userEmailDto)
     {
-        var users = _userRepository.GetAll();
-        bool isEmailRegistered = _userRepository.IsEmailRegistered(users, userEmailDto.Email);
 
+        User user = await _userRepository.GetByEmail(userEmailDto.Email);
 
-        if (!isEmailRegistered)
+        if (user == null)
             return StatusCode(statusCode: (int)HttpStatusCode.NotFound,
                 value: new
                 {
                     Message = $"O email {userEmailDto.Email} nao esta cadastrado em nosso sistema",
                     Moment = DateTime.Now
                 });
-
-        User user = _userRepository.GetByEmail(userEmailDto.Email);
 
         EmailService.SendEmail(EmailContent.emailSubject, EmailContent.htmlMarkup);
 
@@ -74,14 +71,14 @@ public class UserController : ControllerBase
 
     [HttpPost]
     [Route("reset-password")]
-    public IActionResult CreateNewPassword([FromBody] ResetPasswordDto resetPasswordDto)
+    public async Task<IActionResult> CreateNewPassword([FromBody] ResetPasswordDto resetPasswordDto)
     {
         if (!AuthenticationService.PasswordResetMatch(resetPasswordDto))
             return StatusCode(400);
 
-        User user = _userRepository.GetByCpf(resetPasswordDto.Cpf);
+        User user = await _userRepository.GetByCpf(resetPasswordDto.Cpf);
 
-        _userRepository.ChangePassword(user, resetPasswordDto.NewPassword);
+        await _userRepository.ChangePassword(user, resetPasswordDto.NewPassword);
         return Ok("Success");
     }
 
@@ -92,21 +89,17 @@ public class UserController : ControllerBase
 
     [HttpPost]
     [Route("login")]
-
-    public IActionResult Login([FromBody] LoginDto loginDto)
+    public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
     {
-        var users = _userRepository.GetAll();
+        User user = await _userRepository.GetByCpf(loginDto.Cpf);
 
-        bool isCpfRegistered = _userRepository.IsCpfRegistered(users, loginDto.Cpf);
-
-        if (!isCpfRegistered) return StatusCode(statusCode: (int)HttpStatusCode.NotFound,
+        if (user == null) return StatusCode(statusCode: (int)HttpStatusCode.NotFound,
                 value: new
                 {
                     Message = $"O Cpf {loginDto.Cpf} nao esta cadastrado em nosso sistema",
                     Moment = DateTime.Now
                 }); ;
 
-        User user = _userRepository.GetByCpf(loginDto.Cpf);
 
         //string passwordHash = PasswordVerificationService.HashPassword(loginDto.Password);
 
@@ -129,9 +122,9 @@ public class UserController : ControllerBase
 
     [HttpGet]
     [Route("{id}")]
-    public IActionResult GetAccountData(int id)
+    public async Task<IActionResult> GetAccountData(int id)
     {
-        var user = _userRepository.GetById(id);
+        var user = await _userRepository.GetById(id);
 
 
         if (user == null) return NotFound(new
@@ -150,6 +143,20 @@ public class UserController : ControllerBase
         };
 
         return Ok(UserProfileWithAccountDto);
+    }
+
+    /// <summary>
+    ///  Deleta uma conta baseada em seu id
+    /// </summary>
+
+    [HttpDelete]
+    [Route("{id}")]
+
+    public async Task<IActionResult> DeleteUser(int id)
+    {
+        await _userRepository.Delete(id);
+
+        return Ok("Success");
     }
 
 

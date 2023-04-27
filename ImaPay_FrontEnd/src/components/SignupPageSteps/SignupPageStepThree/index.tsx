@@ -39,12 +39,14 @@ const SignupPageStepThree = ({
   });
 
   const onSubmit = async (data: any) => {
-    setFormData({ ...formData, ...data });
-    await finishSignupt();
+    formData.password = data.password;
+    setFormData({ ...formData });
+    await finishSignup();
   };
 
-  const finishSignupt = async () => {
+  const finishSignup = async () => {
     setIsLoading(true);
+    console.log(formData);
     try {
       const request = await axios.post(
         "https://imapaybackendfinal.up.railway.app/signups",

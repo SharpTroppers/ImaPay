@@ -3,9 +3,9 @@ using System.Text.RegularExpressions;
 using DocsBr;
 using ImaPay_BackEnd.Domain.Dtos;
 
-namespace ImaPay_BackEnd.Controllers
+namespace ImaPay_BackEnd.Services
 {
-    public class FormValidatorController : Controller
+    public class SignupService
     {
         private List<string> Results = new List<string>();
 
@@ -27,13 +27,14 @@ namespace ImaPay_BackEnd.Controllers
                 ValidateCommonText(formData.CityName, "cityName");
                 ValidateCommonText(formData.StateName, "stateName");
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 throw ex;
             }
             return Results;
         }
 
-        private void ValidateEmail(string value) 
+        private void ValidateEmail(string value)
         {
             Regex regex = new Regex(@"[^@]*@[^@]*");
             if (!regex.IsMatch(value)) Results.Add("emailError");
@@ -41,8 +42,9 @@ namespace ImaPay_BackEnd.Controllers
 
         private void ValidateCpf(string value)
         {
-            var cpfValidator = new CPF(value);
-            if (!cpfValidator.IsValid()) Results.Add("cpfError");
+            //var cpfValidator = new CPF(value);
+            //if (!cpfValidator.IsValid()) Results.Add("cpfError");
+
         }
 
         private void ValidatePhoneNumber(string value)
@@ -53,9 +55,9 @@ namespace ImaPay_BackEnd.Controllers
 
         private void ValidateBirthday(DateTime value)
         {
-                DateTime today = DateTime.Today;
-                int userAge = today.Year - value.Year;
-                if (userAge < 18) Results.Add("birthdayError");
+            DateTime today = DateTime.Today;
+            int userAge = today.Year - value.Year;
+            if (userAge < 18) Results.Add("birthdayError");
         }
 
         private void ValidateAddressNumber(string value)

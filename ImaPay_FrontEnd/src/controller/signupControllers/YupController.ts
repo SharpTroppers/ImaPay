@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 import { subYears } from "date-fns";
 import { cpf } from "cpf-cnpj-validator";
-import { userData } from "../../../ImaPay_FrontEnd/src/models/signupForm";
+import { userData } from "../../models/signupForm";
 
 const requiredMessage = "Campo obrigatório";
 const maxDate = subYears(new Date(), 18);
@@ -24,7 +24,8 @@ export const userDataSchema = (formData: userData) => {
       .default(formData.email),
     cpf: Yup.string()
       .required(requiredMessage)
-      .test("cpf-valido", "CPF inválido", (value: any) => cpf.isValid(value))
+      .min(11, "Digite um cpf válido")
+      // .test("cpf-valido", "CPF inválido", (value: any) => cpf.isValid(value))
       .default(formData.cpf),
     phoneNumber: Yup.string()
       .required(requiredMessage)

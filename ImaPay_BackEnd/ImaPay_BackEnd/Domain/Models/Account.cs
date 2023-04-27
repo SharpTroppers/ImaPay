@@ -9,7 +9,7 @@ public class Account : Entity
 
     public string Agency { get; set; }
 
-    public double Balance { get; set; } = 0;
+    public double Balance { get; set; } = 2500;
 
     public bool isBlocked { get; set; }
 
