@@ -41,7 +41,7 @@ public class AccountController : ControllerBase
 
         Account sender = await _accountRepository.GetById(senderID);
 
-        //test
+
         bool isBalanceEnough = sender.Balance >= transactionDto.Amount;
 
         if (!isBalanceEnough)

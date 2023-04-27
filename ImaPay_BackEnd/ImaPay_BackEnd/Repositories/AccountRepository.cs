@@ -14,7 +14,7 @@ public class AccountRepository : BaseRepository<Account>,IAccountRepository
 
     public async Task<Account> GetByAccountNumber(int accountNumber)
     {
-        return await _bankContext.Accounts.FindAsync(accountNumber);
+        return await _bankContext.Accounts.FirstAsync(acc=>acc.AccountNumber==accountNumber);
     }
 
     //public bool CheckIfAccountExists(List<Account> accounts, int accountNumber)
