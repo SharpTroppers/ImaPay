@@ -48,7 +48,6 @@ public class AccountRepository : BaseRepository<Account>,IAccountRepository
 
     public async Task Deposit(double amount, Account account)
     {
-        Console.WriteLine(account);
         account.Balance += amount;
         await _bankContext.SaveChangesAsync();
     }
