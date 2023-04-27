@@ -4,9 +4,29 @@
         <name>ImaPay_BackEnd</name>
     </assembly>
     <members>
+        <member name="M:ImaPay_BackEnd.Controllers.AccountController.GetAllAccounts">
+            <summary>
+             Retorna todas as contas cadastradas no banco de dados, assim como o seu usuario correspondente
+            </summary>
+        </member>
+        <member name="M:ImaPay_BackEnd.Controllers.AccountController.Transfer(ImaPay_BackEnd.Domain.Dtos.TransactionDto)">
+            <summary>
+             Transfere um valor entre contas, baseado no valor e numero da conta de destino informados
+            </summary>
+        </member>
+        <member name="M:ImaPay_BackEnd.Controllers.AccountController.Deposit(ImaPay_BackEnd.Domain.Dtos.DepositDto)">
+            <summary>
+             Deposita um valor em conta baseada em seu id 
+            </summary>
+        </member>
         <member name="T:ImaPay_BackEnd.Controllers.SignupController">
             <summary>
             Controlador para o formulário de cadastro.
+            </summary>
+        </member>
+        <member name="M:ImaPay_BackEnd.Controllers.SignupController.#ctor(ImaPay_BackEnd.Repositories.Interfaces.IAccountRepository,ImaPay_BackEnd.Repositories.Interfaces.IUserRepository,ImaPay_BackEnd.Repositories.Interfaces.IAddressRepository,AutoMapper.IMapper)">
+            <summary>
+            Injeção de dependencia dos repositorios utilizados, alem do automapper
             </summary>
         </member>
         <member name="M:ImaPay_BackEnd.Controllers.SignupController.CreateAccount(ImaPay_BackEnd.Domain.Dtos.SignupDto)">
@@ -29,7 +49,7 @@
         </member>
         <member name="M:ImaPay_BackEnd.Controllers.UserController.GetAll">
             <summary>
-            Pega todos Usuários
+            Retorna todos usuários cadastrados no banco de dados
             </summary>
             <returns></returns>
         </member>
@@ -57,6 +77,11 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:ImaPay_BackEnd.Controllers.UserController.DeleteUser(System.Int32)">
+            <summary>
+             Deleta uma conta baseada em seu id
+            </summary>
+        </member>
         <member name="T:ImaPay_BackEnd.Migrations.init">
             <inheritdoc />
         </member>
@@ -68,6 +93,21 @@
         </member>
         <member name="M:ImaPay_BackEnd.Migrations.init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
+        </member>
+        <member name="T:ImaPay_BackEnd.Repositories.Interfaces.IRepository`1">
+            <summary>
+             Iterface generica para implementação de operalções Crud no repositorio base
+            </summary>
+        </member>
+        <member name="M:ImaPay_BackEnd.Repositories.Interfaces.IRepository`1.GetAll">
+            <summary>
+             Pega todas as entidades de um tipo a ser especificado
+            </summary>
+        </member>
+        <member name="M:ImaPay_BackEnd.Repositories.Interfaces.IRepository`1.GetById(System.Int32)">
+            <summary>
+             Pega uma entidade ede acordo com seu id
+            </summary>
         </member>
     </members>
 </doc>

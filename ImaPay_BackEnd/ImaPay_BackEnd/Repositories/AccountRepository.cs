@@ -1,48 +1,33 @@
 ﻿using ImaPay_BackEnd.Domain;
 using ImaPay_BackEnd.Domain.Dtos;
 using ImaPay_BackEnd.Domain.Model;
+using ImaPay_BackEnd.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 namespace ImaPay_BackEnd.Repositories;
 
-public class AccountRepository : IAccountRepository
+public class AccountRepository : BaseRepository<Account>,IAccountRepository
 {
 
-    private readonly BankContext _bank;
-
-    public AccountRepository(BankContext context)
+    public AccountRepository(BankContext context) : base(context)
     {
-        _bank = context;
     }
 
-
-    public List<Account> GetAllAccounts()
+    public async Task<Account> GetByAccountNumber(int accountNumber)
     {
-
-        return _bank.Accounts.ToList();
-
+        return await _bankContext.Accounts.FindAsync(accountNumber);
     }
 
-    public Account GetByAccountNumber(int accountNumber) 
-    {
-      return GetAllAccounts().Find(account => account.AccountNumber == accountNumber);
-    }
+    //public bool CheckIfAccountExists(List<Account> accounts, int accountNumber)
+    //{
+    //    return accounts.Any((account) => account.AccountNumber == accountNumber);
+    //}
 
-    public bool CheckIfAccountExists(List<Account> accounts, int accountNumber)
-    {
-        return accounts.Any((account) => account.AccountNumber == accountNumber);
-    }
 
-    public Account GetAccountById(int id) {
-        return GetAllAccounts().Find(acc => acc.Id == id);
-    
-    }
-
-    public void Transfer(double amount, Account receiver, Account sender)
+    public async Task Transfer(double amount, Account receiver, Account sender)
     {
 
         receiver.Balance += amount;
-        sender.Balance -=amount;
-        _bank.SaveChanges();
+        sender.Balance -= amount;
 
         Transaction transactionToSave = new Transaction
         {
@@ -53,16 +38,19 @@ public class AccountRepository : IAccountRepository
             Receiver = receiver.User.UserName,
             AccountId = sender.Id,
         };
-        _bank.Transactions.Add(transactionToSave);
-        _bank.SaveChanges();
+
+        await _bankContext.Transactions.AddAsync(transactionToSave);
+        await _bankContext.SaveChangesAsync();
+
 
     }
 
 
-    public void Deposit(double amount, Account account)
+    public async Task Deposit(double amount, Account account)
     {
+        Console.WriteLine(account);
         account.Balance += amount;
-        _bank.SaveChanges();
+        await _bankContext.SaveChangesAsync();
     }
 
 

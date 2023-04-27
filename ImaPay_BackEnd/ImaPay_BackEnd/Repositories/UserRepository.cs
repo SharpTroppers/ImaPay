@@ -1,52 +1,46 @@
-﻿using ImaPay_BackEnd.Domain;
+﻿using DocsBr;
+using ImaPay_BackEnd.Domain;
 using ImaPay_BackEnd.Domain.Model;
+using ImaPay_BackEnd.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace ImaPay_BackEnd.Repositories;
 
-public class UserRepository : IUserRepository
+public class UserRepository : BaseRepository<User>, IUserRepository
 {
-    private readonly BankContext _bank;
-
-    public UserRepository(BankContext context)
+    public UserRepository(BankContext context) : base(context)
     {
-        _bank = context;
+
     }
 
-    public List<User> GetAll()
+    public async Task ChangePassword(User user, string newPassword)
     {
-        return _bank.Users.ToList();
-    }
-
-    public void ChangePassword(User user, string newPassword) { 
 
         user.Password = newPassword;
-        _bank.SaveChanges();
-    
-    }
-    public User GetById(int id)
-    {
-        return GetAll().Find(user => user.Id == id);
+        await _bankContext.SaveChangesAsync();
     }
 
-    public User GetByCpf(string cpf)
+    public async Task<User> GetByCpf(string cpf)
     {
-        return GetAll().Find(user => user.Cpf.Equals(cpf));
+        return await _bankContext.Users.FirstAsync(user => user.Cpf.Equals(cpf)) ;
+
     }
 
-    public User GetByEmail(string email) {
-
-        return GetAll().Find(user => user.Email.Equals(email));
-    }
-
-    public bool IsCpfRegistered(List<User> users, string cpf)
+    public async Task<User> GetByEmail(string email)
     {
-        return users.Any(user => user.Cpf.Equals(cpf));
+        return await _bankContext.Users.FirstAsync(user => user.Email.Equals(email));
+        
     }
-    public bool IsEmailRegistered(List<User> users, string email)
+
+    public async Task<bool> IsCpfRegistered(string cpf)
     {
-        return users.Any(user => user.Email.Equals(email));
+        return await _bankContext.Users.AnyAsync(user => user.Cpf.Equals(cpf));
     }
+    public async Task<bool> IsEmailRegistered(string email)
+    {
+        return await _bankContext.Users.AnyAsync(user => user.Email.Equals(email));
+    }
+
 
 }
 

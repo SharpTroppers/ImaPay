@@ -2,7 +2,7 @@
 using ImaPay_BackEnd.Domain;
 using ImaPay_BackEnd.Domain.Dtos;
 using ImaPay_BackEnd.Domain.Model;
-using ImaPay_BackEnd.Repositories;
+using ImaPay_BackEnd.Repositories.Interfaces;
 using ImaPay_BackEnd.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -16,17 +16,20 @@ namespace ImaPay_BackEnd.Controllers;
 [Route("/signups")]
 public class SignupController : ControllerBase
 {
-    private readonly BankContext _bank;
     private readonly IMapper _mapper;
     private readonly IUserRepository _userRepository;
     private readonly IAccountRepository _accountRepository;
+    private readonly IAddressRepository _addressRepository;
 
-    public SignupController(IAccountRepository accountRepository, IUserRepository userRepository, IMapper mapper, BankContext context)
+    /// <summary>
+    /// Injeção de dependencia dos repositorios utilizados, alem do automapper
+    /// </summary>
+    public SignupController(IAccountRepository accountRepository, IUserRepository userRepository, IAddressRepository addressRepository, IMapper mapper)
     {
-        _bank = context;
         _mapper = mapper;
         _userRepository = userRepository;
         _accountRepository = accountRepository;
+        _addressRepository = addressRepository;
     }
 
     /// <summary>
@@ -39,58 +42,68 @@ public class SignupController : ControllerBase
     /// <returns>Um objeto com a mensagem "successful" e o momento da criação.</returns>
     /// <response code="201">Retorna a resposta com sucesso.</response>
     /// <response code="400">Retorna a resposta com erro.</response>
-    
+
     [HttpPost]
     public async Task<IActionResult> CreateAccount([FromBody] SignupDto bodyData)
     {
-        var transaction = await _bank.Database.BeginTransactionAsync();
+        //var transaction = await _bank.Database.BeginTransactionAsync();
+
         try
         {
-            FormValidatorController validator = new FormValidatorController();
-
+            SignupService validator = new SignupService();
 
             List<string> formValidation = validator.ValidateSignupForm(bodyData);
+
             if (formValidation.Any()) throw new Exception(string.Join(',', formValidation));
-            
-            List<User> userData = _userRepository.GetAll();
-            if (_userRepository.IsCpfRegistered(userData, bodyData.Cpf)) throw new Exception("cpfAlreadyRegistered");
-            if(_userRepository.IsEmailRegistered(userData, bodyData.Email)) throw new Exception("emailAlreadyRegistered"); ;
+
+            var userData = await _userRepository.GetAll();
+
+
+
+            if (await _userRepository.IsCpfRegistered(bodyData.Cpf))
+                throw new Exception("cpfAlreadyRegistered");
+
+            if (await _userRepository.IsEmailRegistered(bodyData.Email))
+                throw new Exception("emailAlreadyRegistered"); ;
 
             var newUser = _mapper.Map<User>(bodyData);
-            await _bank.Users.AddAsync(newUser);
-            await _bank.SaveChangesAsync();
+            await _userRepository.Add(newUser);
 
             var newAddress = _mapper.Map<Address>(bodyData, opts =>
             {
                 opts.AfterMap((src, dest) => dest.UserId = newUser.Id);
             });
+
+            long accNumber = await GenerateRandomAccountNumber();
+
             var newAccount = _mapper.Map<Account>(bodyData, opts =>
             {
-                opts.AfterMap((src, dest) => {
+                opts.AfterMap((src, dest) =>
+                {
                     dest.UserId = newUser.Id;
                     dest.Agency = "001";
-                    dest.AccountNumber = GenerateRandomAccountNumber();
-                    });
+                    dest.AccountNumber = accNumber;
+                });
             });
 
             //var passwordHash = PasswordVerificationService.HashPassword(newUser.Password);
             //newUser.Password = passwordHash;
 
-            await _bank.Addresses.AddAsync(newAddress);
-            await _bank.Accounts.AddAsync(newAccount);
-            await _bank.SaveChangesAsync();
-            await transaction.CommitAsync();
-            
+            await _addressRepository.Add(newAddress);
+            await _accountRepository.Add(newAccount);
+
+            //await transaction.CommitAsync();
+
             var responseText = new
             {
                 Message = "Successful",
                 CreatedAt = DateTime.UtcNow
-            }; 
+            };
             return CreatedAtAction(nameof(CreateAccount), responseText);
         }
         catch (DbUpdateException ex)
         {
-            transaction.Rollback();
+            //transaction.Rollback();
             var response = new
             {
                 Message2 = "Invalid request body",
@@ -101,7 +114,7 @@ public class SignupController : ControllerBase
         }
         catch (Exception ex)
         {
-            transaction.Rollback();
+            //transaction.Rollback();
             Console.WriteLine($"Error: {ex.Message}");
             var response = new
             {
@@ -117,13 +130,14 @@ public class SignupController : ControllerBase
     /// Gera um número de conta aleatório e verifica se já existe na base de dados.
     /// </summary>
     /// <returns>O número da conta gerada.</returns>
-    private int GenerateRandomAccountNumber()
+    private async Task<long> GenerateRandomAccountNumber()
     {
         Random random = new Random();
-        int randomNubmer = random.Next(1, 999999);
-        List<Account> userAccounts = _accountRepository.GetAllAccounts();
-        bool doesAccountExist = _accountRepository.CheckIfAccountExists(userAccounts, randomNubmer);
-        if (doesAccountExist) GenerateRandomAccountNumber();
+        int randomNubmer = random.Next(1, 999);
+        Account account = await _accountRepository.GetByAccountNumber(randomNubmer);
+
+        if (account != null) await GenerateRandomAccountNumber();
+
         return randomNubmer;
     }
 }
