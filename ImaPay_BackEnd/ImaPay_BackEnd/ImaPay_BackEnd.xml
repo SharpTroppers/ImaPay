@@ -57,16 +57,16 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:ImaPay_BackEnd.Migrations.init">
+        <member name="T:ImaPay_BackEnd.Migrations.Daniel">
             <inheritdoc />
         </member>
-        <member name="M:ImaPay_BackEnd.Migrations.init.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:ImaPay_BackEnd.Migrations.Daniel.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:ImaPay_BackEnd.Migrations.init.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:ImaPay_BackEnd.Migrations.Daniel.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:ImaPay_BackEnd.Migrations.init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:ImaPay_BackEnd.Migrations.Daniel.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

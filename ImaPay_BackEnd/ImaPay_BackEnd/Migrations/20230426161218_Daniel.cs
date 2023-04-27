@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ImaPay_BackEnd.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class Daniel : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
