@@ -54,3 +54,11 @@
   color: #fff;
   cursor: pointer;
 }
+@media (max-width: 500px) {
+  .containerStar .title {
+    font-size: 2rem;
+  }
+  .containerStar .subtitle {
+    font-size: 1rem;
+  }
+}

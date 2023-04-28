@@ -3,7 +3,12 @@
   padding-bottom: 5px;
   font-weight: bolder;
 }
-
+.cookies {
+  text-align: justify;
+}
+.titleModal {
+  text-align: center;
+}
 .coockiesModal {
   display: flex;
   flex-direction: column;
@@ -20,10 +25,9 @@
   justify-self: center;
   padding: 20px 20px 20px 20px;
   border: 2px solid #2e2e2e;
-  align-items: center;
 }
 .btnContainer {
-  margin-top: 10px;
+  display: flex;
 }
 .cookiesBtn {
   border-radius: 10px;
@@ -70,4 +74,12 @@
   border: none;
   color: rgba(255, 255, 255, 1);
   box-shadow: 0 5px 15px rgba(92, 143, 182, 0.4);
+}
+@media (max-width: 500px) {
+  .acceptBtn {
+    width: 100%;
+  }
+  .cookiesBtn {
+    width: 100%;
+  }
 }

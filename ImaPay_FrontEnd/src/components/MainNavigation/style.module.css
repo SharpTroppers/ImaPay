@@ -1,5 +1,4 @@
 .header-container {
-  margin: auto;
   border-bottom: solid 0.1px;
   display: flex;
   align-items: center;
@@ -19,7 +18,16 @@
   width: 3vw;
   height: 6vh;
 }
-
+.header-logo {
+  display: flex;
+  justify-content: space-evenly;
+  width: 14vw;
+}
+.header-logo span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .nav-container {
   display: flex;
   width: 40vw;
@@ -66,24 +74,36 @@
   display: block;
   transition: 300ms;
 }
-
-.signup-btn {
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.signup-btn:hover {
-  color: var(--color-secundary-200);
-}
 .login-box:hover::after {
   border-bottom: solid 1px;
   width: 80%;
   color: var(--color-secundary-200);
 }
 
-.login-img {
-  width: 3vw;
-  height: 5vh;
+.signup-btn {
+  width: 10vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  cursor: pointer;
+  text-decoration: none;
+}
+.signup-btn::after {
+  content: "";
+  width: 0px;
+  height: 1px;
+  display: block;
+  transition: 300ms;
+}
+.signup-btn:hover::after {
+  border-bottom: solid 1px;
+  width: 80%;
+  color: var(--color-secundary-200);
+}
+
+.signup-btn:hover {
+  color: var(--color-secundary-200);
 }
 
 .login-btn {
@@ -96,4 +116,34 @@
 
 .login-btn:hover {
   color: var(--color-secundary-200);
+}
+@media (max-width: 500px) {
+  .nav-container {
+    display: none;
+  }
+  .header-container {
+    justify-content: space-evenly;
+  }
+  .signup-btn {
+    height: 100%;
+    width: 100%;
+  }
+  .login-box {
+    align-items: flex-end;
+    width: 50%;
+  }
+  .login-signup-box {
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .header-logo {
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .logo-img {
+    width: 100%;
+  }
 }

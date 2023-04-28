@@ -1,11 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
-*{
-    font-family: 'Lora', serif;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    border: 0;
-
+* {
+  font-family: "Lora", serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: 0;
 }
 .recovery p {
   text-align: center;
@@ -32,51 +31,50 @@
   justify-content: start;
   top: 5%;
 }
-.recovery-form h2{
-    font-weight: bold;
-    position: absolute;
-    top: 0;
-    font-size: 30px;
+.recovery-form h2 {
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  font-size: 30px;
 }
-.recovery input{
-    position: relative;
-    margin: 10px;
-    padding: 10px;
-    top: 150px;
-    border-radius: 5px;
-    width: 300px;
-    height: 40px;
-    font-size: 20px;
-    background-color: #2e2e2e;
-    outline: 0;
-    border: 1px solid #dadada;
-    text-decoration: none;
+.recovery input {
+  position: relative;
+  margin: 10px;
+  padding: 10px;
+  top: 150px;
+  border-radius: 5px;
+  width: 300px;
+  height: 40px;
+  font-size: 20px;
+  background-color: #2e2e2e;
+  outline: 0;
+  border: 1px solid #dadada;
+  text-decoration: none;
 }
-.recovery label{
-    display: flex;
-    position: relative;
-    height: 0vh;
-    font-size: 1.4rem;
-    text-align: start;
-    color:white;
-    /* width: 38.8vh; */
-    top: 145px;
-    margin-left: 10px;
-
+.recovery label {
+  display: flex;
+  position: relative;
+  height: 0vh;
+  font-size: 1.4rem;
+  text-align: start;
+  color: white;
+  /* width: 38.8vh; */
+  top: 145px;
+  margin-left: 10px;
 }
-.recovery-buttom{
-    display: flex;
-    background: none;
-    border: 1px solid #dadada;
-    border-radius: 5px;
-    font-size: 1.3rem;
-    width: 300px;
-    height: 50px;
-    left: 5%;
-    position: relative;
-    top: 350px;
-    color: #ffffff;
-    text-decoration: none;
+.recovery-buttom {
+  display: flex;
+  background: none;
+  border: 1px solid #dadada;
+  border-radius: 5px;
+  font-size: 1.3rem;
+  width: 300px;
+  height: 50px;
+  left: 5%;
+  position: relative;
+  top: 350px;
+  color: #ffffff;
+  text-decoration: none;
 }
 .recovery-buttom:hover {
   transition: 400ms;
@@ -85,25 +83,25 @@
   color: white;
   cursor: pointer;
 }
-.align{
-    left: 9px;
-    text-decoration: none;
-    top: 250px;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
+.align {
+  left: 9px;
+  text-decoration: none;
+  top: 250px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
-a{
-    display: flex;
-    text-decoration: none;
+a {
+  display: flex;
+  text-decoration: none;
 }
-.alinhar{
+.alinhar {
   top: 25vh;
   align-items: center;
   text-align: center;
   justify-content: center;
 }
-.alinhar2{
+.alinhar2 {
   top: 7vh;
   margin-left: 50px;
   align-items: center;

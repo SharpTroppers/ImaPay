@@ -39,6 +39,7 @@
 
 .publicity-text {
   line-height: 2rem;
+  text-align: justify;
 }
 .signup-box {
   width: 100%;
@@ -85,3 +86,15 @@
   background-repeat: no-repeat;
   background-position: center;
 } */
+@media (max-width: 500px) {
+  .signup-button {
+    display: none;
+  }
+  .first-box {
+    width: 90vw;
+    font-size: 1rem;
+  }
+  .publicity-text {
+    width: 57vw;
+  }
+}

@@ -2,16 +2,16 @@ import styles from "./style.module.css";
 import { NavLink } from "react-router-dom";
 import Icon from "phosphor-react";
 import tropperLogo from "../../assets/img/trooper_logo.png";
-import loginImg from "../../assets/img/icone-connexion-grise.png";
+import loginImg from "../../assets/img/sign-in-thin.svg";
 
 export function MainNavigation() {
   return (
     <header className={styles["header-container"]}>
-      <figure>
+      <figure className={styles["header-logo"]}>
         <NavLink className={styles["homepage-link"]} to="/">
           <img className={styles["logo-img"]} id="logo" src={tropperLogo} />
-          <span>Ima Pay</span>
         </NavLink>
+        <span>Imã Pay</span>
       </figure>
       <nav className={styles["nav-container"]}>
         <ul className={styles["nav-options"]}>

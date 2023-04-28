@@ -15,7 +15,6 @@ export function HomePage() {
 
   return (
     <div className={styles["container"]}>
-      <MainNavigation />
       <HomeContent />
       <HomeFooter />
       <StarWarsOpening onClose={handleStarWarsOpeningClose} />
