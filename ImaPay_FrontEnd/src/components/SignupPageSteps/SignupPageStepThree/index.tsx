@@ -9,6 +9,8 @@ import { errorTagRender } from "../../../controller/signupControllers/ErrorMessa
 import SignupHeader from "../../SignupHeader";
 import axios from "axios";
 
+import { BASE_URL } from "../../../helpers/config";
+
 const SignupPageStepThree = ({
   formData,
   setFormData,
@@ -48,10 +50,7 @@ const SignupPageStepThree = ({
     setIsLoading(true);
     console.log(formData);
     try {
-      const request = await axios.post(
-        "https://imapaybackendfinal.up.railway.app/signups",
-        formData
-      );
+      const request = await axios.post(`${BASE_URL}/signups`, formData);
       console.log("success");
       stepForward();
     } catch (erro: any) {

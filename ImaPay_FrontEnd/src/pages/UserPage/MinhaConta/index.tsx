@@ -4,6 +4,7 @@ import axios from "axios";
 import styles from "./style.module.css";
 import X from "../../../assets/img/x-thin.svg";
 import jwt_decode from "jwt-decode";
+import { BASE_URL } from "../../../helpers/config";
 
 //import { string } from "yup";
 interface UserProfile {
@@ -24,7 +25,7 @@ export function MinhaConta() {
   const [account, setAccount] = useState<Account | null>(null);
 
   const instance = axios.create({
-    baseURL: "https://imapaybackendfinal.up.railway.app",
+    baseURL: BASE_URL,
     headers: {
       "Content-Type": "application",
     },

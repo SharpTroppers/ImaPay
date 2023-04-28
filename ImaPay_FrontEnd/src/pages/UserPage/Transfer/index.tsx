@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
+import { BASE_URL } from "../../../helpers/config";
 
 interface ModalProps {
   isOpen: boolean;
@@ -55,7 +56,7 @@ const Transfer = ({ isOpen, onClose }: ModalProps) => {
     };
 
     const response = await axios.post(
-      "https://imapaybackendfinal.up.railway.app/accounts/transfer",
+      `${BASE_URL}/accounts/transfer`,
       JSON.stringify(transferDto),
       { headers }
     );

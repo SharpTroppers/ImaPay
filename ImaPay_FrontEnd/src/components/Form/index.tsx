@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import styles from "./style.module.css";
 import axios from "axios";
+import { BASE_URL } from "../../helpers/config";
 
 interface FormProps {
   labels: string[];
@@ -29,7 +30,7 @@ export function Form(props: FormProps) {
     setIsLoading(true);
 
     const response = await axios.post(
-      "https://imapaybackendfinal.up.railway.app/users/recovery",
+      `${BASE_URL}/recovery`,
       JSON.stringify(data),
       { headers }
     );
@@ -48,7 +49,7 @@ export function Form(props: FormProps) {
     setIsLoading(true);
 
     const response = await axios.post(
-      "https://imapaybackendfinal.up.railway.app/users/reset-password",
+      `${BASE_URL}/reset-password`,
       JSON.stringify(resetPasswordDto),
       { headers }
     );

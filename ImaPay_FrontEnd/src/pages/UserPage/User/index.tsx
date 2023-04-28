@@ -9,6 +9,7 @@ import { Modal } from "../MenuModal";
 import transferData from "../../../helpers/transferData.json";
 import axios from "axios";
 import jwt_Decode from "jwt-decode";
+import { BASE_URL } from "../../../helpers/config";
 
 export function UserPage() {
   const [userName, setUserName] = useState("Usuário");
@@ -21,7 +22,7 @@ export function UserPage() {
   };
 
   const instance = axios.create({
-    baseURL: "https://imapaybackendfinal.up.railway.app",
+    baseURL: BASE_URL,
     headers: {
       "Content-Type": "application",
     },

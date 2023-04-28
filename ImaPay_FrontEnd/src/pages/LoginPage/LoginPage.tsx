@@ -4,6 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { cpfMask } from "./CpfMask";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
+import { BASE_URL } from "../../helpers/config";
 
 export function LoginPage() {
   const [cpf, setCpf] = useState("");
@@ -26,7 +27,7 @@ export function LoginPage() {
       };
       setIsLoading(true);
       const response = await axios.post(
-        "https://imapaybackendfinal.up.railway.app/users/login",
+        `${BASE_URL}/users/login`,
         JSON.stringify(loginDto),
         { headers }
       );
