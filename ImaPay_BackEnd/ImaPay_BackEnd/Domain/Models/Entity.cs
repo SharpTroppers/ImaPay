@@ -6,7 +6,7 @@ public interface IEntity
 {
     public int Id { get; set; }
 }
-public abstract class Entity
+public abstract class Entity:IEntity
 {
     [Key]
     [Required]

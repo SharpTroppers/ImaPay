@@ -43,5 +43,10 @@ public abstract class BaseRepository<T> : IRepository<T> where T : Entity
         _bankContext.Set<T>().Remove(entity);
         await _bankContext.SaveChangesAsync();
     }
+
+    public async Task<int> GetNumberOfEntities()
+    {
+        return await _bankContext.Set<T>().CountAsync();
+    }
 }
 

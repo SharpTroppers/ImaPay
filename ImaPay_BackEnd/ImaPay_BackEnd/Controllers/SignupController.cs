@@ -56,17 +56,15 @@ public class SignupController : ControllerBase
 
             if (formValidation.Any()) throw new Exception(string.Join(',', formValidation));
 
-            var userData = await _userRepository.GetAll();
-
-
-
+   
             if (await _userRepository.IsCpfRegistered(bodyData.Cpf))
                 throw new Exception("cpfAlreadyRegistered");
 
             if (await _userRepository.IsEmailRegistered(bodyData.Email))
                 throw new Exception("emailAlreadyRegistered"); ;
 
-            var newUser = _mapper.Map<User>(bodyData);
+            User newUser = _mapper.Map<User>(bodyData);
+            //newUser.Id =await _userRepository.GetNumberOfEntities() + 1;
             await _userRepository.Add(newUser);
 
             var newAddress = _mapper.Map<Address>(bodyData, opts =>
@@ -74,7 +72,10 @@ public class SignupController : ControllerBase
                 opts.AfterMap((src, dest) => dest.UserId = newUser.Id);
             });
 
+            //newAddress.Id=await _addressRepository.GetNumberOfEntities()+1;
+
             long accNumber = await GenerateRandomAccountNumber();
+  
 
             var newAccount = _mapper.Map<Account>(bodyData, opts =>
             {
@@ -86,6 +87,7 @@ public class SignupController : ControllerBase
                 });
             });
 
+            //newAccount.Id = await _accountRepository.GetNumberOfEntities() + 1;
             //var passwordHash = PasswordVerificationService.HashPassword(newUser.Password);
             //newUser.Password = passwordHash;
 
@@ -134,7 +136,7 @@ public class SignupController : ControllerBase
     {
         Random random = new Random();
         int randomNubmer = random.Next(1, 999);
-        Account account = await _accountRepository.GetByAccountNumber(randomNubmer);
+        var account = await _accountRepository.GetByAccountNumber(randomNubmer);
 
         if (account != null) await GenerateRandomAccountNumber();
 

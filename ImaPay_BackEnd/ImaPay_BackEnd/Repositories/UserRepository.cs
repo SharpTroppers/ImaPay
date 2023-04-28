@@ -22,13 +22,13 @@ public class UserRepository : BaseRepository<User>, IUserRepository
 
     public async Task<User> GetByCpf(string cpf)
     {
-        return await _bankContext.Users.FirstAsync(user => user.Cpf.Equals(cpf)) ;
+        return await _bankContext.Users.FirstOrDefaultAsync(user => user.Cpf.Equals(cpf)) ;
 
     }
 
     public async Task<User> GetByEmail(string email)
     {
-        return await _bankContext.Users.FirstAsync(user => user.Email.Equals(email));
+        return await _bankContext.Users.FirstOrDefaultAsync(user => user.Email.Equals(email));
         
     }
 

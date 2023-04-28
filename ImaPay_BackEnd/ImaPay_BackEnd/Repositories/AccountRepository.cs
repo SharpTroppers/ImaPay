@@ -14,13 +14,13 @@ public class AccountRepository : BaseRepository<Account>,IAccountRepository
 
     public async Task<Account> GetByAccountNumber(int accountNumber)
     {
-        return await _bankContext.Accounts.FirstAsync(acc=>acc.AccountNumber==accountNumber);
+        return await _bankContext.Accounts.FirstOrDefaultAsync(acc=>acc.AccountNumber==accountNumber);
     }
 
-    //public bool CheckIfAccountExists(List<Account> accounts, int accountNumber)
-    //{
-    //    return accounts.Any((account) => account.AccountNumber == accountNumber);
-    //}
+    public bool CheckIfAccountExists(List<Account> accounts, int accountNumber)
+    {
+       return accounts.Any((account) => account.AccountNumber == accountNumber);
+    }
 
 
     public async Task Transfer(double amount, Account receiver, Account sender)

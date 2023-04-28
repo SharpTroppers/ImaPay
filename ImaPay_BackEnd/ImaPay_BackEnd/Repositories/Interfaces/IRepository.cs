@@ -22,5 +22,7 @@ public interface IRepository<T> where T : Entity
     Task Update(T entity);
 
     Task Delete(int id);
+
+    Task<int> GetNumberOfEntities();
 }
 
