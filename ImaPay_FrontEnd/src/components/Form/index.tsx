@@ -29,7 +29,7 @@ export function Form(props: FormProps) {
     setIsLoading(true);
 
     const response = await axios.post(
-      "https://localhost:7274/users/recovery",
+      "https://imapaybackendfinal.up.railway.app/users/recovery",
       JSON.stringify(data),
       { headers }
     );
@@ -48,7 +48,7 @@ export function Form(props: FormProps) {
     setIsLoading(true);
 
     const response = await axios.post(
-      "https://localhost:7274/users/reset-password",
+      "https://imapaybackendfinal.up.railway.app/users/reset-password",
       JSON.stringify(resetPasswordDto),
       { headers }
     );

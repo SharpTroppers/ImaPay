@@ -49,7 +49,7 @@ const SignupPageStepThree = ({
     console.log(formData);
     try {
       const request = await axios.post(
-        "https://localhost:7274/signups",
+        "https://imapaybackendfinal.up.railway.app/signups",
         formData
       );
       console.log("success");

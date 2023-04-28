@@ -26,7 +26,7 @@ export function LoginPage() {
       };
       setIsLoading(true);
       const response = await axios.post(
-        "https://localhost:7274/users/login",
+        "https://imapaybackendfinal.up.railway.app/users/login",
         JSON.stringify(loginDto),
         { headers }
       );
