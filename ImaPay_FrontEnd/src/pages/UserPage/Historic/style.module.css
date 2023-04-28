@@ -13,8 +13,15 @@
 }
 .historic-subtitle {
   margin: auto;
+  text-align: center;
   padding: 1rem;
   background-color: #1c1d21;
+}
+.historic-subtitle p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid red;
 }
 
 table {
@@ -86,4 +93,15 @@ table th.last {
 
 .footer-pagination {
   display: flex;
+}
+.footer-pagination span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 500px) {
+  .historic-subtitle-conateiner {
+    display: flex;
+    flex-direction: column;
+  }
 }

@@ -26,10 +26,11 @@
 }
 .button-for-transfer {
   border: none;
-  width: 14vw;
+  width: 16vw;
   height: 7vh;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 0.9rem;
   background-color: #184a55;
   transition-duration: 0.1s;
   border: solid;
@@ -106,4 +107,38 @@
 
   font-size: 0.8rem;
   padding-left: 10px;
+}
+
+@media (max-width: 500px) {
+  .home-container {
+    padding-top: 2vw;
+    padding-left: 0;
+  }
+  .balance {
+    width: 100%;
+  }
+  .balance-header {
+    width: 98%;
+  }
+  .balance-container {
+    width: 100%;
+  }
+  .button-for-transfer {
+    width: 100%;
+  }
+  .balance-title {
+    justify-content: c;
+  }
+  .balance-title-h2 {
+    width: 60%;
+  }
+  .balance-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .balance-container-available {
+    width: 45%;
+    height: 90%;
+  }
 }

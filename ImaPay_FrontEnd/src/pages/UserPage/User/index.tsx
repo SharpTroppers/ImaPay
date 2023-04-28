@@ -21,7 +21,7 @@ export function UserPage() {
   };
 
   const instance = axios.create({
-    baseURL: "https://imapaybackendfinal.up.railway.app",
+    baseURL: "https://localhost:7274",
     headers: {
       "Content-Type": "application",
     },

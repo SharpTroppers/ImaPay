@@ -24,7 +24,7 @@ export function MinhaConta() {
   const [account, setAccount] = useState<Account | null>(null);
 
   const instance = axios.create({
-    baseURL: "https://imapaybackendfinal.up.railway.app",
+    baseURL: "https://localhost:7274",
     headers: {
       "Content-Type": "application",
     },

@@ -27,3 +27,5 @@ label {
 input[type="checkbox"]:checked + label {
   background-color: var(--color-secundary-200);
 }
+@media (max-width: 500px) {
+}

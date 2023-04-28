@@ -37,3 +37,8 @@ a {
   margin-left: 1vw;
   margin-top: 1vw;
 }
+@media (max-width: 500px) {
+  .form-container-set {
+    width: 90%;
+  }
+}
